@@ -1,0 +1,31 @@
+# IF THE ROBOTS WIN, WE'LL HAVE TO LISTEN TO TECHNO
+# HECK NO! (HECK NO) I'LL NEVER LISTEN TO TECHNO!
+
+User-agent: Googlebot
+Allow: /*?utm_source=*
+
+User-agent: Mediapartners-Google
+Allow: /*?utm_source=*
+
+User-agent: AdsBot-Google
+Allow: /*?utm_source=*
+
+User-agent: AdsBot-Google-Mobile
+Allow: /*?utm_source=*
+
+User-agent: Mediapartners-Google
+Allow: /*?utm_source=*
+
+User-agent: Bingbot
+Allow: /*?utm_source=*
+
+User-agent: YandexBot
+Allow: /*?utm_source=*
+
+User-agent: Baiduspider
+Allow: /*?utm_source=*
+
+User-agent: *
+Allow: /*?utm_source=*
+
+Sitemap: https://iqasport.com/sitemap.xml

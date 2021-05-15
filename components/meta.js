@@ -1,42 +1,31 @@
-import Head from 'next/head'
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 
-export default function Meta() {
+const SITE_URL = 'https://iqasport.com'; // TODO: Use env variable
+
+const Meta = ({
+  subTitle = null,
+  description = 'The official site of ther international governing body for Quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.',
+  image = `${SITE_URL}/open-graph.png`,
+  title = 'International Quidditch Association',
+  type = 'website',
+}) => {
+  const { asPath } = useRouter();
+  const url = `${SITE_URL}${asPath}`;
+  const formattedTitle = subTitle ? `${subTitle} | ${title}` : title;
+
   return (
     <Head>
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon/favicon-16x16.png"
-      />
-      <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link
-        rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
-      />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta
-        name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-      />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <title>{formattedTitle}</title>
+      <link rel="canonical" href={url} />
+      <meta name="description" content={description} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:title" content={formattedTitle} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={url} />
     </Head>
-  )
-}
+  );
+};
+
+export default Meta;

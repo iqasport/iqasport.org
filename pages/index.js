@@ -1,43 +1,60 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import { useQuery } from 'react-query';
+import { getPrismicDocByUid, formatMetadata, getDocs, PrismicSlice } from 'modules/prismic';
 
-export default function Index({ preview, allPosts }) {
-  const heroPost = allPosts[0].node
-  const morePosts = allPosts.slice(1)
+const Meta = dynamic(() => import('components/meta'));
+const Page404 = dynamic(() => import('pages/404'));
+const PageLoading = dynamic(() => import('components/page-loading'));
+
+const Home = ({ page: initialPage, posts: initialPosts, preview }) => {
+  const router = useRouter();
+  const { data: queryData } = useQuery(
+    ['pages', 'home'],
+    () => getPrismicDocByUid('pages', 'home'),
+    { initialData: initialPage }
+  );
+  // const { data: posts } = useQuery(
+  //   ['post', 'home'],
+  //   () =>
+  //     getDocs('post', {
+  //       orderings: '[my.post.date desc]',
+  //       pageSize: 6,
+  //     }),
+  //   { initialData: initialPosts }
+  // );
+  const posts = [];
+
+  const page = preview ? initialPage : queryData;
+
+  if (router.isFallback && !queryData) {
+    return <PageLoading />;
+  }
+
+  if (!queryData && !preview) {
+    return <Page404 />;
+  }
+
   return (
     <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverimage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost._meta.uid}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
+      <Meta {...formatMetadata(page.data)} />
+      <>{PrismicSlice(page.data.body, posts)}</>
     </>
-  )
-}
+  );
+};
 
-export async function getStaticProps({ preview = false, previewData }) {
-  const allPosts = await getAllPostsForHome(previewData)
+export const getStaticProps = async () => {
+  const page = await getPrismicDocByUid('pages', 'home');
+  // const posts = await getDocs('post', {
+  //   orderings: '[my.post.date desc]',
+  //   pageSize: 6,
+  // });
+  const posts = [];
+
   return {
-    props: { preview, allPosts },
-  }
-}
+    props: { page, posts },
+    revalidate: 1,
+  };
+};
+
+export default Home;
