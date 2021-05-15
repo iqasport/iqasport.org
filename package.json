@@ -38,5 +38,16 @@
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint",
+      "prettier --write"
+    ]
+  },
   "license": "MIT"
 }
