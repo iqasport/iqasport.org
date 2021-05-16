@@ -1,10 +1,6 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-// import dynamic from 'next/dynamic';
 import { Box, Grid, Heading, Slice } from 'components';
-
-// const PrismicWrapper = dynamic(() => import('components/prismic-wrapper'));
-// const Content = dynamic(() => import('components/content'));
 
 import { linkResolver } from 'modules/prismic';
 
@@ -39,6 +35,7 @@ export const Embed = ({ embed }) => {
             src={url}
             frameBorder="0"
             allowFullScreen
+            loading="lazy"
           />
         </Box>
       ) : (
