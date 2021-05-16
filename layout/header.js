@@ -10,7 +10,9 @@ export default function Header({ page /* lang */ }) {
       h="60px"
       bg="white"
       position="sticky"
+      top="0"
       boxShadow="md"
+      zIndex={10}
       px={3}
     >
       <Heading color="iqaGreen">IQA</Heading>

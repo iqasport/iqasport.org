@@ -5,8 +5,8 @@ import {
   // ImageSlice,
   // ImageAndContent,
   // Cards,
-  // EmbedSlice,
-  // EmbedAndContent,
+  Embed,
+  EmbedAndContent,
   // TwoColumnTable,
   // HorizontalCard,
 } from 'components/prismic';
@@ -86,8 +86,8 @@ const types = {
   // images: ImageSlice,
   // image_and_content: ImageAndContent,
   // cards: Cards,
-  // embed: EmbedSlice,
-  // embed_and_content: EmbedAndContent,
+  embed: Embed,
+  embed_and_content: EmbedAndContent,
   // two_column_table: TwoColumnTable,
   // horizontal_card: HorizontalCard,
 };
