@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-const SITE_URL = 'https://iqasport.com'; // TODO: Use env variable
+const SITE_URL = process.env.SITE_URL;
 
 const Meta = ({
   subTitle = null,
