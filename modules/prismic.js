@@ -5,13 +5,13 @@ import {
   // ImageSlice,
   // ImageAndContent,
   // Cards,
-  // EmbedSlice,
-  // EmbedAndContent,
+  Embed,
+  EmbedAndContent,
   // TwoColumnTable,
   // HorizontalCard,
 } from 'components/prismic';
 
-const REPOSITORY = process.env.PRISMIC_REPOSITORY_NAME;
+const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
 const REF_API_URL = `https://${REPOSITORY}.prismic.io/api/v2`;
 export const API_TOKEN = process.env.PRISMIC_API_TOKEN;
 
@@ -27,7 +27,8 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
   };
 };
 
-export const Client = (req = null) => Prismic.client(REF_API_URL, createClientOptions(req, API_TOKEN));
+export const Client = (req = null) =>
+  Prismic.client(REF_API_URL, createClientOptions(req, API_TOKEN));
 
 export const formatMetadata = ({
   meta_description,
@@ -61,11 +62,23 @@ export const linkResolver = ({ type, uid }) => {
       return `/about/${uid}`;
     case 'posts':
       return `/news/${uid}`;
+    case 'pages':
+      return uid === 'home' ? '/' : `/${uid}`;
     default:
       return `/${uid}`;
   }
 };
 
+export const manageLocal = (Locales, locale) => {
+  // Languages from API response
+  // // Setting Master language as default language option
+  const mainLanguage = Locales[0];
+  // // Sets current language based on the locale
+  const currentLang = locale !== undefined ? locale : mainLanguage;
+  const isMyMainLanguage = mainLanguage === currentLang;
+
+  return { mainLanguage, currentLang, isMyMainLanguage };
+};
 
 const types = {
   hero: Hero,
@@ -73,8 +86,8 @@ const types = {
   // images: ImageSlice,
   // image_and_content: ImageAndContent,
   // cards: Cards,
-  // embed: EmbedSlice,
-  // embed_and_content: EmbedAndContent,
+  embed: Embed,
+  embed_and_content: EmbedAndContent,
   // two_column_table: TwoColumnTable,
   // horizontal_card: HorizontalCard,
 };

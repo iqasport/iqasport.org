@@ -5,7 +5,7 @@ import { Grid, Flex, Text, Link } from 'components';
 const Header = dynamic(() => import('layout/header'));
 const Footer = dynamic(() => import('layout/footer'));
 
-const Layout = ({ children, preview = false }) => {
+const Layout = ({ children, preview = false, page }) => {
   const color = useColorModeValue('gray.800', 'white');
 
   return (
@@ -33,7 +33,7 @@ const Layout = ({ children, preview = false }) => {
         </Flex>
       )}
 
-      <Header />
+      <Header page={page} />
       {children}
       <Footer />
     </Grid>

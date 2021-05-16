@@ -26,7 +26,10 @@ export default function DocumentHead() {
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#bb0a1e" />
 
-      <meta property="og:site_name" content="International Quidditch Association" />
+      <meta
+        property="og:site_name"
+        content="International Quidditch Association"
+      />
       <meta property="twitter:creator" content="@IQAsport" />
       <meta property="og:image:alt" content="Page image for iqasport.com" />
       <meta
@@ -41,7 +44,7 @@ export default function DocumentHead() {
       <link rel="preconnect" href="//images.prismic.io" />
       <link
         rel="preconnect"
-        href={`//${process.env.PRISMIC_REPOSITORY_NAME}.prismic.io`}
+        href={`//${process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME}.prismic.io`}
       />
       {/* Offline-Mode */}
       {/* <link rel="manifest" href="/manifest.json" /> */}
@@ -61,7 +64,7 @@ export default function DocumentHead() {
       <script
         async
         defer
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TOKEN}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TOKEN}`}
       />
       <script
         dangerouslySetInnerHTML={{
@@ -69,7 +72,7 @@ export default function DocumentHead() {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${process.env.GA_TOKEN}', {
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_TOKEN}', {
                   page_path: window.location.pathname,
                 });
               `,

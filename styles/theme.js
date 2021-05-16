@@ -21,7 +21,9 @@ export default extendTheme({
     Slice: SliceStyles,
   },
 
-  fonts: {},
+  fonts: {
+    heading: 'montserrat, Helvetica Neue, Arial, sans-serif',
+  },
 
   styles: {
     global: {
