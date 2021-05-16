@@ -18,66 +18,17 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "video_hero_with_cta": [],
           "latest_news": [],
           "hero": [],
           "header_and_paragraph": [],
           "image": [],
           "image_and_content": [],
           "cards": [],
-          "find_quidditch": [],
           "embed": [],
           "embed_and_content": [],
-          "contact_form": [],
-          "volunteer_form": [],
-          "national_team_form": [],
-          "edi_committee_form": [],
           "horizontal_card": []
         },
         "choices": {
-          "video_hero_with_cta": {
-            "type": "Slice",
-            "fieldset": "Video Hero With CTA",
-            "description": "Video hero, with a title and a CTA",
-            "icon": "videocam",
-            "display": "list",
-            "non-repeat": {
-              "slug": {
-                "type": "Text",
-                "config": {
-                  "label": "slug"
-                }
-              },
-              "cta_text": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA Text"
-                }
-              },
-              "cta_url": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA URL"
-                }
-              },
-              "video_url": {
-                "type": "Link",
-                "config": {
-                  "select": "media",
-                  "label": "Video URL"
-                }
-              },
-              "poster": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "poster"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "latest_news": {
             "type": "Slice",
             "fieldset": "Latest News",
@@ -453,43 +404,6 @@
               }
             }
           },
-          "find_quidditch": {
-            "type": "Slice",
-            "fieldset": "Find Quidditch",
-            "description": "Postcode search with customisable bg + header",
-            "icon": "search",
-            "display": "list",
-            "non-repeat": {
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title"
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "image"
-                }
-              },
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "secondary",
-                    "primary",
-                    "light",
-                    "dark"
-                  ],
-                  "default_value": "secondary",
-                  "label": "variant"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "embed": {
             "type": "Slice",
             "fieldset": "Embed",
@@ -620,90 +534,6 @@
                 }
               }
             }
-          },
-          "contact_form": {
-            "type": "Slice",
-            "fieldset": "Contact Us Form",
-            "description": "Contact Us Form",
-            "icon": "assignment",
-            "display": "list",
-            "non-repeat": {
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "default_value": "light",
-                  "label": "variant"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "volunteer_form": {
-            "type": "Slice",
-            "fieldset": "Volunteer Form",
-            "description": "Volunteer Form",
-            "icon": "assignment",
-            "display": "list",
-            "non-repeat": {
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "default_value": "light",
-                  "label": "variant"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "national_team_form": {
-            "type": "Slice",
-            "fieldset": "National Team Form",
-            "description": "National Team Form",
-            "icon": "assignment",
-            "display": "list",
-            "non-repeat": {
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "default_value": "light",
-                  "label": "variant"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "edi_committee_form": {
-            "type": "Slice",
-            "fieldset": "EDI Committee Form",
-            "description": "EDI Commmittee Form",
-            "icon": "assignment",
-            "display": "list",
-            "non-repeat": {
-              "variant": {
-                "type": "Select",
-                "config": {
-                  "options": [
-                    "light",
-                    "dark"
-                  ],
-                  "default_value": "light",
-                  "label": "variant"
-                }
-              }
-            },
-            "repeat": {}
           },
           "two_column_table": {
             "type": "Slice",

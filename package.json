@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
@@ -47,7 +48,9 @@
     "*.{js,ts,tsx}": [
       "eslint",
       "prettier --write"
-    ]
+    ],
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "license": "MIT"
 }
