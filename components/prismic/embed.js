@@ -1,15 +1,19 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
 import { Box, Grid, Heading, Slice } from 'components';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 import { linkResolver } from 'modules/prismic';
 
 export const Embed = ({ embed }) => {
   let url = null;
+  let id = null;
 
   // Oh, you better believe that is a-hackin'
   if (embed.provider_name === 'YouTube') {
     [url] = embed.html.split('src="')[1].split('"');
+    [id] = embed.embed_url.split('v=')[1].split('&');
   }
 
   if (embed.provider_name === 'Facebook') {
@@ -21,7 +25,9 @@ export const Embed = ({ embed }) => {
 
   return (
     <>
-      {url ? (
+      {id && <LiteYouTubeEmbed id={id} title={embed.title} />}
+
+      {!id && url && (
         <Box position="relative" width="100%" pb="56.25%">
           <Box
             as="iframe"
@@ -38,9 +44,9 @@ export const Embed = ({ embed }) => {
             loading="lazy"
           />
         </Box>
-      ) : (
-        <div dangerouslySetInnerHTML={{ __html: embed.html }} />
       )}
+
+      {!id && !url(<div dangerouslySetInnerHTML={{ __html: embed.html }} />)}
     </>
   );
 };
