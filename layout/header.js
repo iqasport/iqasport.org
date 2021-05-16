@@ -16,7 +16,7 @@ export default function Header({ page /* lang */ }) {
       px={3}
     >
       <Heading color="iqaGreen">IQA</Heading>
-      <LanguageSwitcher altLangs={page.alternate_languages} />
+      <LanguageSwitcher altLangs={page?.alternate_languages} />
     </Flex>
   );
 }
