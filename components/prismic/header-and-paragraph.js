@@ -8,7 +8,7 @@ const HeaderAndParagraph = ({ primary = {} }) => {
   const title = get(primary, 'title');
   const centerTitle = get(primary, 'center_title');
   const content = get(primary, 'content');
-  const variant = get(primary, 'variant');
+  // const variant = get(primary, 'variant');
   const cta_text = get(primary, 'cta_text');
   const cta_url = get(primary, 'cta_url');
 

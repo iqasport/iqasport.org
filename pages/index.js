@@ -19,7 +19,7 @@ const Home = ({
 }) => {
   const router = useRouter();
   const { data: queryData } = useQuery(
-    ['pages', 'home'],
+    ['pages', 'home', lang?.currentLang],
     () => getPrismicDocByUid('pages', 'home', { lang: lang?.currentLang }),
     { initialData: initialPage }
   );
