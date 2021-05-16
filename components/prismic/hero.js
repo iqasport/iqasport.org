@@ -18,6 +18,7 @@ const Hero = (rawData) => {
       overflow="hidden"
       px={0}
       minHeight={HERO_MIN_HEIGHTS}
+      clipPath="ellipse(100% 51% at 46% 43%)"
     >
       <Image
         src={image.url}
@@ -27,24 +28,25 @@ const Hero = (rawData) => {
         objectFit="cover"
         borderRadius={0}
         priority={true}
+        clipPath="ellipse(100% 51% at 46% 43%)"
       />
       <Flex
-          position="absolute"
-          minHeight={HERO_MIN_HEIGHTS}
-          bgGradient="linear(to-tl, blue.500, green.200)"
-          opacity={0.6}
-          width="100%"
-          sx={{ mixBlendMode: 'hard-light' }}
-        />
+        position="absolute"
+        minHeight={HERO_MIN_HEIGHTS}
+        bgGradient="linear(to-tl, blue.500, green.200)"
+        opacity={0.6}
+        width="100%"
+        sx={{ mixBlendMode: 'hard-light' }}
+      />
       <Flex
         position="relative"
         minHeight={HERO_MIN_HEIGHTS}
         alignItems="center"
+        justifyContent="center"
         px={{ base: 4, sm: 8, md: 9 }}
       >
         <Heading
           fontSize={{ base: '4xl', md: '7xl' }}
-          fontFamily="montserrat"
           color="white"
           textShadow="lg"
           textAlign="left"

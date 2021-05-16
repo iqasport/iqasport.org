@@ -19,8 +19,8 @@
     "just-safe-get": "^2.1.2",
     "next": "latest",
     "prismic-reactjs": "1.3.1",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-flickity-component": "^3.6.1",
     "react-query": "^3.16.0"
   },

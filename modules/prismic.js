@@ -11,7 +11,7 @@ import {
   // HorizontalCard,
 } from 'components/prismic';
 
-const REPOSITORY = process.env.PRISMIC_REPOSITORY_NAME;
+const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
 const REF_API_URL = `https://${REPOSITORY}.prismic.io/api/v2`;
 export const API_TOKEN = process.env.PRISMIC_API_TOKEN;
 
@@ -27,7 +27,8 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
   };
 };
 
-export const Client = (req = null) => Prismic.client(REF_API_URL, createClientOptions(req, API_TOKEN));
+export const Client = (req = null) =>
+  Prismic.client(REF_API_URL, createClientOptions(req, API_TOKEN));
 
 export const formatMetadata = ({
   meta_description,
@@ -66,6 +67,16 @@ export const linkResolver = ({ type, uid }) => {
   }
 };
 
+export const manageLocal = (Locales, locale) => {
+  // Languages from API response
+  // // Setting Master language as default language option
+  const mainLanguage = Locales[0];
+  // // Sets current language based on the locale
+  const currentLang = locale !== undefined ? locale : mainLanguage;
+  const isMyMainLanguage = mainLanguage === currentLang;
+
+  return { mainLanguage, currentLang, isMyMainLanguage };
+};
 
 const types = {
   hero: Hero,

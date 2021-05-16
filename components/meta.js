@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-const SITE_URL = process.env.SITE_URL;
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 const Meta = ({
   subTitle = null,
