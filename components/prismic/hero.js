@@ -34,7 +34,7 @@ const Hero = (rawData) => {
         position="absolute"
         minHeight={HERO_MIN_HEIGHTS}
         bgGradient="linear(to-tl, blue.500, green.200)"
-        opacity={0.6}
+        opacity={0.3}
         width="100%"
         sx={{ mixBlendMode: 'hard-light' }}
       />
