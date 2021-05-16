@@ -9,15 +9,15 @@ import Link from 'next/link';
 import LanguageSwitcher from 'components/language-switcher';
 
 export default function Header({ page /* lang */ }) {
-  const logoHeight = useBreakpointValue({ base: 40, xl: 75 }) || 40;
-  const logoTextHeight = useBreakpointValue({ base: 40, xl: 70 }) || 40;
-  const logoTextWidth = useBreakpointValue({ base: 100, xl: 160 }) || 100;
+  const logoHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
+  const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
+  const logoTextWidth = useBreakpointValue({ base: 100, xl: 120 }) || 100;
   return (
     <Flex
       justifyContent="space-between"
       alignItems="center"
       as="header"
-      h="100px"
+      h="70px"
       bg="white"
       position="sticky"
       top="0"
