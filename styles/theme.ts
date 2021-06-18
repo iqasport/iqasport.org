@@ -3,7 +3,7 @@ import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { SliceStyles } from 'components/slice';
 
 const emBase = 16;
-export const rem = (value) => `${value / emBase}rem`;
+export const rem = (value: number) => `${value / emBase}rem`;
 
 export default extendTheme({
   breakpoints: createBreakpoints({

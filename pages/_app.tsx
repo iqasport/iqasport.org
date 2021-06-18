@@ -1,5 +1,7 @@
+import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import { Chakra } from 'styles/chakra';
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from 'styles/theme';
 import DocumentHead from 'document/head';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
@@ -8,16 +10,16 @@ const Layout = dynamic(() => import('layout'));
 
 const queryClient = new QueryClient();
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Chakra>
+        <ChakraProvider theme={theme} resetCSS={false}>
           <DocumentHead />
           <Layout {...pageProps}>
             <Component {...pageProps} />
           </Layout>
-        </Chakra>
+        </ChakraProvider>
       </QueryClientProvider>
       <Scripts />
     </>
@@ -25,5 +27,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
-export { getServerSideProps } from 'styles/chakra';

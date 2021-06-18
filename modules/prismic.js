@@ -80,7 +80,7 @@ export const manageLocal = (Locales, locale) => {
   return { mainLanguage, currentLang, isMyMainLanguage };
 };
 
-const types = {
+const slices = {
   hero: Hero,
   header_and_paragraph: HeaderAndParagraph,
   // images: ImageSlice,
@@ -94,7 +94,7 @@ const types = {
 
 export function PrismicSlice(sections, posts) {
   return sections.map((section, i) => {
-    const Component = types[section.slice_type];
+    const Component = slices[section.slice_type];
 
     if (!Component) {
       console.warn('Missing Prismic Component ID: ', section.slice_type);
