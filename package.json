@@ -5,7 +5,11 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint pages components styles modules document layout cypress",
+    "lint:fix": "eslint pages components styles modules document layout cypress --fix",
+    "cypress": "cypress run",
+    "cypress:dev": "cypress open"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
@@ -33,6 +37,7 @@
     "@types/react": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
+    "cypress": "^7.5.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",

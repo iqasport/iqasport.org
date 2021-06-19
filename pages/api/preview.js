@@ -4,7 +4,9 @@ import { Client, linkResolver } from 'modules/prismic';
 export default async (req, res) => {
   const { token: ref, documentId } = req.query;
   try {
-    const redirectUrl = await Client(req).getPreviewResolver(ref, documentId).resolve(linkResolver, '/');
+    const redirectUrl = await Client(req)
+      .getPreviewResolver(ref, documentId)
+      .resolve(linkResolver, '/');
 
     if (!redirectUrl) {
       return res.status(401).json({ message: 'Invalid token' });

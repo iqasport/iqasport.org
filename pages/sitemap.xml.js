@@ -18,10 +18,7 @@ const getPages = async (page, documents = []) => {
   return documents.concat(res.results);
 };
 
-const createSitemap = ({
-  documents,
-  events,
-}) => `<?xml version="1.0" encoding="UTF-8"?>
+const createSitemap = ({ documents }) => `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${documents
       .map(

@@ -1,5 +1,5 @@
 import { Box } from 'components';
 
-export default function Footer () {
-  return (<Box as="footer" />);
-};
+export default function Footer() {
+  return <Box as="footer" />;
+}
