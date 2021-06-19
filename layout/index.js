@@ -1,6 +1,6 @@
 import { useColorModeValue } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import { Grid, Flex, Text, Link } from 'components';
+import { Grid, Flex, Text, Link, Box } from 'components';
 
 const Header = dynamic(() => import('layout/header'));
 const Footer = dynamic(() => import('layout/footer'));
@@ -34,7 +34,7 @@ const Layout = ({ children, preview = false, page }) => {
       )}
 
       <Header page={page} />
-      {children}
+      <Box as="main">{children}</Box>
       <Footer />
     </Grid>
   );
