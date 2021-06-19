@@ -12,6 +12,8 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        env:
+          NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME: ${{ secrets.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME }}
         with:
-          build: npm run build
+          build: npm run build 
           start: npm start
