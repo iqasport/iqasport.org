@@ -46,6 +46,7 @@ const Hero = (rawData) => {
         px={{ base: 4, sm: 8, md: 9 }}
       >
         <Heading
+          as="h1"
           fontSize={{ base: '4xl', md: '7xl' }}
           color="white"
           textShadow="lg"

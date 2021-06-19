@@ -6,11 +6,9 @@
       "dom"
     ],
     "types": [
-      "cypress"
+      "cypress",
+      "cypress-axe"
     ]
   },
-  "include": [
-    "**/*.ts",
-    "**/*.js"
-  ]
+  "include": ["."]
 }
