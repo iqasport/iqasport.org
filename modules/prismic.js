@@ -2,7 +2,7 @@ import Prismic from '@prismicio/client';
 import {
   Hero,
   HeaderAndParagraph,
-  // ImageSlice,
+  Images,
   // ImageAndContent,
   // Cards,
   Embed,
@@ -83,7 +83,7 @@ export const manageLocal = (Locales, locale) => {
 const slices = {
   hero: Hero,
   header_and_paragraph: HeaderAndParagraph,
-  // images: ImageSlice,
+  images: Images,
   // image_and_content: ImageAndContent,
   // cards: Cards,
   embed: Embed,

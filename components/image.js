@@ -9,7 +9,7 @@ const Image = chakra(NextImage, {
     maxW: 120,
     objectFit: 'cover',
     objectPosition: 'center center',
-    borderRadius: '8px',
+    borderRadius: '2xl',
   },
   shouldForwardProp: (prop) =>
     [
