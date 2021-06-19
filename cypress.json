@@ -1,5 +1,8 @@
 {
   "baseUrl": "http://localhost:3000",
+  "env": {
+    "NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME": "iqasport"
+  },
   "lighthouse": {
     "performance": 80,
     "accessibility": 90,
