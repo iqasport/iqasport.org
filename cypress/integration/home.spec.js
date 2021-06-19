@@ -9,4 +9,11 @@ describe('Home page', () => {
     cy.injectAxe();
     cy.checkA11y(null, null, axeTerminalLog);
   });
+
+  it('should pass Lighthouse', () => {
+    cy.visit('/');
+    cy.contains('This is Quidditch');
+
+    cy.lighthouse();
+  });
 });
