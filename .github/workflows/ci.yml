@@ -16,6 +16,6 @@ jobs:
         env:
           NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME: ${{ secrets.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME }}
         with:
-          browser: firefox
+          browser: chrome
           build: npm run build
           start: npm start
