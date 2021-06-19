@@ -5,7 +5,6 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -16,6 +15,5 @@ jobs:
         env:
           NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME: ${{ secrets.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME }}
         with:
-          browser: chrome
           build: npm run build
           start: npm start
