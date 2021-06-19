@@ -1,7 +1,7 @@
 import Hero from './hero';
 import HeaderAndParagraph from './header-and-paragraph';
 import Images from 'components/prismic/images';
-// import ImageAndContent from 'components/prismic/ImageAndContent';
+import ImageAndContent from 'components/prismic/image-and-content';
 // import Cards from 'components/prismic/Cards';
 import Embed from 'components/prismic/embed';
 import EmbedAndContent from 'components/prismic/embed-and-content';
@@ -12,7 +12,7 @@ export {
   Hero,
   HeaderAndParagraph,
   Images,
-  // ImageAndContent,
+  ImageAndContent,
   // Cards,
   Embed,
   EmbedAndContent,
