@@ -35,6 +35,7 @@ export default function Header({ page /* lang */ }) {
               layout="fixed"
               height={logoHeight}
               width={logoHeight}
+              borderRadius="0"
             />
             <Image
               src="/images/logo-text.png"
@@ -43,6 +44,7 @@ export default function Header({ page /* lang */ }) {
               layout="fixed"
               height={logoTextHeight}
               width={logoTextWidth}
+              borderRadius="0"
             />
           </HStack>
         </ChakraLink>

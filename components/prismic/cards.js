@@ -29,7 +29,6 @@ const CardsSlice = (rawData) => {
       <Grid
         gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
         gridGap={{ base: 4, md: 9 }}
-        px={{ base: 4, sm: 8, md: 0 }}
       >
         {items.map((item, i) => {
           const title = get(item, 'title');

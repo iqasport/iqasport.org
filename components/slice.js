@@ -37,7 +37,7 @@ export const SliceStyles = {
   variants: {
     primary: {
       background: 'iqaGreen',
-      color: 'black',
+      color: 'white',
       bgImage: `url(${backgroundImage})`,
       bgAttachment: 'fixed',
       bgRepeat: 'none',

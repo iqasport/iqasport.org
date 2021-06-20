@@ -34,16 +34,7 @@ const Layout = ({ children, preview = false, page }) => {
       )}
 
       <Header page={page} />
-      <Box
-        as="main"
-        sx={{
-          'svg:last-child': {
-            display: 'none',
-          },
-        }}
-        display="flex"
-        flexDirection="column"
-      >
+      <Box as="main" display="flex" flexDirection="column">
         {children}
       </Box>
       <Footer />

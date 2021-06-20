@@ -267,15 +267,6 @@
                   "default_value": "primary",
                   "label": "Variant"
                 }
-              },
-              "horizontalScroll": {
-                "type": "Boolean",
-                "config": {
-                  "placeholder_false": "Off",
-                  "placeholder_true": "On",
-                  "default_value": false,
-                  "label": "Horizontal Scroll on Mobile"
-                }
               }
             },
             "repeat": {
