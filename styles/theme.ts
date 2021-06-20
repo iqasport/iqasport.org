@@ -1,6 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { SliceStyles } from 'components/slice';
+import { CardStyles } from 'components/card';
 
 const emBase = 16;
 export const rem = (value: number) => `${value / emBase}rem`;
@@ -19,6 +20,7 @@ export default extendTheme({
 
   components: {
     Slice: SliceStyles,
+    Card: CardStyles,
   },
 
   fonts: {
