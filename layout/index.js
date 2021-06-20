@@ -37,10 +37,10 @@ const Layout = ({ children, preview = false, page }) => {
       <Header page={page} />
       <Box
         as="main"
-        bgImage={`url(${backgroundImage})`}
-        bgAttachment="fixed"
-        bgRepeat="none"
-        bgSize="100%"
+        // bgImage={`url(${backgroundImage})`}
+        // bgAttachment="fixed"
+        // bgRepeat="none"
+        // bgSize="100%"
         sx={{
           'svg:last-child': {
             display: 'none',

@@ -23,7 +23,7 @@ export const CardStyles = {
     },
     primary: {
       bg: 'iqaGreen',
-      color: 'white',
+      color: 'black',
     },
   },
   defaultProps: {
@@ -98,7 +98,7 @@ const Card = ({
           </Box>
           <ContentBox py={5} px={4}>
             {title && (
-              <Heading as="h2" fontSize="xl" fontFamily="body">
+              <Heading as="h2" fontSize="xl">
                 {title}
               </Heading>
             )}
@@ -132,7 +132,7 @@ const Card = ({
       </Box>
       <ContentBox py={5} px={4}>
         {title && (
-          <Heading as="h2" fontSize="xl" fontFamily="body">
+          <Heading as="h2" fontSize="xl">
             {title}
           </Heading>
         )}

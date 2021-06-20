@@ -25,6 +25,7 @@ export default extendTheme({
 
   fonts: {
     heading: 'montserrat, Helvetica Neue, Arial, sans-serif',
+    body: 'ff-real-headline-pro-2, sans-serif',
   },
 
   styles: {

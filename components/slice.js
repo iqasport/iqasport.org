@@ -1,6 +1,7 @@
 import { Box } from 'components';
 import { useMultiStyleConfig, StylesProvider } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
+const backgroundImage = '/images/rwc-bg.png';
 
 export const SliceStyles = {
   parts: ['slice', 'container'],
@@ -35,8 +36,12 @@ export const SliceStyles = {
   },
   variants: {
     primary: {
-      background: 'transparent',
-      color: 'white',
+      background: 'iqaGreen',
+      color: 'black',
+      bgImage: `url(${backgroundImage})`,
+      bgAttachment: 'fixed',
+      bgRepeat: 'none',
+      bgSize: '100%',
     },
     white: {
       background: 'white',
@@ -57,7 +62,7 @@ export default function Slice({ size, variant = 'white', children }) {
       <Box
         as="section"
         __css={styles}
-        {...(isWhiteVariant && { 'data-variant': 'white' })}
+        data-variant={isWhiteVariant ? 'white' : 'primary'}
       >
         <Box
           width="100%"
@@ -70,11 +75,16 @@ export default function Slice({ size, variant = 'white', children }) {
           <StylesProvider value={styles}>{children}</StylesProvider>
         </Box>
       </Box>
+
       {isWhiteVariant && (
         <Box
           as="svg"
           viewBox="0 0 1440 66"
           fill="none"
+          bgImage={`url(${backgroundImage})`}
+          bgAttachment="fixed"
+          bgRepeat="none"
+          bgSize="100%"
           sx={{
             '& + section[data-variant="white"]': {
               marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
@@ -85,6 +95,29 @@ export default function Slice({ size, variant = 'white', children }) {
             d="M1440 0H0s341.5 103 625 29 815 37 815 37V0z"
             fill="#ffffff"
           ></path>
+        </Box>
+      )}
+
+      {!isWhiteVariant && (
+        <Box
+          as="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 1440 66"
+          bgImage={`url(${backgroundImage})`}
+          bgAttachment="fixed"
+          bgRepeat="none"
+          bgSize="100%"
+          sx={{
+            '& + section[data-variant="primary"]': {
+              marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
+            },
+          }}
+        >
+          <path
+            d="m0,0c0,0 293,68 704,58c411,-10 674,-28 740,-60c66,-32 50,95 50,95c0,0 -33,9 -33,9c0,0 -1485,0 -1485,0c0,0 24,-102 24,-102z"
+            fill="#ffffff"
+          />
         </Box>
       )}
     </>
