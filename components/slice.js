@@ -1,7 +1,7 @@
 import { Box } from 'components';
 import { useMultiStyleConfig, StylesProvider } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
-const backgroundImage = '/images/rwc-bg.png';
+const backgroundImage = '/images/bg.png';
 
 export const SliceStyles = {
   parts: ['slice', 'container'],
@@ -40,7 +40,6 @@ export const SliceStyles = {
       color: 'white',
       bgImage: `url(${backgroundImage})`,
       bgAttachment: 'fixed',
-      bgRepeat: 'none',
       bgSize: '100%',
     },
     white: {
@@ -92,7 +91,6 @@ export default function Slice({ size, variant = 'white', children }) {
           fill="none"
           bgImage={`url(${backgroundImage})`}
           bgAttachment="fixed"
-          bgRepeat="none"
           bgSize="100%"
           sx={{
             '& + section[data-variant="white"]': {
@@ -115,7 +113,6 @@ export default function Slice({ size, variant = 'white', children }) {
           viewBox="0 0 1440 66"
           bgImage={`url(${backgroundImage})`}
           bgAttachment="fixed"
-          bgRepeat="none"
           bgSize="100%"
           sx={{
             '& + section[data-variant="primary"]': {

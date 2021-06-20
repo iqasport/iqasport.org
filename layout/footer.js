@@ -1,5 +1,5 @@
 import { Box, Image, Text, Flex } from 'components';
-const backgroundImage = '/images/rwc-bg.png';
+const backgroundImage = '/images/bg.png';
 const logo = '/images/logo_short_monochrome_white.png';
 
 export default function Footer() {
@@ -13,7 +13,6 @@ export default function Footer() {
         viewBox="0 0 1440 66"
         bgImage={`url(${backgroundImage})`}
         bgAttachment="fixed"
-        bgRepeat="none"
         bgSize="100%"
       >
         <path
@@ -25,7 +24,6 @@ export default function Footer() {
         <Flex
           bgImage={`url(${backgroundImage})`}
           bgAttachment="fixed"
-          bgRepeat="none"
           bgSize="100%"
           px={{ base: 4, sm: 8, md: 10 }}
           justifyContent="center"
