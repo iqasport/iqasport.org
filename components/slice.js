@@ -55,11 +55,13 @@ export const SliceStyles = {
 };
 
 // The slice component is the grand wrapper around all individual Prismic Components
-// It sets a baseline container and padding to make everything conform
+// It sets a baseline container and padding to make everything conform.
 //
 // It also does a few clever things to make sure the svg section dividers behave as expected
-// using the "data-variant" to do pseudo selectors
-// so keep calm and carry on
+// using the "data-variant" to do pseudo selections to show the svgs only at the end of sets of a variant
+// So tl,dr; Don't mess with these unless you know what you're doing!
+// Otherwise keep calm and carry on
+
 export default function Slice({ size, variant = 'white', children }) {
   const styles = useMultiStyleConfig('Slice', { size, variant });
   const isWhiteVariant = variant === 'white';
