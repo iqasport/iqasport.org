@@ -6,8 +6,6 @@ export const SliceStyles = {
   parts: ['slice', 'container'],
   baseStyle: (props) => ({
     slice: {
-      color: mode('gray.800', 'white')(props),
-
       a: {
         fontWeight: 'bold',
         textDecoration: 'none',
@@ -35,23 +33,60 @@ export const SliceStyles = {
       },
     },
   },
+  variants: {
+    primary: {
+      background: 'transparent',
+      color: 'white',
+    },
+    white: {
+      background: 'white',
+      color: 'gray.800',
+    },
+  },
   defaultProps: {
     size: 'md',
+    variant: 'white',
   },
 };
 
-export default function Slice({ size, children }) {
-  const styles = useMultiStyleConfig('Slice', { size });
+export default function Slice({ size, variant = 'white', children }) {
+  const styles = useMultiStyleConfig('Slice', { size, variant });
+  const isWhiteVariant = variant === 'white';
   return (
-    <Box
-      py={{ base: 4, lg: 5 }}
-      px={{ base: 4, sm: 8, md: 10 }}
-      as="section"
-      sx={styles.slice}
-    >
-      <Box width="100%" my="0" mx="auto" sx={styles.container}>
-        <StylesProvider value={styles}>{children}</StylesProvider>
+    <>
+      <Box
+        as="section"
+        __css={styles}
+        {...(isWhiteVariant && { 'data-variant': 'white' })}
+      >
+        <Box
+          width="100%"
+          my="0"
+          mx="auto"
+          py={{ base: 4, lg: 5 }}
+          px={{ base: 4, sm: 8, md: 10 }}
+          sx={styles.container}
+        >
+          <StylesProvider value={styles}>{children}</StylesProvider>
+        </Box>
       </Box>
-    </Box>
+      {isWhiteVariant && (
+        <Box
+          as="svg"
+          viewBox="0 0 1440 66"
+          fill="none"
+          sx={{
+            '& + section[data-variant="white"]': {
+              marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
+            },
+          }}
+        >
+          <path
+            d="M1440 0H0s341.5 103 625 29 815 37 815 37V0z"
+            fill="#ffffff"
+          ></path>
+        </Box>
+      )}
+    </>
   );
 }

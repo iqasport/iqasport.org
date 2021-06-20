@@ -70,6 +70,7 @@ const Item = ({ item }) => {
 const Images = (rawData) => {
   const items = get(rawData, 'items');
   const variant = get(rawData, 'primary.variant');
+  console.log(variant);
 
   const multipleImages = items.length > 1;
 

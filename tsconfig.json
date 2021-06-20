@@ -24,7 +24,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/index.js"
-  ],
+, "cypress/integration/home.spec.js", "cypress/support/commands.js", "cypress/support/axeTerminalLog.js"  ],
   "exclude": [
     "node_modules"
   ]

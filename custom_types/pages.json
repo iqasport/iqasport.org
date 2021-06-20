@@ -97,13 +97,10 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "white",
-                    "dark"
+                    "white"
                   ],
-                  "default_value": "light",
+                  "default_value": "primary",
                   "label": "Variant"
                 }
               },
@@ -155,13 +152,10 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "white",
-                    "dark"
+                    "white"
                   ],
-                  "default_value": "light",
+                  "default_value": "primary",
                   "label": "Variant"
                 }
               },
@@ -216,13 +210,10 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "white",
-                    "dark"
+                    "white"
                   ],
-                  "default_value": "light",
+                  "default_value": "primary",
                   "label": "Variant"
                 }
               }
@@ -270,13 +261,10 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "dark",
                     "white"
                   ],
-                  "default_value": "light",
+                  "default_value": "primary",
                   "label": "Variant"
                 }
               },
@@ -349,13 +337,10 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "dark",
                     "white"
                   ],
-                  "default_value": "light",
+                  "default_value": "primary",
                   "label": "Variant"
                 }
               }
@@ -422,14 +407,11 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "white",
-                    "dark"
+                    "white"
                   ],
-                  "default_value": "light",
-                  "label": "variant"
+                  "default_value": "primary",
+                  "label": "Variant"
                 }
               },
               "content": {
@@ -485,13 +467,10 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "white",
-                    "dark"
+                    "white"
                   ],
-                  "default_value": "light",
+                  "default_value": "primary",
                   "label": "Variant"
                 }
               },
@@ -569,14 +548,11 @@
                 "type": "Select",
                 "config": {
                   "options": [
-                    "light",
                     "primary",
-                    "secondary",
-                    "white",
-                    "dark"
+                    "white"
                   ],
-                  "default_value": "light",
-                  "label": "variant"
+                  "default_value": "primary",
+                  "label": "Variant"
                 }
               }
             },

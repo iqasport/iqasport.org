@@ -11,14 +11,13 @@ const Hero = (rawData) => {
 
   return (
     <Box
+      bg="white"
       as="section"
       position="relative"
-      backgroundColor="iqaGreen"
       backgroundSize="cover"
       overflow="hidden"
       px={0}
       minHeight={HERO_MIN_HEIGHTS}
-      clipPath="ellipse(100% 51% at 46% 43%)"
     >
       <Image
         src={image.url}
@@ -37,6 +36,7 @@ const Hero = (rawData) => {
         opacity={0.3}
         width="100%"
         sx={{ mixBlendMode: 'hard-light' }}
+        clipPath="ellipse(100% 51% at 46% 43%)"
       />
       <Flex
         position="relative"
