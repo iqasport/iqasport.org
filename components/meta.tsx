@@ -3,13 +3,21 @@ import Head from 'next/head';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
+type MetaTypes = {
+  subTitle?: string;
+  description?: string;
+  image?: string;
+  title?: string;
+  type?: string;
+};
+
 const Meta = ({
   subTitle = null,
   description = 'The official site of the international governing body for Quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.',
   image = `${SITE_URL}/open-graph.png`,
   title = 'International Quidditch Association',
   type = 'website',
-}) => {
+}: MetaTypes): React.ReactElement => {
   const { asPath } = useRouter();
   const url = `${SITE_URL}${asPath}`;
   const formattedTitle = subTitle ? `${subTitle} | ${title}` : title;
