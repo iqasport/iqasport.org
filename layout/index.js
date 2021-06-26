@@ -34,7 +34,16 @@ const Layout = ({ children, preview = false, page }) => {
       )}
 
       <Header page={page} />
-      <Box as="main" display="flex" flexDirection="column">
+      <Box
+        as="main"
+        sx={{
+          'div[data-type="wave"]:last-of-type': {
+            display: 'none',
+          },
+        }}
+        display="flex"
+        flexDirection="column"
+      >
         {children}
       </Box>
       <Footer />

@@ -6,18 +6,27 @@ export default function Footer() {
   return (
     <>
       <Box bg="white" height="200px" />
-      <Box
-        as="svg"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 1440 66"
-        bgImage={`url(${backgroundImage})`}
-        bgAttachment="fixed"
-        bgSize="100%"
-      >
-        <path
-          d="m-9,-24c0,0 2,89 2,89c0,0 67,-54 605,-60c538,-6 847,59 847,59c0,0 28,-91 28,-91c0,0 -1482,3 -1482,3z"
-          fill="#ffffff"
+      <Box position="relative" bg="white">
+        <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="wavefooter" clipPathUnits="objectBoundingBox">
+              <path
+                d="M1,1 C0.82,0.28,0.605,-0.192,0.361,0.076 c-0.131,0.145,-0.252,0.483,-0.361,0.924"
+                fill="#fff"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+        <Box
+          width="100%"
+          backgroundColor="iqaGreen"
+          backgroundRepeat="no-repeat"
+          backgroundSize="fixed"
+          clipPath="url(#wavefooter)"
+          bgImage={`url(${backgroundImage})`}
+          bgAttachment="fixed"
+          bgSize="100%"
+          height="calc(100vw * 0.04584020101)"
         />
       </Box>
       <Box as="footer">

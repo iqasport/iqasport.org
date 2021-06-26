@@ -53,6 +53,12 @@ export const SliceStyles = {
   },
 };
 
+type SliceType = {
+  size?: string;
+  variant?: string;
+  children: React.ReactNode;
+};
+
 // The slice component is the grand wrapper around all individual Prismic Components
 // It sets a baseline container and padding to make everything conform.
 //
@@ -61,7 +67,11 @@ export const SliceStyles = {
 // So tl,dr; Don't mess with these unless you know what you're doing!
 // Otherwise keep calm and carry on
 
-export default function Slice({ size, variant = 'white', children }) {
+export default function Slice({
+  size = 'md',
+  variant = 'white',
+  children,
+}: SliceType): React.ReactElement {
   const styles = useMultiStyleConfig('Slice', { size, variant });
   const isWhiteVariant = variant === 'white';
 
@@ -86,43 +96,72 @@ export default function Slice({ size, variant = 'white', children }) {
 
       {isWhiteVariant && (
         <Box
-          as="svg"
-          viewBox="0 0 1440 66"
-          fill="none"
-          bgImage={`url(${backgroundImage})`}
-          bgAttachment="fixed"
-          bgSize="100%"
+          data-type="wave"
+          position="relative"
+          bg="white"
           sx={{
             '& + section[data-variant="white"]': {
               marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
             },
           }}
         >
-          <path
-            d="M1440 0H0s341.5 103 625 29 815 37 815 37V0z"
-            fill="#ffffff"
-          ></path>
+          <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="wave1" clipPathUnits="objectBoundingBox">
+                <path
+                  d="M0,1 V0 C0.166,0.788,0.301,0.871,0.395,0.792 C0.486,0.715,0.528,0.492,0.623,0.402 C0.749,0.28,0.876,0.48,1,1"
+                  fill="#fff"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+          <Box
+            width="100%"
+            backgroundColor="iqaGreen"
+            backgroundRepeat="no-repeat"
+            backgroundSize="fixed"
+            clipPath="url(#wave1)"
+            bgImage={`url(${backgroundImage})`}
+            bgAttachment="fixed"
+            bgSize="100%"
+            height="calc(100vw * 0.04584020101)"
+          />
         </Box>
       )}
 
       {!isWhiteVariant && (
         <Box
-          as="svg"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 1440 66"
-          bgImage={`url(${backgroundImage})`}
-          bgAttachment="fixed"
-          bgSize="100%"
+          data-type="wave"
+          position="relative"
+          bg="white"
           sx={{
             '& + section[data-variant="primary"]': {
               marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
+              zIndex: 1,
             },
           }}
         >
-          <path
-            d="m0,0c0,0 293,68 704,58c411,-10 674,-28 740,-60c66,-32 50,95 50,95c0,0 -33,9 -33,9c0,0 -1485,0 -1485,0c0,0 24,-102 24,-102z"
-            fill="#ffffff"
+          <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="wave2" clipPathUnits="objectBoundingBox">
+                <path
+                  d="M1,0 C0.82,0.72,0.605,1,0.361,0.924 C0.23,0.779,0.109,0.441,0,0"
+                  fill="#fff"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+          <Box
+            width="100%"
+            backgroundColor="iqaGreen"
+            backgroundRepeat="no-repeat"
+            backgroundSize="fixed"
+            clipPath="url(#wave2)"
+            bgImage={`url(${backgroundImage})`}
+            bgAttachment="fixed"
+            bgSize="100%"
+            height="calc(100vw * 0.04584020101)"
+            marginTop="-19px"
           />
         </Box>
       )}
