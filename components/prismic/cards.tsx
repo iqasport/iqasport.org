@@ -13,7 +13,7 @@ const CardsSlice = (rawData) => {
   const items = get(rawData, 'items') || [];
 
   return (
-    <Slice variant={variant} small>
+    <Slice variant={variant}>
       {RichText.asText(title) && (
         <Heading as="h2" mt={2} textAlign="center" px={{ base: 0, md: 9 }}>
           {RichText.asText(title)}

@@ -6,7 +6,7 @@ import Cards from 'components/prismic/cards';
 import Embed from 'components/prismic/embed';
 import EmbedAndContent from 'components/prismic/embed-and-content';
 // import TwoColumnTable from 'components/prismic/TwoColumnTable';
-// import HorizontalCard from 'components/prismic/HorizontalCard';
+import HorizontalCards from 'components/prismic/horizontal-cards';
 
 export {
   Hero,
@@ -17,5 +17,5 @@ export {
   Embed,
   EmbedAndContent,
   // TwoColumnTable,
-  // HorizontalCard
+  HorizontalCards,
 };

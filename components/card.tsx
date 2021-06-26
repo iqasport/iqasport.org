@@ -36,7 +36,7 @@ export const cardVariants = {
   primary: 'white',
 };
 
-const ContentBox = (props) => (
+export const ContentBox = (props) => (
   <Box
     sx={{
       a: {
@@ -50,6 +50,21 @@ const ContentBox = (props) => (
   />
 );
 
+export type CardTypes = {
+  image?: {
+    src: string;
+    alt: string;
+    height: number;
+    width: number;
+  };
+  title: string;
+  content: React.ReactNode;
+  variant?: string;
+  href?: string;
+  target?: string;
+  ariaLabel?: string;
+};
+
 const Card = ({
   image,
   title,
@@ -59,7 +74,7 @@ const Card = ({
   target,
   ariaLabel,
   ...cardProps
-}) => {
+}: CardTypes): React.ReactElement => {
   const styles = useStyleConfig('Card', { variant });
 
   if (href) {

@@ -8,7 +8,7 @@ import {
   Embed,
   EmbedAndContent,
   // TwoColumnTable,
-  // HorizontalCard,
+  HorizontalCards,
 } from 'components/prismic';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
@@ -89,7 +89,7 @@ const slices = {
   embed: Embed,
   embed_and_content: EmbedAndContent,
   // two_column_table: TwoColumnTable,
-  // horizontal_card: HorizontalCard,
+  horizontal_card: HorizontalCards,
 };
 
 export function PrismicSlice(sections, posts) {
