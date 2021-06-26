@@ -7,7 +7,13 @@ describe('Home page', () => {
 
     // check accessibility with Axe
     cy.injectAxe();
-    cy.checkA11y(null, null, axeTerminalLog);
+    cy.checkA11y(
+      null,
+      {
+        includedImpacts: ['serious', 'critical'],
+      },
+      axeTerminalLog
+    );
   });
 
   it('should pass Lighthouse', () => {
