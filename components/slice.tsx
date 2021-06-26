@@ -102,6 +102,7 @@ export default function Slice({
           sx={{
             '& + section[data-variant="white"]': {
               marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
+              zIndex: 1,
             },
           }}
         >
