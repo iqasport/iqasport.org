@@ -72,18 +72,14 @@ const EmbedSlice = (rawData) => {
   const multipleEmbeds = items.length > 1;
 
   return (
-    <Slice variant={variant} small={!multipleEmbeds}>
+    <Slice variant={variant}>
       {RichText.asText(title) && (
         <Heading as="h2" fontSize="xl" mt={2} textAlign="center">
           {RichText.asText(title)}
         </Heading>
       )}
 
-      {content && (
-        // <Content textAlign="center" pb={3}>
-        <RichText render={content} linkResolver={linkResolver} />
-        // </Content>
-      )}
+      {content && <RichText render={content} linkResolver={linkResolver} />}
 
       <Grid
         gridTemplateColumns={{

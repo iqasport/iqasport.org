@@ -12,12 +12,29 @@ const Item = ({ item, isImageLeft }) => (
   <Grid
     gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
     gridGap={{ base: 4, md: 9 }}
+    gridTemplateAreas={{
+      base: "'image' 'content'",
+      md: isImageLeft ? "'image content'" : "'content image'",
+    }}
   >
-    <Flex
-      direction="column"
-      justifyContent="center"
-      order={{ base: 2, md: `${isImageLeft ? 2 : 1}` }}
-    >
+    <Flex direction="column" justifyContent="center" gridArea="image">
+      {item?.image?.url && (
+        <Image
+          alt={item?.image?.alt}
+          src={item?.image?.url}
+          layout="responsive"
+          height={item.image?.dimensions?.height}
+          width={item.image?.dimensions?.width}
+        />
+      )}
+      {RichText.asText(item.support) && (
+        <Text textAlign="center" pt={2} fontStyle="italic">
+          <RichText render={item.support} />
+        </Text>
+      )}
+    </Flex>
+
+    <Flex direction="column" justifyContent="center" gridArea="content">
       {RichText.asText(item.title) && (
         <Heading as="h2" fontSize={{ base: 'xl', md: '3xl' }} mt={2}>
           {RichText.asText(item.title)}
@@ -37,27 +54,6 @@ const Item = ({ item, isImageLeft }) => (
           </ExternalLink>
         </Flex>
       )} */}
-    </Flex>
-
-    <Flex
-      direction="column"
-      justifyContent="center"
-      order={{ base: 1, md: `${isImageLeft ? 1 : 2}` }}
-    >
-      {item?.image?.url && (
-        <Image
-          alt={item?.image?.alt}
-          src={item?.image?.url}
-          layout="responsive"
-          height={item.image?.dimensions?.height}
-          width={item.image?.dimensions?.width}
-        />
-      )}
-      {RichText.asText(item.support) && (
-        <Text textAlign="center" pt={2} fontStyle="italic">
-          <RichText render={item.support} />
-        </Text>
-      )}
     </Flex>
   </Grid>
 );
