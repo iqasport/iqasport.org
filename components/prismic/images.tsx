@@ -88,7 +88,9 @@ const Images = (rawData) => {
             support: get(itemData, 'support'),
           };
 
-          return <Item key={`image-slice-${i}`} item={item} />;
+          return (
+            <Item key={`image-slice-${item.image.url}-${i}`} item={item} />
+          );
         })}
       </Grid>
     </Slice>

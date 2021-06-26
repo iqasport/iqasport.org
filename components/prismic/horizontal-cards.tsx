@@ -46,7 +46,7 @@ const HorizontalCardsSlice = (rawData) => {
         return (
           <Flex
             flexDirection="column"
-            key={`cards-${i}`}
+            key={`horizontal-cards-${i}-${title}-${content}`}
             mb={5}
             px={{ base: 0, md: 0 }}
           >

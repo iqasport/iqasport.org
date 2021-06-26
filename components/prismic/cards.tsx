@@ -28,7 +28,7 @@ const CardsSlice = (rawData) => {
 
       <Grid
         gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
-        gridGap={{ base: 4, md: 9 }}
+        gridGap={8}
       >
         {items.map((item, i) => {
           const title = get(item, 'title');
@@ -45,7 +45,10 @@ const CardsSlice = (rawData) => {
             : null;
 
           return (
-            <Flex flexDirection="column" key={`cards-${i}`}>
+            <Flex
+              flexDirection="column"
+              key={`cards-${i}-${item?.title}-${item?.content}`}
+            >
               <Card
                 {...linkProps}
                 title={title}

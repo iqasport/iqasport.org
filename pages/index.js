@@ -6,33 +6,30 @@ import {
   formatMetadata,
   PrismicSlice,
   manageLocal,
+  getDocs,
 } from 'modules/prismic';
 
 const Meta = dynamic(() => import('components/meta'));
 const Page404 = dynamic(() => import('pages/404'));
 const PageLoading = dynamic(() => import('components/page-loading'));
 
-const Home = ({
-  page: initialPage,
-  /* posts: initialPosts, */ preview,
-  lang,
-}) => {
+const Home = ({ page: initialPage, posts: initialPosts, preview, lang }) => {
   const router = useRouter();
   const { data: queryData } = useQuery(
     ['pages', 'home', lang?.currentLang],
     () => getPrismicDocByUid('pages', 'home', { lang: lang?.currentLang }),
     { initialData: initialPage }
   );
-  // const { data: posts } = useQuery(
-  //   ['post', 'home'],
-  //   () =>
-  //     getDocs('post', {
-  //       orderings: '[my.post.date desc]',
-  //       pageSize: 6,
-  //     }),
-  //   { initialData: initialPosts }
-  // );
-  const posts = [];
+  const { data: posts } = useQuery(
+    ['posts', 'home', lang?.currentLang],
+    () =>
+      getDocs('posts', {
+        orderings: '[my.posts.date desc]',
+        pageSize: 4,
+        lang: lang?.currentLang,
+      }),
+    { initialData: initialPosts }
+  );
 
   const page = preview ? initialPage : queryData;
 
@@ -54,11 +51,11 @@ const Home = ({
 
 export const getStaticProps = async ({ locale, locales }) => {
   const page = await getPrismicDocByUid('pages', 'home', { lang: locale });
-  // const posts = await getDocs('post', {
-  //   orderings: '[my.post.date desc]',
-  //   pageSize: 6,
-  // });
-  const posts = [];
+  const posts = await getDocs('posts', {
+    orderings: '[my.posts.date desc]',
+    pageSize: 4,
+    lang: locale,
+  });
 
   const { currentLang, isMyMainLanguage } = manageLocal(locales, locale);
   return {

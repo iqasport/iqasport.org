@@ -9,6 +9,7 @@ import {
   EmbedAndContent,
   // TwoColumnTable,
   HorizontalCards,
+  LatestNews,
 } from 'components/prismic';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
@@ -84,12 +85,13 @@ const slices = {
   hero: Hero,
   header_and_paragraph: HeaderAndParagraph,
   images: Images,
+  embed: Embed,
   image_and_content: ImageAndContent,
   cards: Cards,
-  embed: Embed,
   embed_and_content: EmbedAndContent,
-  // two_column_table: TwoColumnTable,
+  latest_news: LatestNews,
   horizontal_card: HorizontalCards,
+  // // two_column_table: TwoColumnTable,
 };
 
 export function PrismicSlice(sections, posts) {
@@ -101,6 +103,6 @@ export function PrismicSlice(sections, posts) {
       return null;
     }
 
-    return <Component key={`prismic${i}`} {...section} posts={posts} />;
+    return <Component key={`prismic-${i}`} {...section} posts={posts} />;
   });
 }

@@ -57,8 +57,8 @@ export type CardTypes = {
     height: number;
     width: number;
   };
-  title: string;
-  content: React.ReactNode;
+  title?: string;
+  content?: React.ReactNode;
   variant?: string;
   href?: string;
   target?: string;
@@ -90,6 +90,8 @@ const Card = ({
         href={href}
         target={target}
         aria-label={ariaLabel}
+        flexGrow={1}
+        display="flex"
       >
         <Box __css={styles} as="article" {...cardProps}>
           <Box
@@ -99,10 +101,10 @@ const Card = ({
             width={{ base: '100%', md: 'auto' }}
             overflow="hidden"
           >
-            {image.src && (
+            {image?.src && (
               <Image
-                src={image.src}
-                alt={image.alt}
+                src={image?.src}
+                alt={image?.alt}
                 borderRadius="0"
                 layout="responsive"
                 objectFit="cover"
@@ -133,10 +135,10 @@ const Card = ({
         width={{ base: '100%', md: 'auto' }}
         overflow="hidden"
       >
-        {image.src && (
+        {image?.src && (
           <Image
-            src={image.src}
-            alt={image.alt}
+            src={image?.src}
+            alt={image?.alt}
             borderRadius="0"
             layout="responsive"
             objectFit="cover"

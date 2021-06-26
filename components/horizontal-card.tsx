@@ -87,10 +87,10 @@ const HorizontalCard = ({
             {image?.src && (
               <Image
                 layout="fill"
-                height={image.height}
-                width={image.width}
-                alt={image.alt}
-                src={image.src}
+                height={image?.height}
+                width={image?.width}
+                alt={image?.alt}
+                src={image?.src}
                 borderRadius={0}
               />
             )}
@@ -126,13 +126,13 @@ const HorizontalCard = ({
         position="relative"
         gridArea="image"
       >
-        {image.src && (
+        {image?.src && (
           <Image
             layout="fill"
-            height={image.height}
-            width={image.width}
-            alt={image.alt}
-            src={image.src}
+            height={image?.height}
+            width={image?.width}
+            alt={image?.alt}
+            src={image?.src}
             borderRadius={0}
           />
         )}

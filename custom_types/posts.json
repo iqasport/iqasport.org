@@ -1,10 +1,15 @@
 {
   "Main" : {
     "title" : {
-      "type" : "StructuredText",
+      "type" : "Text",
       "config" : {
-        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
         "label" : "Title"
+      }
+    },
+    "date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "date"
       }
     },
     "uid" : {
@@ -13,64 +18,44 @@
         "label" : "UID"
       }
     },
+    "author" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "IQA Staff" ],
+        "label" : "author"
+      }
+    },
+    "category" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Announcements" ],
+        "label" : "category"
+      }
+    },
+    "synopsis" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "Synopsis"
+      }
+    },
+    "image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "image"
+      }
+    },
     "body" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
       "config" : {
         "labels" : {
-          "latest_news" : [ ],
-          "hero" : [ ],
-          "header_and_paragraph" : [ ],
           "image" : [ ],
-          "image_and_content" : [ ],
-          "cards" : [ ],
-          "embed" : [ ],
-          "embed_and_content" : [ ],
-          "horizontal_card" : [ ]
+          "two_column_table" : [ ]
         },
         "choices" : {
-          "latest_news" : {
-            "type" : "Slice",
-            "fieldset" : "Latest News",
-            "description" : "Latest news pages",
-            "icon" : "add_to_photos",
-            "display" : "list",
-            "non-repeat" : { 
-              "variant" : {
-                "type" : "Select",
-                "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
-                  "label" : "Variant"
-                }
-              }
-            },
-            "repeat" : { }
-          },
-          "hero" : {
-            "type" : "Slice",
-            "fieldset" : "Hero",
-            "description" : "Image hero with a title",
-            "icon" : "account_box",
-            "display" : "list",
-            "non-repeat" : {
-              "slug" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "slug"
-                }
-              },
-              "image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "image"
-                }
-              }
-            },
-            "repeat" : { }
-          },
           "header_and_paragraph" : {
             "type" : "Slice",
             "fieldset" : "Header and Paragraph",
@@ -105,8 +90,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               },
@@ -126,6 +111,39 @@
               }
             },
             "repeat" : { }
+          },
+          "images" : {
+            "type" : "Slice",
+            "fieldset" : "Images",
+            "description" : "Images",
+            "icon" : "face",
+            "display" : "grid",
+            "non-repeat" : {
+            "variant" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
+                  "label" : "Variant"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "image"
+                }
+              },
+              "support" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "support"
+                }
+              }
+            }
           },
           "image_and_content" : {
             "type" : "Slice",
@@ -154,8 +172,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               },
@@ -169,7 +187,7 @@
               "content" : {
                 "type" : "StructuredText",
                 "config" : {
-                  "multi" : "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item,o-list-item",
+                  "multi" : "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item",
                   "allowTargetBlank" : true,
                   "label" : "content"
                 }
@@ -199,39 +217,6 @@
               }
             }
           },
-          "images" : {
-            "type" : "Slice",
-            "fieldset" : "Images",
-            "description" : "Images",
-            "icon" : "face",
-            "display" : "grid",
-            "non-repeat" : {
-              "variant" : {
-                "type" : "Select",
-                "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
-                  "label" : "Variant"
-                }
-              }
-            },
-            "repeat" : {
-              "image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : { },
-                  "thumbnails" : [ ],
-                  "label" : "image"
-                }
-              },
-              "support" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "support"
-                }
-              }
-            }
-          },
           "cards" : {
             "type" : "Slice",
             "fieldset" : "Cards",
@@ -257,18 +242,9 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
-                }
-              },
-              "horizontalScroll" : {
-                "type" : "Boolean",
-                "config" : {
-                  "placeholder_false" : "Off",
-                  "placeholder_true" : "On",
-                  "default_value" : false,
-                  "label" : "Horizontal Scroll on Mobile"
                 }
               }
             },
@@ -331,8 +307,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               }
@@ -379,52 +355,6 @@
               }
             }
           },
-          "embed" : {
-            "type" : "Slice",
-            "fieldset" : "Embed",
-            "description" : "Embed videos from Youtube or Facebook",
-            "icon" : "burst_mode",
-            "display" : "list",
-            "non-repeat" : {
-              "title" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading2",
-                  "label" : "Title"
-                }
-              },
-              "variant" : {
-                "type" : "Select",
-                "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
-                  "label" : "Variant"
-                }
-              },
-              "content" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item",
-                  "allowTargetBlank" : true,
-                  "label" : "Content"
-                }
-              }
-            },
-            "repeat" : {
-              "embed" : {
-                "type" : "Embed",
-                "config" : {
-                  "label" : "embed"
-                }
-              },
-              "support" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Support Text"
-                }
-              }
-            }
-          },
           "embed_and_content" : {
             "type" : "Slice",
             "fieldset" : "Embed and Content",
@@ -450,8 +380,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               },
@@ -475,8 +405,8 @@
                 "config" : {
                   "multi" : "paragraph,strong,em,hyperlink",
                   "allowTargetBlank" : true,
-                  "label" : "Embed Support text",
-                  "placeholder" : "Text that will appear under the embedded video"
+                  "label" : "Embed support",
+                  "placeholder" : "Support Text that will appear under the embedded video"
                 }
               },
               "cta_text" : {
@@ -491,6 +421,52 @@
                 "config" : {
                   "label" : "CTA URL",
                   "placeholder" : "If linking out of QUK, include the https://"
+                }
+              }
+            }
+          },
+          "embed" : {
+            "type" : "Slice",
+            "fieldset" : "Embed",
+            "description" : "Embed videos from Youtube or Facebook",
+            "icon" : "burst_mode",
+            "display" : "list",
+            "non-repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Title"
+                }
+              },
+              "variant" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
+                  "label" : "Variant"
+                }
+              },
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Content"
+                }
+              }
+            },
+            "repeat" : {
+              "embed" : {
+                "type" : "Embed",
+                "config" : {
+                  "label" : "embed"
+                }
+              },
+              "support" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Support Text"
                 }
               }
             }
@@ -528,8 +504,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               }
@@ -567,7 +543,7 @@
     "meta_description" : {
       "type" : "Text",
       "config" : {
-        "label" : "Meta description"
+        "label" : "Meta Description"
       }
     },
     "meta_image" : {
