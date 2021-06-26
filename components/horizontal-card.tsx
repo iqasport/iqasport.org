@@ -59,6 +59,10 @@ const HorizontalCard = ({
         gridTemplateColumns: { base: '1fr', md: '1fr 2fr' },
       };
 
+  const clipPath = isImageLeft
+    ? 'ellipse(54% 99% at 45% 45%)'
+    : 'ellipse(54% 99% at 55% 45%)';
+
   if (href) {
     return (
       <ChakraLink
@@ -76,7 +80,7 @@ const HorizontalCard = ({
         <Box __css={styles} as="article" {...gridAreas} {...cardProps}>
           <Box
             position="relative"
-            bg="iqaGreen"
+            bg="grey.100"
             minHeight={image?.src ? '300px' : 'initial'}
             display={image?.src ? 'block' : 'none'}
             height="100%"
@@ -92,6 +96,7 @@ const HorizontalCard = ({
                 alt={image?.alt}
                 src={image?.src}
                 borderRadius={0}
+                clipPath={{ base: 'none', md: clipPath }}
               />
             )}
           </Box>
@@ -117,7 +122,7 @@ const HorizontalCard = ({
   return (
     <Box __css={styles} as="article" {...gridAreas} {...cardProps}>
       <Box
-        bg="iqaGreen"
+        bg="grey.100"
         minHeight={image?.src ? '300px' : 'initial'}
         display={image?.src ? 'block' : 'none'}
         height="100%"
@@ -134,6 +139,7 @@ const HorizontalCard = ({
             alt={image?.alt}
             src={image?.src}
             borderRadius={0}
+            clipPath={{ base: 'none', md: clipPath }}
           />
         )}
       </Box>
