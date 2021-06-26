@@ -70,12 +70,11 @@ const Item = ({ item }) => {
 const Images = (rawData) => {
   const items = get(rawData, 'items');
   const variant = get(rawData, 'primary.variant');
-  console.log(variant);
 
   const multipleImages = items.length > 1;
 
   return (
-    <Slice variant={variant} small>
+    <Slice variant={variant}>
       <Grid
         gridTemplateColumns={{
           base: '1fr',

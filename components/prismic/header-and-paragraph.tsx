@@ -4,16 +4,16 @@ import { Flex, Heading, Button, Slice, Link } from 'components';
 
 import { linkResolver } from 'modules/prismic';
 
-const HeaderAndParagraph = ({ primary = {} }) => {
-  const title = get(primary, 'title');
-  const centerTitle = get(primary, 'center_title');
-  const content = get(primary, 'content');
-  // const variant = get(primary, 'variant');
-  const cta_text = get(primary, 'cta_text');
-  const cta_url = get(primary, 'cta_url');
+const HeaderAndParagraph = (rawData) => {
+  const title = get(rawData, 'primary.title');
+  const centerTitle = get(rawData, 'primary.center_title');
+  const content = get(rawData, 'primary.content');
+  const variant = get(rawData, 'primary.variant');
+  const cta_text = get(rawData, 'primary.cta_text');
+  const cta_url = get(rawData, 'primary.cta_url');
 
   return (
-    <Slice size="sm">
+    <Slice size="sm" variant={variant}>
       {RichText.asText(title) && (
         <Heading as="h2" mt={2} textAlign={centerTitle ? 'center' : 'left'}>
           {RichText.asText(title)}
