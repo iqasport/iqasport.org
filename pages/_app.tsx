@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { ChakraProvider } from '@chakra-ui/react';
+import Fonts from 'styles/fonts';
 import theme from 'styles/theme';
 import DocumentHead from 'document/head';
 import { QueryClientProvider, QueryClient } from 'react-query';
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <ChakraProvider theme={theme} resetCSS={false}>
           <DocumentHead />
+          <Fonts />
           <Layout {...pageProps}>
             <Component {...pageProps} />
           </Layout>
