@@ -1,6 +1,16 @@
 import get from 'just-safe-get';
-import { Slice, HorizontalCard, Card, Heading, Grid, Flex } from 'components';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import {
+  Slice,
+  HorizontalCard,
+  Card,
+  Heading,
+  Grid,
+  Flex,
+  Button,
+} from 'components';
 import { cardVariants } from 'components/card';
+import { buttonVariants } from 'components/button';
 
 const LatestNews = ({ posts, ...rawData }) => {
   const variant = get(rawData, 'primary.variant');
@@ -8,9 +18,18 @@ const LatestNews = ({ posts, ...rawData }) => {
 
   return (
     <Slice variant={variant}>
-      <Heading as="h2" mt={2}>
-        Latest News
-      </Heading>
+      <Flex alignItems="center" justifyContent="space-between" mt={2} mb={4}>
+        <Heading as="h2" m={0}>
+          Latest News
+        </Heading>
+        <Button
+          href="/news"
+          variant={buttonVariants[variant]}
+          rightIcon={<ArrowForwardIcon />}
+        >
+          View more
+        </Button>
+      </Flex>
       <Grid>
         <HorizontalCard
           href={`/news/${firstPost?.uid}`}

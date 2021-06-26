@@ -3,6 +3,7 @@ import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { SliceStyles } from 'components/slice';
 import { CardStyles } from 'components/card';
 import { HorizontalCardStyles } from 'components/horizontal-card';
+import { ButtonStyles } from 'components/button';
 
 const emBase = 16;
 export const rem = (value: number) => `${value / emBase}rem`;
@@ -17,12 +18,16 @@ export default extendTheme({
 
   colors: {
     iqaGreen: '#62b058',
+    overlayHover: 'rgba(0, 0, 0, 0.1)',
+    overlayPressed: 'rgba(0, 0, 0, 0.2)',
+    overlayDisabled: 'rgba(255, 255, 255, 0.4)',
   },
 
   components: {
     Slice: SliceStyles,
     Card: CardStyles,
     HorizontalCard: HorizontalCardStyles,
+    Button: ButtonStyles,
   },
 
   fonts: {
