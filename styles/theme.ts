@@ -18,8 +18,8 @@ export default extendTheme({
 
   colors: {
     iqaGreen: '#62b058',
-    overlayHover: 'rgba(0, 0, 0, 0.1)',
-    overlayPressed: 'rgba(0, 0, 0, 0.2)',
+    overlayHover: 'rgba(98, 176, 88, 0.05)',
+    overlayPressed: 'rgba(98, 176, 88, 0.2)',
     overlayDisabled: 'rgba(255, 255, 255, 0.4)',
   },
 

@@ -8,16 +8,18 @@ export const ButtonStyles = {
     cursor: 'pointer',
     display: 'inline-flex',
     fontFamily: 'body',
-    fontWeight: 'bold',
+    fontWeight: 'normal',
     border: '0',
     alignItems: 'center',
     justifyContent: 'center',
+    transition: 'all 0.2s ease',
     _disabled: {
       bgGradient: 'linear(to-b, overlayDisabled, overlayDisabled)',
       opacity: 1,
       cursor: 'not-allowed',
     },
     _hover: {
+      transform: 'scale(1.03)',
       bgGradient: 'linear(to-b, overlayHover, overlayHover)',
     },
     _active: {
@@ -27,7 +29,7 @@ export const ButtonStyles = {
   variants: {
     white: {
       bg: 'gray.50',
-      color: 'iqaGreen',
+      color: 'black',
     },
     primary: {
       bg: 'iqaGreen',
