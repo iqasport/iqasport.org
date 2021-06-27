@@ -50,7 +50,6 @@ const LatestNews = ({ posts, ...rawData }) => {
           variant={cardVariants[variant]}
         />
         {rest?.map((post) => {
-          console.log(post);
           return (
             <Flex flexDirection="column" key={post?.uid}>
               <Card

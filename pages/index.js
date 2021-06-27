@@ -44,7 +44,7 @@ const Home = ({ page: initialPage, posts: initialPosts, preview, lang }) => {
   return (
     <>
       <Meta {...formatMetadata(page.data)} />
-      <>{PrismicSlice(page.data.body, posts)}</>
+      <>{PrismicSlice({ sections: page.data.body, posts })}</>
     </>
   );
 };

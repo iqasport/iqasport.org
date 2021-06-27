@@ -94,7 +94,12 @@ const slices = {
   // // two_column_table: TwoColumnTable,
 };
 
-export function PrismicSlice(sections, posts) {
+type PrismicSliceProps = {
+  sections: Array<any>;
+  posts?: Array<any>;
+};
+
+export function PrismicSlice({ sections, posts }: PrismicSliceProps) {
   return sections.map((section, i) => {
     const Component = slices[section.slice_type];
 
