@@ -7,6 +7,8 @@ import {
   useStyleConfig,
   Link as ChakraLink,
   Text,
+  GridItemProps,
+  GridItem,
 } from '@chakra-ui/react';
 import { linkResolver } from 'modules/prismic';
 import Image from 'components/image';
@@ -55,7 +57,7 @@ export const ContentBox = (props) => (
   />
 );
 
-export type CardTypes = {
+export interface CardTypes extends GridItemProps {
   image?: {
     src: string;
     alt: string;
@@ -69,10 +71,11 @@ export type CardTypes = {
   target?: string;
   ariaLabel?: string;
   date?: string;
-};
+}
 
 export const LinkWrapper = (props) => (
-  <ChakraLink
+  <GridItem
+    as={ChakraLink}
     cursor="pointer"
     boxShadow="md"
     transition="all 0.2s ease"
@@ -86,7 +89,7 @@ export const LinkWrapper = (props) => (
   />
 );
 
-export const PlainWrapper = ({ children }) => <>{children}</>;
+export const PlainWrapper = (props) => <GridItem {...props} />;
 
 const Card = ({
   image,
@@ -104,8 +107,8 @@ const Card = ({
   const Wrapper = href ? LinkWrapper : PlainWrapper;
 
   return (
-    <Wrapper href={href} target={target} aria-label={ariaLabel}>
-      <Box __css={styles} as="article" {...cardProps}>
+    <Wrapper href={href} target={target} aria-label={ariaLabel} {...cardProps}>
+      <Box __css={styles} as="article">
         <Box
           position="relative"
           bg="iqaGreen"

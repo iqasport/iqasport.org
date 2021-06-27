@@ -73,8 +73,9 @@ const HorizontalCard = ({
       target={target}
       aria-label={ariaLabel}
       display="initial"
+      {...cardProps}
     >
-      <Box __css={styles} as="article" {...gridAreas} {...cardProps}>
+      <Box __css={styles} as="article" {...gridAreas}>
         <Box
           position="relative"
           bg="grey.100"

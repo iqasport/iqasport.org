@@ -30,8 +30,12 @@ const LatestNews = ({ posts, ...rawData }) => {
           View more
         </Button>
       </Flex>
-      <Grid>
+      <Grid
+        gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+        gridGap={8}
+      >
         <HorizontalCard
+          colSpan={{ base: 1, lg: 3 }}
           href={`/news/${firstPost?.uid}`}
           ariaLabel={firstPost?.data?.title}
           image={{
@@ -45,12 +49,6 @@ const LatestNews = ({ posts, ...rawData }) => {
           date={firstPost?.data?.date}
           variant={cardVariants[variant]}
         />
-      </Grid>
-      <Grid
-        pt={8}
-        gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
-        gridGap={8}
-      >
         {rest?.map((post) => {
           console.log(post);
           return (
