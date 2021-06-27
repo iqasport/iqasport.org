@@ -26,10 +26,10 @@ export default function Footer() {
           bgImage={`url(${backgroundImage})`}
           bgAttachment="fixed"
           bgSize="100%"
-          height="calc(100vw * 0.04584020101)"
+          height="calc(100vw * 0.04583705357)"
         />
       </Box>
-      <Box as="footer">
+      <Box as="footer" zIndex="1" marginTop="-1px">
         <Flex
           bgImage={`url(${backgroundImage})`}
           bgAttachment="fixed"

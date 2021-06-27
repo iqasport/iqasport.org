@@ -41,6 +41,8 @@ export const SliceStyles = {
       bgImage: `url(${backgroundImage})`,
       bgAttachment: 'fixed',
       bgSize: '100%',
+      marginTop: '-1px', // covers awkward 1/2 pixel gap at certain sizes
+      zIndex: '1',
     },
     white: {
       background: 'white',
@@ -101,7 +103,7 @@ export default function Slice({
           bg="white"
           sx={{
             '& + section[data-variant="white"]': {
-              marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
+              marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
               zIndex: 1,
             },
           }}
@@ -125,7 +127,7 @@ export default function Slice({
             bgImage={`url(${backgroundImage})`}
             bgAttachment="fixed"
             bgSize="100%"
-            height="calc(100vw * 0.04584020101)"
+            height="calc(100vw * 0.04583705357)"
           />
         </Box>
       )}
@@ -137,7 +139,7 @@ export default function Slice({
           bg="white"
           sx={{
             '& + section[data-variant="primary"]': {
-              marginTop: 'calc(100vw * 0.04584020101 * -1)', // covers the svg
+              marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
               zIndex: 1,
             },
           }}
@@ -161,7 +163,7 @@ export default function Slice({
             bgImage={`url(${backgroundImage})`}
             bgAttachment="fixed"
             bgSize="100%"
-            height="calc(100vw * 0.04584020101)"
+            height="calc(100vw * 0.04583705357)"
             marginTop="-19px"
           />
         </Box>

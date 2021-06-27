@@ -12,6 +12,7 @@ export const ButtonStyles = {
     border: '0',
     alignItems: 'center',
     justifyContent: 'center',
+    textDecoration: 'none',
     transition: 'all 0.2s ease',
     _disabled: {
       bgGradient: 'linear(to-b, overlayDisabled, overlayDisabled)',
