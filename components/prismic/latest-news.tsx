@@ -42,6 +42,7 @@ const LatestNews = ({ posts, ...rawData }) => {
           }}
           title={firstPost?.data?.title}
           content={firstPost?.data?.synopsis}
+          date={firstPost?.data?.date}
           variant={cardVariants[variant]}
         />
       </Grid>
@@ -51,6 +52,7 @@ const LatestNews = ({ posts, ...rawData }) => {
         gridGap={8}
       >
         {rest?.map((post) => {
+          console.log(post);
           return (
             <Flex flexDirection="column" key={post?.uid}>
               <Card
@@ -65,6 +67,7 @@ const LatestNews = ({ posts, ...rawData }) => {
                 title={post?.data?.title}
                 content={post?.data?.synopsis}
                 variant={cardVariants[variant]}
+                date={post?.data?.date}
               />
             </Flex>
           );

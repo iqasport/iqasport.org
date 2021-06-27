@@ -19,7 +19,7 @@
     "@prismicio/client": "^4.0.0",
     "axe-core": "^4.2.2",
     "cypress-axe": "^0.12.2",
-    "date-fns": "2.10.0",
+    "date-fns": "^2.22.1",
     "flickity": "^2.2.2",
     "framer-motion": "^4.1.16",
     "just-safe-get": "^2.1.2",

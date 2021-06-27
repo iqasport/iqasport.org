@@ -1,12 +1,13 @@
 import { RichText } from 'prismic-reactjs';
-import {
-  Heading,
-  Box,
-  useStyleConfig,
-  Link as ChakraLink,
-} from '@chakra-ui/react';
+import { Heading, Box, useStyleConfig, Text } from '@chakra-ui/react';
+import format from 'date-fns/format';
 import { linkResolver } from 'modules/prismic';
-import { CardTypes, ContentBox } from 'components/card';
+import {
+  CardTypes,
+  ContentBox,
+  LinkWrapper,
+  PlainWrapper,
+} from 'components/card';
 import Image from 'components/image';
 
 export const HorizontalCardStyles = {
@@ -47,6 +48,7 @@ const HorizontalCard = ({
   target,
   ariaLabel,
   isImageLeft = false,
+  date,
   ...cardProps
 }: HorizontalCardTypes): React.ReactElement => {
   const styles = useStyleConfig('HorizontalCard', { variant });
@@ -63,100 +65,58 @@ const HorizontalCard = ({
     ? 'ellipse(54% 99% at 45% 45%)'
     : 'ellipse(54% 99% at 55% 45%)';
 
-  if (href) {
-    return (
-      <ChakraLink
-        cursor="pointer"
-        boxShadow="md"
-        transition="all 0.2s ease"
-        _hover={{ transform: 'scale(1.03)', boxShadow: 'lg' }}
-        _focus={{ transform: 'scale(1.0.3)', boxShadow: 'lg' }}
-        _active={{ transform: 'scale(1)' }}
-        borderRadius="2xl"
-        href={href}
-        target={target}
-        aria-label={ariaLabel}
-      >
-        <Box __css={styles} as="article" {...gridAreas} {...cardProps}>
-          <Box
-            position="relative"
-            bg="grey.100"
-            minHeight={image?.src ? '300px' : 'initial'}
-            display={image?.src ? 'block' : 'none'}
-            height="100%"
-            width="100%"
-            overflow="hidden"
-            gridArea="image"
-          >
-            {image?.src && (
-              <Image
-                layout="fill"
-                height={image?.height}
-                width={image?.width}
-                alt={image?.alt}
-                src={image?.src}
-                borderRadius={0}
-                clipPath={{ base: 'none', md: clipPath }}
-              />
-            )}
-          </Box>
-          <ContentBox
-            py={5}
-            px={4}
-            gridArea="content"
-            minHeight={image?.src ? 'initial' : '300px'}
-          >
-            {title && (
-              <Heading as="h2" fontSize="xl">
-                {title}
-              </Heading>
-            )}
-            {content && (
-              <RichText render={content} linkResolver={linkResolver} />
-            )}
-          </ContentBox>
-        </Box>
-      </ChakraLink>
-    );
-  }
+  const Wrapper = href ? LinkWrapper : PlainWrapper;
+
   return (
-    <Box __css={styles} as="article" {...gridAreas} {...cardProps}>
-      <Box
-        bg="grey.100"
-        minHeight={image?.src ? '300px' : 'initial'}
-        display={image?.src ? 'block' : 'none'}
-        height="100%"
-        width="100%"
-        overflow="hidden"
-        position="relative"
-        gridArea="image"
-      >
-        {image?.src && (
-          <Image
-            layout="fill"
-            height={image?.height}
-            width={image?.width}
-            alt={image?.alt}
-            src={image?.src}
-            borderRadius={0}
-            clipPath={{ base: 'none', md: clipPath }}
-          />
-        )}
+    <Wrapper
+      href={href}
+      target={target}
+      aria-label={ariaLabel}
+      display="initial"
+    >
+      <Box __css={styles} as="article" {...gridAreas} {...cardProps}>
+        <Box
+          position="relative"
+          bg="grey.100"
+          minHeight={image?.src ? '300px' : 'initial'}
+          display={image?.src ? 'block' : 'none'}
+          height="100%"
+          width="100%"
+          overflow="hidden"
+          gridArea="image"
+        >
+          {image?.src && (
+            <Image
+              layout="fill"
+              height={image?.height}
+              width={image?.width}
+              alt={image?.alt}
+              src={image?.src}
+              borderRadius={0}
+              clipPath={{ base: 'none', md: clipPath }}
+            />
+          )}
+        </Box>
+        <ContentBox
+          py={5}
+          px={4}
+          gridArea="content"
+          minHeight={image?.src ? 'initial' : '300px'}
+        >
+          {title && (
+            <Heading as="h2" fontSize="xl">
+              {title}
+            </Heading>
+          )}
+          {content && <RichText render={content} linkResolver={linkResolver} />}
+          {date && (
+            <Text fontSize="xs" marginTop="auto">
+              {format(new Date(date), 'd MMMM, yyyy')}
+            </Text>
+          )}
+        </ContentBox>
       </Box>
-      <ContentBox
-        py={5}
-        px={4}
-        gridArea="content"
-        minHeight={image?.src ? 'initial' : '300px'}
-      >
-        {title && (
-          <Heading as="h2" fontSize="xl">
-            {title}
-          </Heading>
-        )}
-        {content && <RichText render={content} linkResolver={linkResolver} />}
-      </ContentBox>
-    </Box>
+    </Wrapper>
   );
 };
 
