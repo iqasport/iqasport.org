@@ -43,8 +43,6 @@ const Post = ({ page: initialPage, preview, lang }) => {
 
   const page = preview ? initialPage : queryData;
 
-  console.log(page.data);
-
   return (
     <>
       <Meta {...formatMetadata(page.data)} />
