@@ -70,7 +70,7 @@ export const linkResolver = ({ type, uid }) => {
   }
 };
 
-export const manageLocal = (Locales, locale) => {
+export const manageLocal = (Locales: Array<any>, locale: string) => {
   // Languages from API response
   // // Setting Master language as default language option
   const mainLanguage = Locales[0];

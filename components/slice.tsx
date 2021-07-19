@@ -25,7 +25,7 @@ export const SliceStyles = {
   sizes: {
     sm: {
       container: {
-        maxWidth: '960px',
+        maxWidth: '768px',
       },
     },
     md: {

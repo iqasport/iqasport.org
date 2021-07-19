@@ -45,6 +45,8 @@ export const ContentBox = (props) => (
   <Flex
     flexDirection="column"
     flexGrow={1}
+    textDecoration="none"
+    _hover={{ textDecoration: 'none' }}
     sx={{
       a: {
         textDecoration: 'none',
@@ -79,8 +81,18 @@ export const LinkWrapper = (props) => (
     cursor="pointer"
     boxShadow="md"
     transition="all 0.2s ease"
-    _hover={{ transform: 'scale(1.03)', boxShadow: 'lg' }}
-    _focus={{ transform: 'scale(1.0.3)', boxShadow: 'lg' }}
+    _hover={{
+      transform: 'scale(1.03)',
+      boxShadow: 'lg',
+      textDecoration: 'none',
+    }}
+    _focus={{
+      transform: 'scale(1.0.3)',
+      boxShadow: 'lg',
+      textDecoration: 'none',
+      ringWidth: '2px',
+      ringColor: 'iqaGreen',
+    }}
     _active={{ transform: 'scale(1)' }}
     borderRadius="2xl"
     flexGrow={1}
