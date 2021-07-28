@@ -6,12 +6,12 @@ import {
   Flex,
   useStyleConfig,
   Link as ChakraLink,
-  Text,
   GridItemProps,
   GridItem,
 } from '@chakra-ui/react';
 import { linkResolver } from 'modules/prismic';
 import Image from 'components/image';
+import Text from 'components/text';
 
 export const CardStyles = {
   baseStyle: {

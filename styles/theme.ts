@@ -28,17 +28,27 @@ export default extendTheme({
     Card: CardStyles,
     HorizontalCard: HorizontalCardStyles,
     Button: ButtonStyles,
+    Text: {
+      baseStyle: {
+        fontSize: rem(18),
+        lineHeight: rem(24),
+      },
+    },
   },
 
   fonts: {
     heading: 'metropolis, sans-serif',
-    body: 'ff-real-headline-pro-2, sans-serif',
+    body: 'proxima-nova, sans-serif',
   },
 
   styles: {
     global: {
       'html, body': {
         lineHeight: 1.15,
+      },
+      p: {
+        lineHeight: rem(24),
+        fontSize: rem(18),
       },
     },
   },
