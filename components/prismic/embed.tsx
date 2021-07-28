@@ -11,7 +11,6 @@ import {
   ModalContent,
   Flex,
 } from 'components';
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 import { linkResolver } from 'modules/prismic';
 
