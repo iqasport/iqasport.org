@@ -5,10 +5,6 @@ import { Embed } from './embed';
 
 import { linkResolver } from 'modules/prismic';
 
-// import { buttonVariants } from 'components/prismic-wrapper';
-// const Button = dynamic(() => import('components/button'));
-// const ExternalLink = dynamic(() => import('components/external-link'));
-
 const Item = ({ item, isEmbedLeft }) => (
   <Grid
     gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
@@ -19,7 +15,8 @@ const Item = ({ item, isEmbedLeft }) => (
     }}
   >
     <Flex direction="column" justifyContent="center" gridArea="embed">
-      <Embed embed={item.embed} />
+      <Embed embed={item.embed} thumbnail={item.thumbnail} />
+
       {RichText.asText(item.support) && (
         <Text textAlign="center" pt={2} fontStyle="italic">
           <RichText render={item.support} />
@@ -37,16 +34,6 @@ const Item = ({ item, isEmbedLeft }) => (
       {item.content && (
         <RichText render={item.content} linkResolver={linkResolver} />
       )}
-
-      {/* {item.cta_text && (
-        <Flex justifyContent="center">
-          <ExternalLink href={item.cta_url}>
-            <Button type="button" variant={buttonVariants[item.variant]} ml={2}>
-              {item.cta_text}
-            </Button>
-          </ExternalLink>
-        </Flex>
-      )} */}
     </Flex>
   </Grid>
 );
@@ -61,6 +48,7 @@ const EmbedAndContent = (rawData) => {
           title: get(itemData, 'title'),
           content: get(itemData, 'content'),
           embed: get(itemData, 'embed'),
+          thumbnail: get(itemData, 'thumbnail'),
           variant: get(itemData, 'variant'),
           layout: get(itemData, 'layout_content'),
           support: get(itemData, 'support'),
