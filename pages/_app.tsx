@@ -5,9 +5,9 @@ import Fonts from 'styles/fonts';
 import theme from 'styles/theme';
 import DocumentHead from 'document/head';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import Layout from 'layout';
 
 const Scripts = dynamic(() => import('document/scripts'), { ssr: false });
-const Layout = dynamic(() => import('layout'));
 
 const queryClient = new QueryClient();
 
