@@ -12,6 +12,7 @@ import {
 import { linkResolver } from 'modules/prismic';
 import Image from 'components/image';
 import Text from 'components/text';
+import Link from 'next/link';
 
 export const CardStyles = {
   baseStyle: {
@@ -75,30 +76,32 @@ export interface CardTypes extends GridItemProps {
   date?: string;
 }
 
-export const LinkWrapper = (props) => (
-  <GridItem
-    as={ChakraLink}
-    cursor="pointer"
-    boxShadow="md"
-    transition="all 0.2s ease"
-    _hover={{
-      transform: 'scale(1.03)',
-      boxShadow: 'lg',
-      textDecoration: 'none',
-    }}
-    _focus={{
-      transform: 'scale(1.0.3)',
-      boxShadow: 'lg',
-      textDecoration: 'none',
-      ringWidth: '2px',
-      ringColor: 'iqaGreen',
-    }}
-    _active={{ transform: 'scale(1)' }}
-    borderRadius="2xl"
-    flexGrow={1}
-    display="flex"
-    {...props}
-  />
+export const LinkWrapper = ({ href, ...props }) => (
+  <Link href={href} passHref>
+    <GridItem
+      as={ChakraLink}
+      cursor="pointer"
+      boxShadow="md"
+      transition="all 0.2s ease"
+      _hover={{
+        transform: 'scale(1.03)',
+        boxShadow: 'lg',
+        textDecoration: 'none',
+      }}
+      _focus={{
+        transform: 'scale(1.0.3)',
+        boxShadow: 'lg',
+        textDecoration: 'none',
+        ringWidth: '2px',
+        ringColor: 'iqaGreen',
+      }}
+      _active={{ transform: 'scale(1)' }}
+      borderRadius="2xl"
+      flexGrow={1}
+      display="flex"
+      {...props}
+    />
+  </Link>
 );
 
 export const PlainWrapper = (props) => <GridItem {...props} />;

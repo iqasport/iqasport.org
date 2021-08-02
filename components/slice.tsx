@@ -1,27 +1,23 @@
 import { Box } from 'components';
 import { useMultiStyleConfig, StylesProvider } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
+// import { mode } from '@chakra-ui/theme-tools';
 const backgroundImage = '/images/bg.png';
 
 export const SliceStyles = {
   parts: ['slice', 'container'],
-  baseStyle: (props) => ({
+  baseStyle: {
     slice: {
       a: {
         fontWeight: 'bold',
         textDecoration: 'none',
-        color: mode('iqaGreen', 'teal.300')(props),
+        color: 'iqaGreen',
         _hover: {
           textDecoration: 'underline',
-          color: mode('iqaGreen', 'pink.300')(props),
+          color: 'iqaGreen',
         },
       },
-      'p::selection, a::selection, h2::selection': {
-        background: mode('iqaGreen', 'teal.300')(props),
-        color: mode('white', 'gray.800')(props),
-      },
     },
-  }),
+  },
   sizes: {
     sm: {
       container: {

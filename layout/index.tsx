@@ -1,9 +1,7 @@
 import { useColorModeValue } from '@chakra-ui/react';
-import dynamic from 'next/dynamic';
 import { Grid, Flex, Text, Link, Box } from 'components';
-
-const Header = dynamic(() => import('layout/header'));
-const Footer = dynamic(() => import('layout/footer'));
+import Header from 'layout/header';
+import Footer from 'layout/footer';
 
 const Layout = ({ children, preview = false, page }) => {
   const color = useColorModeValue('gray.800', 'white');
