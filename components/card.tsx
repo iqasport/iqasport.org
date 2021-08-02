@@ -28,7 +28,7 @@ export const CardStyles = {
       color: 'black',
     },
     primary: {
-      bg: 'iqaGreen',
+      bg: 'white',
       color: 'black',
     },
   },

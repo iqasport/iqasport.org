@@ -11,7 +11,7 @@ const Hero = (rawData) => {
 
   return (
     <Box
-      bg="white"
+      bg="gray.100"
       as="section"
       position="relative"
       backgroundSize="cover"

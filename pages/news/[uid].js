@@ -50,13 +50,12 @@ const Post = ({ page: initialPage, preview, lang }) => {
       <Box
         as="article"
         width="100%"
-        bg="white"
+        bg="gray.100"
         backgroundRepeat="no-repeat"
         backgroundSize="fixed"
         bgImage={{ base: 'none', md: `url(${backgroundImage})` }}
         bgSize="100%"
         height="100%"
-        bgColor="white"
       >
         <NewsHero {...page.data} />
         {PrismicSlice({ sections: page.data.body })}

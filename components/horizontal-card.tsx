@@ -27,7 +27,7 @@ export const HorizontalCardStyles = {
       color: 'black',
     },
     primary: {
-      bg: 'iqaGreen',
+      bg: 'gray.50',
       color: 'black',
     },
   },

@@ -5,8 +5,8 @@ const logo = '/images/logo_short_monochrome_white.png';
 export default function Footer() {
   return (
     <>
-      <Box bg="white" height="200px" />
-      <Box position="relative" bg="white">
+      <Box bg="gray.100" height="200px" />
+      <Box position="relative" bg="gray.100">
         <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <clipPath id="wavefooter" clipPathUnits="objectBoundingBox">

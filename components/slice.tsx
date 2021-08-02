@@ -41,7 +41,7 @@ export const SliceStyles = {
       zIndex: '1',
     },
     white: {
-      background: 'white',
+      background: 'gray.100',
       color: 'gray.800',
     },
   },
@@ -96,7 +96,7 @@ export default function Slice({
         <Box
           data-type="wave"
           position="relative"
-          bg="white"
+          bg="gray.100"
           sx={{
             '& + section[data-variant="white"]': {
               marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
@@ -109,7 +109,7 @@ export default function Slice({
               <clipPath id="wave1" clipPathUnits="objectBoundingBox">
                 <path
                   d="M0,1 V0 C0.166,0.788,0.301,0.871,0.395,0.792 C0.486,0.715,0.528,0.492,0.623,0.402 C0.749,0.28,0.876,0.48,1,1"
-                  fill="#fff"
+                  fill="#EDF2F7"
                 />
               </clipPath>
             </defs>
@@ -132,7 +132,7 @@ export default function Slice({
         <Box
           data-type="wave"
           position="relative"
-          bg="white"
+          bg="gray.100"
           sx={{
             '& + section[data-variant="primary"]': {
               marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
@@ -145,7 +145,7 @@ export default function Slice({
               <clipPath id="wave2" clipPathUnits="objectBoundingBox">
                 <path
                   d="M1,0 C0.82,0.72,0.605,1,0.361,0.924 C0.23,0.779,0.109,0.441,0,0"
-                  fill="#fff"
+                  fill="#EDF2F7"
                 />
               </clipPath>
             </defs>
