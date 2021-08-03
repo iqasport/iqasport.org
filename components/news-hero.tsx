@@ -27,11 +27,13 @@ const NewsHero = ({ title, date, category, image }) => (
         height={image?.dimensions?.height}
         borderRadius={{ base: 'none', md: '2xl' }}
       />
-      <Box p={2} mt={2}>
-        <Text as="em" fontStyle="italic" fontSize="sm">
-          Photo Credit: <strong>{image?.copyright}</strong>
-        </Text>
-      </Box>
+      {image?.copyright && (
+        <Box p={2} mt={2}>
+          <Text as="em" fontStyle="italic" fontSize="sm">
+            Photo Credit: <strong>{image?.copyright}</strong>
+          </Text>
+        </Box>
+      )}
     </Container>
   </Box>
 );

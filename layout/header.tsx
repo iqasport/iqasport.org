@@ -5,6 +5,7 @@ import {
   useBreakpointValue,
   Box,
   Link as ChakraLink,
+  LinkProps,
 } from 'components';
 import Headroom from 'react-headroom';
 import Link from 'next/link';
@@ -15,7 +16,7 @@ import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
 
-const IconWrapper = (props) => (
+const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="15px" width="15px" {...props} />
 );
 
@@ -35,11 +36,12 @@ export default function Header({ page /* lang */ }) {
           as="nav"
           h="35px"
           bg="iqaGreen"
-          px={3}
+          px={6}
+          fontSize="sm"
         >
           <HStack spacing={2}>
             <Link href="/news" passHref>
-              <ChakraLink color="white">Latest COVID-19 News</ChakraLink>
+              <ChakraLink color="white">COVID-19 Guidance</ChakraLink>
             </Link>
           </HStack>
           <HStack spacing={2}>
