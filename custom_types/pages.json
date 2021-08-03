@@ -17,17 +17,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {
-          "latest_news": [],
-          "hero": [],
-          "header_and_paragraph": [],
-          "image": [],
-          "image_and_content": [],
-          "cards": [],
-          "embed": [],
-          "embed_and_content": [],
-          "horizontal_card": []
-        },
+        "labels": null,
         "choices": {
           "latest_news": {
             "type": "Slice",
@@ -604,6 +594,49 @@
                 }
               }
             }
+          },
+          "banner": {
+            "type": "Slice",
+            "fieldset": "Banner",
+            "description": "Full-width Image with text and CTA overlay",
+            "icon": "panorama_horizontal",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em",
+                  "label": "content"
+                }
+              },
+              "cta_text": {
+                "type": "Text",
+                "config": {
+                  "label": "CTA Text"
+                }
+              },
+              "cta_url": {
+                "type": "Text",
+                "config": {
+                  "label": "CTA URL"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

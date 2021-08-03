@@ -98,10 +98,12 @@ export default function Slice({
           position="relative"
           bg="gray.100"
           sx={{
-            '& + section[data-variant="white"]': {
-              marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
-              zIndex: 1,
-            },
+            '& + section[data-variant="white"], & + section[data-type="banner"]':
+              {
+                bg: 'gray.100',
+                marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
+                zIndex: 1,
+              },
           }}
         >
           <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
@@ -134,10 +136,16 @@ export default function Slice({
           position="relative"
           bg="gray.100"
           sx={{
-            '& + section[data-variant="primary"]': {
-              marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
-              zIndex: 1,
-            },
+            '& + section[data-variant="primary"], & + section[data-type="banner"]':
+              {
+                backgroundColor: 'iqaGreen',
+                backgroundRepeat: 'no-repeat',
+                bgImage: `url(${backgroundImage})`,
+                bgSize: '100%',
+                bgAttachment: 'fixed',
+                marginTop: 'calc(100vw * 0.04583705357 * -1)', // covers the svg
+                zIndex: 1,
+              },
           }}
         >
           <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">

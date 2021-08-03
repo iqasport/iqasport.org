@@ -7,6 +7,7 @@ import {
   Cards,
   Embed,
   EmbedAndContent,
+  Banner,
   // TwoColumnTable,
   HorizontalCards,
   LatestNews,
@@ -92,6 +93,7 @@ const slices = {
   latest_news: LatestNews,
   horizontal_card: HorizontalCards,
   // // two_column_table: TwoColumnTable,
+  banner: Banner,
 };
 
 type PrismicSliceProps = {
