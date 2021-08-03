@@ -8,6 +8,8 @@ import {
   Link as ChakraLink,
   UnorderedList,
 } from 'components';
+import get from 'just-safe-get';
+import { Link as PrismicLink } from 'prismic-reactjs';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 const backgroundImage = '/images/bg.png';
@@ -44,7 +46,11 @@ const ActiveLink = ({ href, children }) => {
 //   />
 // );
 
-export default function Footer() {
+export default function Footer({ data }) {
+  const disclaimer = get(data, 'disclaimer');
+  const menu1 = get(data, 'menu_1_links');
+  const menu2 = get(data, 'menu_2_links');
+
   return (
     <>
       <Box bg="gray.100" height="200px" />
@@ -73,14 +79,13 @@ export default function Footer() {
         />
       </Box>
 
-      <Box as="footer" zIndex="1" marginTop="-1px">
-        <Flex
-          bgImage={`url(${backgroundImage})`}
-          bgAttachment="fixed"
-          bgSize="100%"
-          px={{ base: 4, sm: 8, md: 10 }}
-          justifyContent="center"
-        >
+      <Box
+        as="footer"
+        bgImage={`url(${backgroundImage})`}
+        bgAttachment="fixed"
+        bgSize="100%"
+      >
+        <Flex px={{ base: 4, sm: 8, md: 10 }} justifyContent="center">
           <Grid
             gridTemplateColumns={{ base: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
             alignItems="center"
@@ -97,35 +102,25 @@ export default function Footer() {
             />
 
             <UnorderedList pl={0} ml={0} styleType="none">
-              <Item>
-                <ActiveLink href="/">Privacy Policy</ActiveLink>
-              </Item>
-              <Item>
-                <ActiveLink href="/">Contact Us</ActiveLink>
-              </Item>
-              <Item>
-                <ActiveLink href="/">Press</ActiveLink>
-              </Item>
+              {menu1.map(({ link_label, link }) => (
+                <Item key={`${link?.url}-${link_label}`}>
+                  <ActiveLink href={PrismicLink.url(link)}>
+                    {link_label}
+                  </ActiveLink>
+                </Item>
+              ))}
             </UnorderedList>
 
             <UnorderedList pl={0} ml={0} styleType="none">
-              <Item>
-                <ActiveLink href="/">News</ActiveLink>
-              </Item>
-              <Item>
-                <ActiveLink href="/">Rulebook</ActiveLink>
-              </Item>
-              <Item>
-                <ActiveLink href="/">Video</ActiveLink>
-              </Item>
+              {menu2.map(({ link_label, link }) => (
+                <Item key={`${link?.url}-${link_label}`}>
+                  <ActiveLink href={link.url}>{link_label}</ActiveLink>
+                </Item>
+              ))}
             </UnorderedList>
 
             <Text color="white" fontSize="sm">
-              IQA and its activities are not licensed by, sponsored by or
-              associated with Warner Bros., J.K. Rowling or their affiliates.
-              &apos;Quidditch&apos;, &apos;Harry Potter&apos;, and all related
-              names, characters and indicia are trademarks of and © Warner Bros.
-              - Harry Potter publishing rights © J.K. Rowling
+              {disclaimer}
             </Text>
           </Grid>
         </Flex>

@@ -3,7 +3,7 @@ import { Grid, Flex, Text, Link, Box } from 'components';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
 
-const Layout = ({ children, preview = false, page }) => {
+const Layout = ({ children, preview = false, page, footerData }) => {
   const color = useColorModeValue('gray.800', 'white');
 
   return (
@@ -44,7 +44,7 @@ const Layout = ({ children, preview = false, page }) => {
       >
         {children}
       </Box>
-      <Footer />
+      <Footer data={footerData} />
     </Grid>
   );
 };
