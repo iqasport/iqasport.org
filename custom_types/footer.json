@@ -1,0 +1,55 @@
+{
+  "Main" : {
+    "menu_1_links" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "link_label" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Link Label",
+              "placeholder" : "Link Label..."
+            }
+          },
+          "link" : {
+            "type" : "Link",
+            "config" : {
+              "label" : "Link",
+              "placeholder" : "Select a Link...",
+              "select" : null
+            }
+          }
+        },
+        "label" : "Menu 1 Links"
+      }
+    },
+    "menu_2_links" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "link_label" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Link Label"
+            }
+          },
+          "link" : {
+            "type" : "Link",
+            "config" : {
+              "label" : "Link",
+              "placeholder" : "Select a Link...",
+              "select" : null
+            }
+          }
+        },
+        "label" : "Menu 2 Links"
+      }
+    },
+    "disclaimer" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Disclaimer"
+      }
+    }
+  }
+}
