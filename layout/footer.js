@@ -1,6 +1,48 @@
-import { Box, Image, Text, Flex } from 'components';
+import {
+  Box,
+  Image,
+  Text,
+  Flex,
+  Grid,
+  ListItem,
+  Link as ChakraLink,
+  UnorderedList,
+} from 'components';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 const backgroundImage = '/images/bg.png';
 const logo = '/images/logo_short_monochrome_white.png';
+
+const Item = (props) => <ListItem lineHeight="32px" {...props} />;
+
+const ActiveLink = ({ href, children }) => {
+  const { asPath } = useRouter();
+  const regexAs = RegExp(href.replace(/\//g, '\\/'), 'g');
+
+  const isActive = regexAs.test(asPath);
+
+  return (
+    <Link href={href} passHref>
+      <ChakraLink
+        textDecoration="none"
+        color="white"
+        fontWeight={isActive ? 600 : 'normal'}
+        _hover={{ borderBottom: '2px solid', borderColor: 'white' }}
+      >
+        {children}
+      </ChakraLink>
+    </Link>
+  );
+};
+
+// const ExternalLink = (props) => (
+//   <ChakraLink
+//     color="white"
+//     textDecoration="none"
+//     _hover={{ borderBottom: '2px solid', borderColor: 'white' }}
+//     {...props}
+//   />
+// );
 
 export default function Footer() {
   return (
@@ -17,6 +59,7 @@ export default function Footer() {
             </clipPath>
           </defs>
         </svg>
+
         <Box
           width="100%"
           backgroundColor="iqaGreen"
@@ -29,6 +72,7 @@ export default function Footer() {
           height="calc(100vw * 0.04583705357)"
         />
       </Box>
+
       <Box as="footer" zIndex="1" marginTop="-1px">
         <Flex
           bgImage={`url(${backgroundImage})`}
@@ -37,7 +81,12 @@ export default function Footer() {
           px={{ base: 4, sm: 8, md: 10 }}
           justifyContent="center"
         >
-          <Flex justifyContent="center" alignItems="center" maxWidth="1280px">
+          <Grid
+            gridTemplateColumns={{ base: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
+            alignItems="center"
+            gridGap={{ base: 4, lg: 9 }}
+            maxWidth="1280px"
+          >
             <Image
               src={logo}
               priority={true}
@@ -46,14 +95,39 @@ export default function Footer() {
               height={200}
               width={200}
             />
-            <Text color="white">
+
+            <UnorderedList pl={0} ml={0} styleType="none">
+              <Item>
+                <ActiveLink href="/">Privacy Policy</ActiveLink>
+              </Item>
+              <Item>
+                <ActiveLink href="/">Contact Us</ActiveLink>
+              </Item>
+              <Item>
+                <ActiveLink href="/">Press</ActiveLink>
+              </Item>
+            </UnorderedList>
+
+            <UnorderedList pl={0} ml={0} styleType="none">
+              <Item>
+                <ActiveLink href="/">News</ActiveLink>
+              </Item>
+              <Item>
+                <ActiveLink href="/">Rulebook</ActiveLink>
+              </Item>
+              <Item>
+                <ActiveLink href="/">Video</ActiveLink>
+              </Item>
+            </UnorderedList>
+
+            <Text color="white" fontSize="sm">
               IQA and its activities are not licensed by, sponsored by or
               associated with Warner Bros., J.K. Rowling or their affiliates.
               &apos;Quidditch&apos;, &apos;Harry Potter&apos;, and all related
               names, characters and indicia are trademarks of and © Warner Bros.
               - Harry Potter publishing rights © J.K. Rowling
             </Text>
-          </Flex>
+          </Grid>
         </Flex>
       </Box>
     </>
