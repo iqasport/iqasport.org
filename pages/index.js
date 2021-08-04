@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import dynamic from 'next/dynamic';
 import { useQuery } from 'react-query';
 import {
@@ -60,6 +61,7 @@ export const getStaticProps = async ({ locale, locales }) => {
   const { currentLang, isMyMainLanguage } = manageLocal(locales, locale);
   return {
     props: {
+      ...(await serverSideTranslations(locale, ['common'])),
       page,
       posts,
       lang: {

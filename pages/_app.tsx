@@ -1,4 +1,5 @@
 import App from 'next/app';
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -55,4 +56,4 @@ MyApp.getInitialProps = async (appContext) => {
   };
 };
 
-export default MyApp;
+export default appWithTranslation(MyApp);
