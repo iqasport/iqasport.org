@@ -1,6 +1,6 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Grid, Flex, Heading, Text, Slice, Image } from 'components';
+import { Grid, Flex, Heading, Text, Slice, Image, Box } from 'components';
 import { linkResolver } from 'modules/prismic';
 
 // import { buttonVariants } from 'components/prismic-wrapper';
@@ -26,11 +26,22 @@ const Item = ({ item, isImageLeft }) => (
           width={item.image?.dimensions?.width}
         />
       )}
-      {RichText.asText(item.support) && (
-        <Text textAlign="center" pt={2} fontStyle="italic">
-          <RichText render={item.support} />
+      <Box p={2} mt={0}>
+        <Text as="em" fontStyle="italic" fontSize="sm">
+          {RichText.asText(item.support) && (
+            <>
+              {RichText.asText(item.support)}
+              <br />
+            </>
+          )}
+
+          {item?.image?.copyright && (
+            <>
+              Photo Credit: <strong>{item?.image?.copyright}</strong>
+            </>
+          )}
         </Text>
-      )}
+      </Box>
     </Flex>
 
     <Flex direction="column" justifyContent="center" gridArea="content">

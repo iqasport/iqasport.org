@@ -1,69 +1,39 @@
 import get from 'just-safe-get';
 
-import {
-  Slice,
-  Box,
-  Grid,
-  Text,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  Image,
-} from 'components';
+import { Slice, Box, Grid, Text, Image } from 'components';
 
 const Item = ({ item }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const { height, width } = item.image?.dimensions;
 
   return (
-    <>
-      <Box onClick={onOpen} cursor="pointer">
-        {item?.image?.url && (
-          <Image
-            alt={item.image?.alt}
-            src={item.image?.url}
-            layout="responsive"
-            height={height}
-            width={width}
-          />
-        )}
-        {item.support && (
-          <Text textAlign="center" pt={2} fontStyle="italic">
-            {item.support}
-          </Text>
-        )}
-      </Box>
+    <Box>
+      {item?.image?.url && (
+        <Image
+          alt={item.image?.alt}
+          src={item.image?.url}
+          layout="responsive"
+          height={height}
+          width={width}
+        />
+      )}
 
-      <Modal
-        isOpen={isOpen}
-        size="full"
-        onClose={onClose}
-        allowPinchZoom={true}
-      >
-        <ModalOverlay bg="blackAlpha.800" />
-        <ModalContent
-          mx={{ base: 4, xl: 60 }}
-          h="initial"
-          bg="none"
-          boxShadow="none"
-          minHeight="initial"
-        >
-          <Image
-            alt={item.image?.alt}
-            src={item.image?.url}
-            height={height}
-            width={width}
-            layout="responsive"
-          />
+      <Box p={2} mt={0}>
+        <Text as="em" fontStyle="italic" fontSize="sm">
           {item.support && (
-            <Text textAlign="center" pt={2} fontStyle="italic" color="white">
+            <>
               {item.support}
-            </Text>
+              <br />
+            </>
           )}
-        </ModalContent>
-      </Modal>
-    </>
+
+          {item?.image?.copyright && (
+            <>
+              Photo Credit: <strong>{item?.image?.copyright}</strong>
+            </>
+          )}
+        </Text>
+      </Box>
+    </Box>
   );
 };
 
