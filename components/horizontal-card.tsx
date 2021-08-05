@@ -10,6 +10,8 @@ import {
   PlainWrapper,
 } from 'components/card';
 import Image from 'components/image';
+import { useRouter } from 'next/router';
+import formatLocale from 'modules/dates';
 
 export const HorizontalCardStyles = {
   baseStyle: {
@@ -52,6 +54,7 @@ const HorizontalCard = ({
   date,
   ...cardProps
 }: HorizontalCardTypes): React.ReactElement => {
+  const { locale } = useRouter();
   const styles = useStyleConfig('HorizontalCard', { variant });
   const gridAreas = isImageLeft
     ? {}
@@ -113,7 +116,10 @@ const HorizontalCard = ({
           {content && <RichText render={content} linkResolver={linkResolver} />}
           {date && (
             <Text fontSize="xs" marginTop="auto">
-              {format(new Date(date), 'd MMMM, yyyy')}
+              {formatLocale({
+                date: new Date(date),
+                locale,
+              })}
             </Text>
           )}
         </ContentBox>

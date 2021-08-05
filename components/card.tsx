@@ -1,5 +1,4 @@
 import { RichText } from 'prismic-reactjs';
-import format from 'date-fns/format';
 import {
   Heading,
   Box,
@@ -13,6 +12,8 @@ import { linkResolver } from 'modules/prismic';
 import Image from 'components/image';
 import Text from 'components/text';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import formatLocale from 'modules/dates';
 
 export const CardStyles = {
   baseStyle: {
@@ -117,6 +118,7 @@ const Card = ({
   date,
   ...cardProps
 }: CardTypes): React.ReactElement => {
+  const { locale } = useRouter();
   const styles = useStyleConfig('Card', { variant });
 
   const Wrapper = href ? LinkWrapper : PlainWrapper;
@@ -152,7 +154,7 @@ const Card = ({
           {content && <RichText render={content} linkResolver={linkResolver} />}
           {date && (
             <Text fontSize="xs" marginTop="auto">
-              {format(new Date(date), 'd MMMM, yyyy')}
+              {formatLocale({ date: new Date(date), locale })}
             </Text>
           )}
         </ContentBox>
