@@ -1,4 +1,4 @@
-import { useStyleConfig, Button as ChakraButton } from '@chakra-ui/react';
+import { useStyleConfig, Button as ChakraButton, Box } from '@chakra-ui/react';
 import { ButtonProps } from 'components';
 import ExternalLink from 'components/external-link';
 
@@ -50,11 +50,12 @@ interface ButtonTypes extends ButtonProps {
 
 const Button = ({ variant, href, ...rest }: ButtonTypes) => {
   const styles = useStyleConfig('Button', { variant });
+  const Wrapper = href ? ExternalLink : Box;
 
   return (
-    <ExternalLink href={href}>
+    <Wrapper href={href}>
       <ChakraButton __css={styles} {...rest} />
-    </ExternalLink>
+    </Wrapper>
   );
 };
 
