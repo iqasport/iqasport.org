@@ -1,7 +1,8 @@
-const { i18n } = require('./next-i18next.config');
-
 module.exports = {
-  i18n,
+  i18n: {
+    defaultLocale: 'en-us',
+    locales: ['en-us', 'de-de', 'fr-fr', 'es-es'],
+  },
   images: {
     domains: ['images.prismic.io', 'iqasport.cdn.prismic.io'],
   },

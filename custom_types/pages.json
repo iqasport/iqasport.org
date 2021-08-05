@@ -36,6 +36,21 @@
                   "default_value": "primary",
                   "label": "Variant"
                 }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Title",
+                  "placeholder": "Latest News"
+                }
+              },
+              "cta_text": {
+                "type": "Text",
+                "config": {
+                  "label": "View more Label",
+                  "placeholder": "View more"
+                }
               }
             },
             "repeat": {}

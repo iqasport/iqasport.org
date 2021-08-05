@@ -1,6 +1,4 @@
 import { useRouter } from 'next/router';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import dynamic from 'next/dynamic';
 import { useQuery } from 'react-query';
 import {
   getPrismicDocByUid,
@@ -9,10 +7,9 @@ import {
   manageLocal,
   getDocs,
 } from 'modules/prismic';
-
-const Meta = dynamic(() => import('components/meta'));
-const Page404 = dynamic(() => import('pages/404'));
-const PageLoading = dynamic(() => import('components/page-loading'));
+import Meta from 'components/meta';
+import Page404 from 'pages/404';
+import PageLoading from 'components/page-loading';
 
 const Home = ({ page: initialPage, posts: initialPosts, preview, lang }) => {
   const router = useRouter();
@@ -61,7 +58,6 @@ export const getStaticProps = async ({ locale, locales }) => {
   const { currentLang, isMyMainLanguage } = manageLocal(locales, locale);
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
       page,
       posts,
       lang: {

@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next';
+import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
@@ -14,23 +14,24 @@ import { cardVariants } from 'components/card';
 import { buttonVariants } from 'components/button';
 
 const LatestNews = ({ posts, ...rawData }) => {
-  const { t } = useTranslation('common');
-  const variant = get(rawData, 'primary.variant');
   const [firstPost, ...rest] = posts;
-  console.log(t('Latest News'));
+
+  const variant = get(rawData, 'primary.variant');
+  const title = get(rawData, 'primary.title');
+  const cta_text = get(rawData, 'primary.cta_text');
 
   return (
     <Slice variant={variant}>
       <Flex alignItems="center" justifyContent="space-between" mt={2} mb={4}>
         <Heading as="h2" m={0}>
-          {t('Latest News')}
+          {RichText.asText(title)}
         </Heading>
         <Button
           href="/news"
           variant={buttonVariants[variant]}
           rightIcon={<ArrowForwardIcon />}
         >
-          {t('View more')}
+          {cta_text}
         </Button>
       </Flex>
       <Grid
