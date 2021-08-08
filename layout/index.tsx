@@ -3,13 +3,7 @@ import { Grid, Flex, Text, Link, Box } from 'components';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
 
-const Layout = ({
-  children,
-  preview = false,
-  page,
-  footerData,
-  headerData,
-}) => {
+const Layout = ({ children, preview = false, footerData, headerData }) => {
   const color = useColorModeValue('gray.800', 'white');
   return (
     <Grid color={color} width="100%" bg="iqaGreen">
@@ -36,7 +30,7 @@ const Layout = ({
         </Flex>
       )}
 
-      <Header page={page} data={headerData} />
+      <Header data={headerData} />
       <Box
         as="main"
         sx={{

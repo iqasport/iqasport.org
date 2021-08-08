@@ -1,6 +1,8 @@
-import NextLink from 'next/link';
-import { linkResolver } from 'modules/prismic';
-import { UnorderedList, ListItem, Link as ChakraLink } from 'components';
+// import NextLink from 'next/link';
+// import { linkResolver } from 'modules/prismic';
+// import { UnorderedList, ListItem, Link as ChakraLink } from 'components';
+import { Select } from 'components';
+import { useRouter } from 'next/router';
 
 function getFlagEmoji(countryCode) {
   const codePoints = countryCode
@@ -10,16 +12,49 @@ function getFlagEmoji(countryCode) {
   return String.fromCodePoint(...codePoints);
 }
 
-const LanguageSwitcher = ({ altLangs = [] }) => (
-  <UnorderedList ml="auto">
-    {altLangs.map((altLang) => (
-      <ListItem display="inline" key={altLang.id} fontSize="3xl" pl={3}>
-        <NextLink locale={altLang.lang} href={linkResolver(altLang)} passHref>
-          <ChakraLink>{getFlagEmoji(altLang.lang.slice(-2))}</ChakraLink>
-        </NextLink>
-      </ListItem>
-    ))}
-  </UnorderedList>
-);
+const locales = {
+  'en-us': {
+    emoji: getFlagEmoji('us'),
+    label: 'English',
+  },
+  'fr-fr': {
+    emoji: getFlagEmoji('fr'),
+    label: 'French',
+  },
+  'de-de': {
+    emoji: getFlagEmoji('de'),
+    label: 'German',
+  },
+  'es-es': {
+    emoji: getFlagEmoji('es'),
+    label: 'Spanish',
+  },
+};
+
+const LanguageSwitcher = (props) => {
+  const { locale: currentLang, push } = useRouter();
+
+  return (
+    <Select
+      bg="white"
+      maxWidth="150px"
+      mr={4}
+      borderRadius="md"
+      value={currentLang}
+      onChange={(e) => {
+        push('/', null, { locale: e.target.value });
+      }}
+      {...props}
+    >
+      {Object.keys(locales).map((locale) => {
+        return (
+          <option key={locale} value={locale}>
+            {locales[locale].emoji} {locales[locale].label}
+          </option>
+        );
+      })}
+    </Select>
+  );
+};
 
 export default LanguageSwitcher;

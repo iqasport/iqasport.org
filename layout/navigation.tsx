@@ -162,7 +162,11 @@ const menuSlices = {
 
 export default function Navigation({ data }) {
   return (
-    <UnorderedList display="flex" flexDirection="row" listStyleType="none">
+    <UnorderedList
+      display={{ base: 'none', lg: 'flex' }}
+      flexDirection="row"
+      listStyleType="none"
+    >
       {data?.map((slice, i) => {
         const Component = menuSlices[slice?.slice_type];
 

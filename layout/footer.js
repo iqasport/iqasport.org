@@ -31,7 +31,9 @@ const ActiveLink = ({ href, children }) => {
         textDecoration="none"
         color="white"
         fontWeight={600}
-        _hover={{ borderBottom: '2px solid', borderColor: 'white' }}
+        borderBottom="2px solid"
+        borderColor={isActive ? 'white' : 'transparent'}
+        _hover={{ borderColor: 'white' }}
       >
         {children}
       </ChakraLink>
