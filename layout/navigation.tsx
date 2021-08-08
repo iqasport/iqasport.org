@@ -97,7 +97,13 @@ const MenuList = ({ wrapperProps, data }) => {
               borderLeft: '6px solid transparent',
               borderRight: '6px solid transparent',
               borderTop: '6px solid',
-              borderTopColor: 'iqaGreen',
+              borderTopColor: childActive ? 'iqaGreen' : 'gray.800',
+            }}
+            sx={{
+              '&:hover::after': {
+                transition: 'all 0.2s ease',
+                borderTopColor: 'iqaGreen',
+              },
             }}
           >
             {label}
