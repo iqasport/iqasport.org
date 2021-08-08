@@ -25,9 +25,9 @@ export const Embed = ({ embed, thumbnail }) => {
   }
 
   if (embed.provider_name === 'Facebook') {
-    const timestamp = embed.href.split('t=')[1];
+    const timestamp = embed.embed_url.split('t=')[1];
     url = `https://www.facebook.com/plugins/video.php?height=314&show_text=false&width=560&href=${
-      embed.href
+      embed.embed_url
     }${timestamp ? `&t=${timestamp}` : ''}`;
   }
 

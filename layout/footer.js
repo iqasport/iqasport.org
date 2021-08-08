@@ -52,7 +52,6 @@ export default function Footer({ data }) {
       bgImage={`url(${backgroundImage})`}
       bgAttachment="fixed"
       bgSize="100%"
-      boxShadow="inset 0px 11px 40px 5px rgba(0,0,0,0.2)"
     >
       <Flex px={{ base: 4, sm: 8, md: 10 }} justifyContent="center">
         <Grid

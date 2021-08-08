@@ -163,7 +163,7 @@ export default function MobileNavigation({
             color: 'iqaGreen',
           }}
           p={0}
-          icon={<CloseIcon w={8} h={8} />}
+          icon={<CloseIcon w={4} h={4} />}
           onClick={onClose}
         />
       </Flex>
