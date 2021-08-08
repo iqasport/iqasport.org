@@ -12,6 +12,8 @@ import get from 'just-safe-get';
 import { Link as PrismicLink } from 'prismic-reactjs';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { linkResolver } from 'modules/prismic';
+
 const backgroundImage = '/images/bg.png';
 const logo = '/images/logo_short_monochrome_white.png';
 
@@ -19,7 +21,7 @@ const Item = (props) => <ListItem lineHeight="32px" {...props} />;
 
 const ActiveLink = ({ href, children }) => {
   const { asPath } = useRouter();
-  const regexAs = RegExp(href.replace(/\//g, '\\/'), 'g');
+  const regexAs = RegExp(href, 'g');
 
   const isActive = regexAs.test(asPath);
 
@@ -28,7 +30,7 @@ const ActiveLink = ({ href, children }) => {
       <ChakraLink
         textDecoration="none"
         color="white"
-        fontWeight={isActive ? 600 : 'normal'}
+        fontWeight={600}
         _hover={{ borderBottom: '2px solid', borderColor: 'white' }}
       >
         {children}
@@ -36,15 +38,6 @@ const ActiveLink = ({ href, children }) => {
     </Link>
   );
 };
-
-// const ExternalLink = (props) => (
-//   <ChakraLink
-//     color="white"
-//     textDecoration="none"
-//     _hover={{ borderBottom: '2px solid', borderColor: 'white' }}
-//     {...props}
-//   />
-// );
 
 export default function Footer({ data }) {
   const disclaimer = get(data, 'disclaimer');
@@ -104,7 +97,7 @@ export default function Footer({ data }) {
             <UnorderedList pl={0} ml={0} styleType="none">
               {menu1.map(({ link_label, link }) => (
                 <Item key={`${link?.url}-${link_label}`}>
-                  <ActiveLink href={PrismicLink.url(link)}>
+                  <ActiveLink href={PrismicLink.url(link, linkResolver)}>
                     {link_label}
                   </ActiveLink>
                 </Item>
@@ -114,7 +107,9 @@ export default function Footer({ data }) {
             <UnorderedList pl={0} ml={0} styleType="none">
               {menu2.map(({ link_label, link }) => (
                 <Item key={`${link?.url}-${link_label}`}>
-                  <ActiveLink href={link.url}>{link_label}</ActiveLink>
+                  <ActiveLink href={PrismicLink.url(link, linkResolver)}>
+                    {link_label}
+                  </ActiveLink>
                 </Item>
               ))}
             </UnorderedList>

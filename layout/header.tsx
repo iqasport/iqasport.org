@@ -1,3 +1,6 @@
+import { Link as PrismicLink } from 'prismic-reactjs';
+import { linkResolver } from 'modules/prismic';
+import get from 'just-safe-get';
 import {
   Flex,
   Image,
@@ -7,6 +10,7 @@ import {
   Link as ChakraLink,
   LinkProps,
 } from 'components';
+import Navigation from 'layout/navigation';
 import Headroom from 'react-headroom';
 import Link from 'next/link';
 
@@ -22,10 +26,13 @@ const IconWrapper = (props: LinkProps) => (
 
 const Icon = (props) => <Box color="white" {...props} />;
 
-export default function Header({ page /* lang */ }) {
+export default function Header({ page, data /* lang */ }) {
   const logoHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextWidth = useBreakpointValue({ base: 100, xl: 120 }) || 100;
+
+  const top_level_navigation = get(data, 'top_level_navigation');
+  const body = get(data, 'body');
 
   return (
     <Box as={Headroom} zIndex={100}>
@@ -40,9 +47,22 @@ export default function Header({ page /* lang */ }) {
           fontSize="sm"
         >
           <HStack spacing={2}>
-            <Link href="/news" passHref>
-              <ChakraLink color="white">COVID-19 Guidance</ChakraLink>
-            </Link>
+            {top_level_navigation?.map(({ link_label, link }) => (
+              <Link
+                key={link_label}
+                href={PrismicLink.url(link, linkResolver)}
+                passHref
+              >
+                <ChakraLink
+                  color="white"
+                  pr={2}
+                  borderRight="1px solid white"
+                  _last={{ borderRight: 'none' }}
+                >
+                  {link_label}
+                </ChakraLink>
+              </Link>
+            ))}
           </HStack>
           <HStack spacing={2}>
             <IconWrapper
@@ -82,8 +102,8 @@ export default function Header({ page /* lang */ }) {
             </IconWrapper>
           </HStack>
         </Flex>
+
         <Flex
-          justifyContent="space-between"
           alignItems="center"
           as="nav"
           h="70px"
@@ -115,6 +135,8 @@ export default function Header({ page /* lang */ }) {
               </HStack>
             </ChakraLink>
           </Link>
+
+          <Navigation data={body} />
 
           <LanguageSwitcher altLangs={page?.alternate_languages} />
         </Flex>

@@ -1,7 +1,7 @@
 import App from 'next/app';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import { ChakraProvider } from '@chakra-ui/react';
+import { AlertDialogHeader, ChakraProvider } from '@chakra-ui/react';
 import Fonts from 'styles/fonts';
 import theme from 'styles/theme';
 import DocumentHead from 'document/head';
@@ -15,6 +15,10 @@ interface Props extends AppProps {
       nenu_1_links: Array<any>;
       menu_2_links: Array<any>;
       disclaimer: string;
+    };
+    header: {
+      top_level_navigation: Array<any>;
+      body: Array<any>;
     };
   };
 }
@@ -30,7 +34,11 @@ function MyApp({ Component, pageProps, props }: Props) {
         <ChakraProvider theme={theme} resetCSS={false}>
           <DocumentHead />
           <Fonts />
-          <Layout {...pageProps} footerData={props.footer}>
+          <Layout
+            {...pageProps}
+            footerData={props.footer}
+            headerData={props.header}
+          >
             <Component {...pageProps} />
           </Layout>
         </ChakraProvider>
@@ -43,14 +51,19 @@ function MyApp({ Component, pageProps, props }: Props) {
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
 
-  const { data } = await Client().getSingle('footer', {
+  const { data: footer } = await Client().getSingle('footer', {
+    lang: appContext.router.locale,
+  });
+
+  const { data: header } = await Client().getSingle('header', {
     lang: appContext.router.locale,
   });
 
   return {
     ...appProps,
     props: {
-      footer: data,
+      footer,
+      header,
     },
   };
 };

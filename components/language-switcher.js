@@ -11,7 +11,7 @@ function getFlagEmoji(countryCode) {
 }
 
 const LanguageSwitcher = ({ altLangs = [] }) => (
-  <UnorderedList>
+  <UnorderedList ml="auto">
     {altLangs.map((altLang) => (
       <ListItem display="inline" key={altLang.id} fontSize="3xl" pl={3}>
         <NextLink locale={altLang.lang} href={linkResolver(altLang)} passHref>
