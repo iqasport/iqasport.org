@@ -11,6 +11,7 @@ import {
   // TwoColumnTable,
   HorizontalCards,
   LatestNews,
+  Carousel,
 } from 'components/prismic';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
@@ -96,6 +97,7 @@ const slices = {
   horizontal_card: HorizontalCards,
   // // two_column_table: TwoColumnTable,
   banner: Banner,
+  carousel: Carousel,
 };
 
 type PrismicSliceProps = {

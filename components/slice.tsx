@@ -29,6 +29,12 @@ export const SliceStyles = {
         maxWidth: '1280px',
       },
     },
+    full: {
+      container: {
+        maxWidth: '100%',
+        px: 0,
+      },
+    },
   },
   variants: {
     primary: {
