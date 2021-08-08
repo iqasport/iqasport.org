@@ -171,7 +171,11 @@ export default function Header({ data }) {
       <Drawer isOpen={isOpen} onClose={onClose} placement="right" size="xs">
         <DrawerOverlay />
         <DrawerContent bg="white" px={3} pt={3} overflowY="auto">
-          <MobileNavigation onClose={onClose} data={body} />
+          <MobileNavigation
+            onClose={onClose}
+            data={body}
+            top_level_navigation={top_level_navigation}
+          />
         </DrawerContent>
       </Drawer>
     </>

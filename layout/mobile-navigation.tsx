@@ -139,7 +139,11 @@ const menuSlices = {
   menu_list: MenuList,
 };
 
-export default function MobileNavigation({ onClose, data }) {
+export default function MobileNavigation({
+  onClose,
+  top_level_navigation,
+  data,
+}) {
   const { push } = useRouter();
   return (
     <>
@@ -188,11 +192,51 @@ export default function MobileNavigation({ onClose, data }) {
         color="gray.800"
         textTransform="uppercase"
         fontSize="1rem"
-        display="grid"
-        gridTemplateColumns="1fr 10px"
         alignItems="center"
-        gridGap={2}
-        // pb={1}
+        pb={1}
+      >
+        Quick Links
+      </Text>
+
+      <UnorderedList listStyleType="none" p={0} ml={0} mt={0} spacing={3}>
+        {top_level_navigation?.map(({ link_label, link }, i) => {
+          const { asPath } = useRouter();
+
+          const regexAs = RegExp(PrismicLink.url(link, linkResolver), 'g');
+
+          const isActive = regexAs.test(asPath);
+          const isExternal = link?.link_type === 'Web';
+          return (
+            <ListItem key={link_label} tabIndex={i + 1}>
+              <Link href={PrismicLink.url(link, linkResolver)} passHref>
+                <ChakraLink
+                  target={isExternal ? '_blank' : '_self'}
+                  alignItems="center"
+                  textDecoration="none"
+                  color="iqaGreen"
+                  borderBottom="2px solid"
+                  borderColor={isActive ? 'iqaGreen' : 'transparent'}
+                  fontWeight={600}
+                  _hover={{ borderColor: 'iqaGreen' }}
+                  _active={{ borderColor: 'iqaGreen' }}
+                  fontSize="1rem"
+                  onClick={onClose}
+                >
+                  {link_label}
+                  {isExternal && <ExternalLinkIcon ml={2} />}
+                </ChakraLink>
+              </Link>
+            </ListItem>
+          );
+        })}
+      </UnorderedList>
+
+      <Text
+        fontWeight={600}
+        color="gray.800"
+        textTransform="uppercase"
+        fontSize="1rem"
+        alignItems="center"
       >
         Social
       </Text>

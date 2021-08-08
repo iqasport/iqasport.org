@@ -55,7 +55,7 @@ const News = ({ page, posts: initialPosts = [], lang }) => {
   return (
     <Box bg="gray.100">
       <Meta subTitle={page?.data?.title} />
-      <Container bg="gray.100" pb={2} px={{ base: 4, md: 8, lg: 9 }}>
+      <Container bg="gray.100" pb={6} px={{ base: 4, md: 8, lg: 9 }}>
         <Heading>{page?.data?.title}</Heading>
         <Grid
           gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
