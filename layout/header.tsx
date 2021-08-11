@@ -154,7 +154,6 @@ export default function Header({ data }) {
             <IconButton
               ml="auto"
               aria-label="Menu"
-              display={{ base: 'initial', lg: 'none' }}
               bg="white"
               _hover={{
                 bg: 'white',
@@ -170,7 +169,7 @@ export default function Header({ data }) {
 
       <Drawer isOpen={isOpen} onClose={onClose} placement="right" size="xs">
         <DrawerOverlay />
-        <DrawerContent bg="white" px={3} pt={3} overflowY="auto">
+        <DrawerContent bg="white" px={5} pt={3} overflowY="auto">
           <MobileNavigation
             onClose={onClose}
             data={body}
