@@ -36,6 +36,7 @@ const LanguageSwitcher = (props) => {
 
   return (
     <Select
+      aria-label="Language Selector"
       bg="white"
       maxWidth="150px"
       mr={4}

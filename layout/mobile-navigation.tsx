@@ -95,7 +95,7 @@ const MenuList = ({ wrapperProps, data, onClose }) => {
       </Text>
 
       <UnorderedList listStyleType="none" pl={0} ml={0} spacing={3}>
-        {items.map((item, i) => {
+        {items.map((item) => {
           const { asPath } = useRouter();
 
           const regexAs = RegExp(
@@ -107,7 +107,7 @@ const MenuList = ({ wrapperProps, data, onClose }) => {
           const isExternal = item?.link?.link_type === 'Web';
 
           return (
-            <ListItem key={item?.link_label} tabIndex={i + 1}>
+            <ListItem key={item?.link_label} tabIndex={0}>
               <Link href={PrismicLink.url(item?.link, linkResolver)} passHref>
                 <ChakraLink
                   target={isExternal ? '_blank' : '_self'}
@@ -177,7 +177,7 @@ export default function MobileNavigation({
               key={`menu-${slice?.slice_type}-${i}`}
               onClose={onClose}
               wrapperProps={{
-                tabIndex: i + 1,
+                tabIndex: 0,
                 mt: 8,
                 _first: { mt: 0 },
               }}
@@ -199,7 +199,7 @@ export default function MobileNavigation({
       </Text>
 
       <UnorderedList listStyleType="none" p={0} ml={0} mt={0} spacing={3}>
-        {top_level_navigation?.map(({ link_label, link }, i) => {
+        {top_level_navigation?.map(({ link_label, link }) => {
           const { asPath } = useRouter();
 
           const regexAs = RegExp(PrismicLink.url(link, linkResolver), 'g');
@@ -207,7 +207,7 @@ export default function MobileNavigation({
           const isActive = regexAs.test(asPath);
           const isExternal = link?.link_type === 'Web';
           return (
-            <ListItem key={link_label} tabIndex={i + 1}>
+            <ListItem key={link_label} tabIndex={0}>
               <Link href={PrismicLink.url(link, linkResolver)} passHref>
                 <ChakraLink
                   target={isExternal ? '_blank' : '_self'}

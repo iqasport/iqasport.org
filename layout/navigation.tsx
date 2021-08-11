@@ -121,7 +121,7 @@ const MenuList = ({ wrapperProps, data }) => {
           <PopoverArrow bg="iqaGreen" />
           <PopoverBody as="nav" py={4} px={2}>
             <UnorderedList listStyleType="none" pl={0} ml={0} spacing={3}>
-              {items.map((item, i) => {
+              {items.map((item) => {
                 const { asPath } = useRouter();
 
                 const regexAs = RegExp(
@@ -133,7 +133,7 @@ const MenuList = ({ wrapperProps, data }) => {
                 const isExternal = item?.link?.link_type === 'Web';
 
                 return (
-                  <ListItem key={item?.link_label} tabIndex={i + 1}>
+                  <ListItem key={item?.link_label} tabIndex={0}>
                     <Link
                       href={PrismicLink.url(item?.link, linkResolver)}
                       passHref
@@ -188,7 +188,7 @@ export default function Navigation({ data }) {
           <Component
             key={`menu-${slice?.slice_type}-${i}`}
             wrapperProps={{
-              tabIndex: i + 1,
+              tabIndex: 0,
               ml: 8,
               _first: { ml: 0 },
             }}

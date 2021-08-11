@@ -96,6 +96,7 @@ const Carousel = (rawData) => {
               <Box
                 as="img"
                 src={item?.image?.url}
+                alt={item?.image?.alt}
                 width="100%"
                 borderRadius={{ base: 0, md: '2xl' }}
               />
