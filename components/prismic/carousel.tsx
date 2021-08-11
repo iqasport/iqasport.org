@@ -13,28 +13,32 @@ const CarouselContainer = (props) => (
     sx={{
       '.flickity-prev-next-button': {
         position: 'absolute',
-        top: '30%',
-        background: 'transparent',
+        top: { base: '30%', md: '40%' },
+        background: 'white',
+        opacity: '0.8',
         fill: 'gray.800',
-        width: '50px',
-        height: '50px',
-        borderRadius: '50%',
+        width: { base: '30px', md: '50px' },
+        height: { base: '30px', md: '50px' },
+        borderRadius: 'full',
+        p: { base: 1, md: 3 },
         border: '0',
+        cursor: 'pointer',
       },
 
       '.previous': {
         left: '0',
-        paddingLeft: '1rem',
+        ml: { base: 4, md: 8 },
       },
 
       '.next': {
         right: '0',
-        paddingRight: '1rem',
+        mr: { base: 4, md: 8 },
       },
 
       img: {
         opacity: 0.2,
         transition: 'opacity 0.2s ease',
+        cursor: 'grab',
       },
 
       em: {
@@ -84,8 +88,17 @@ const Carousel = (rawData) => {
           }}
         >
           {items.map((item, i) => (
-            <Box width="66%" key={`carousel-image-${item?.image.url}-${i}`}>
-              <img src={item?.image?.url} width="100%" />
+            <Box
+              width="66%"
+              key={`carousel-image-${item?.image.url}-${i}`}
+              mx={{ base: 0, md: 4 }}
+            >
+              <Box
+                as="img"
+                src={item?.image?.url}
+                width="100%"
+                borderRadius={{ base: 0, md: '2xl' }}
+              />
               <Box p={2} mt={0}>
                 <Text as="em" fontStyle="italic" fontSize="sm">
                   {item.support && (
