@@ -1,25 +1,20 @@
 import App from 'next/app';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import { AlertDialogHeader, ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import Fonts from 'styles/fonts';
 import theme from 'styles/theme';
 import DocumentHead from 'document/head';
 import { Client } from 'modules/prismic';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import Layout from 'layout';
+import type { FooterProps } from 'layout/footer';
+import type { HeaderProps } from 'layout/header';
 
-interface Props extends AppProps {
+interface MyAppProps extends AppProps {
   props?: {
-    footer: {
-      nenu_1_links: Array<any>;
-      menu_2_links: Array<any>;
-      disclaimer: string;
-    };
-    header: {
-      top_level_navigation: Array<any>;
-      body: Array<any>;
-    };
+    footer: FooterProps;
+    header: HeaderProps;
   };
 }
 
@@ -27,7 +22,7 @@ const Scripts = dynamic(() => import('document/scripts'), { ssr: false });
 
 const queryClient = new QueryClient();
 
-function MyApp({ Component, pageProps, props }: Props) {
+function MyApp({ Component, pageProps, props }: MyAppProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>

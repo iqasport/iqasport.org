@@ -8,6 +8,7 @@ import {
   PopoverArrow,
   PopoverContent,
   PopoverBody,
+  BoxProps,
 } from 'components';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
@@ -15,6 +16,7 @@ import { Link as PrismicLink } from 'prismic-reactjs';
 import { useRouter } from 'next/router';
 import get from 'just-safe-get';
 import { linkResolver } from 'modules/prismic';
+import type { SliceProps } from 'layout/header';
 
 const ActiveLink = ({ href, wrapperProps, children }) => {
   const { asPath } = useRouter();
@@ -44,7 +46,13 @@ const ActiveLink = ({ href, wrapperProps, children }) => {
   );
 };
 
-const MenuItem = ({ wrapperProps, data }) => {
+const MenuItem = ({
+  wrapperProps,
+  data,
+}: {
+  wrapperProps: BoxProps;
+  data: SliceProps;
+}) => {
   const link_label = get(data.primary, 'link_label');
   const link = get(data.primary, 'link');
   return (

@@ -2,13 +2,12 @@ import {
   Box,
   Image,
   Text,
-  Flex,
   Grid,
   ListItem,
   Link as ChakraLink,
   UnorderedList,
+  ListItemProps,
 } from 'components';
-import get from 'just-safe-get';
 import { Link as PrismicLink } from 'prismic-reactjs';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -16,7 +15,27 @@ import { linkResolver } from 'modules/prismic';
 
 const logo = '/images/logo_short_monochrome_white.png';
 
-const Item = (props) => <ListItem lineHeight="32px" {...props} />;
+const Item = (props: ListItemProps) => (
+  <ListItem lineHeight="32px" {...props} />
+);
+
+export type MenuLinksProps = {
+  link_label: 'string';
+  link: {
+    url: 'string';
+  };
+};
+
+export type FooterProps = {
+  menu_1_label: string;
+  menu_2_label: string;
+  menu_3_label: string;
+  menu_1_links: MenuLinksProps[];
+  menu_2_links: MenuLinksProps[];
+  menu_3_links: MenuLinksProps[];
+  disclaimer_label: string;
+  disclaimer: string;
+};
 
 const ActiveLink = ({ href, children }) => {
   const { asPath } = useRouter();
@@ -30,6 +49,7 @@ const ActiveLink = ({ href, children }) => {
         textDecoration="none"
         color="iqaGreen"
         fontWeight={600}
+        fontSize={{ base: 'xs', md: 'md' }}
         borderBottom="2px solid"
         borderColor={isActive ? 'white' : 'transparent'}
         _hover={{ borderColor: 'iqaGreen' }}
@@ -40,17 +60,7 @@ const ActiveLink = ({ href, children }) => {
   );
 };
 
-export default function Footer({ data }) {
-  const disclaimer = get(data, 'disclaimer');
-  const disclaimer_label = get(data, 'disclaimer_label');
-
-  const menu1 = get(data, 'menu_1_links');
-  const menu1_label = get(data, 'menu_1_label');
-  const menu2 = get(data, 'menu_2_links');
-  const menu2_label = get(data, 'menu_2_label');
-  const menu3 = get(data, 'menu_3_links');
-  const menu3_label = get(data, 'menu_3_label');
-
+export default function Footer({ data }: { data: FooterProps }) {
   return (
     <Box as="footer" bg="gray.800">
       <Grid
@@ -80,11 +90,11 @@ export default function Footer({ data }) {
 
         <Box gridArea="menu1">
           <Text as="h3" fontSize="lg" color="white">
-            {menu1_label}
+            {data?.menu_1_label}
           </Text>
 
           <UnorderedList pl={0} ml={0} styleType="none">
-            {menu1.map(({ link_label, link }) => (
+            {data?.menu_1_links.map(({ link_label, link }) => (
               <Item key={`${link?.url}-${link_label}`}>
                 <ActiveLink href={PrismicLink.url(link, linkResolver)}>
                   {link_label}
@@ -96,11 +106,11 @@ export default function Footer({ data }) {
 
         <Box gridArea="menu2">
           <Text as="h3" fontSize="lg" color="white">
-            {menu2_label}
+            {data?.menu_2_label}
           </Text>
 
           <UnorderedList pl={0} ml={0} styleType="none">
-            {menu2.map(({ link_label, link }) => (
+            {data?.menu_2_links.map(({ link_label, link }) => (
               <Item key={`${link?.url}-${link_label}`}>
                 <ActiveLink href={PrismicLink.url(link, linkResolver)}>
                   {link_label}
@@ -112,10 +122,10 @@ export default function Footer({ data }) {
 
         <Box gridArea="menu3">
           <Text as="h3" fontSize="lg" color="white">
-            {menu3_label}
+            {data?.menu_3_label}
           </Text>
           <UnorderedList pl={0} ml={0} styleType="none">
-            {menu3.map(({ link_label, link }) => (
+            {data?.menu_3_links.map(({ link_label, link }) => (
               <Item key={`${link?.url}-${link_label}`}>
                 <ActiveLink href={PrismicLink.url(link, linkResolver)}>
                   {link_label}
@@ -127,10 +137,10 @@ export default function Footer({ data }) {
 
         <Box gridArea="disclaimer">
           <Text as="h3" fontSize="lg" color="white">
-            {disclaimer_label}
+            {data?.disclaimer_label}
           </Text>
           <Text color="white" fontSize="sm">
-            {disclaimer}
+            {data?.disclaimer}
           </Text>
         </Box>
       </Grid>

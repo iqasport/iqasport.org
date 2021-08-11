@@ -1,6 +1,6 @@
 import { Link as PrismicLink } from 'prismic-reactjs';
 import { linkResolver } from 'modules/prismic';
-import get from 'just-safe-get';
+
 import {
   Flex,
   Image,
@@ -14,6 +14,7 @@ import {
   Drawer,
   DrawerContent,
   DrawerOverlay,
+  BoxProps,
 } from 'components';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import DesktopNavigation from 'layout/navigation';
@@ -26,21 +27,41 @@ import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
 import MobileNavigation from './mobile-navigation';
+import { MenuLinksProps } from './footer';
 
 const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="15px" width="15px" {...props} />
 );
 
-const Icon = (props) => <Box color="white" {...props} />;
+const Icon = (props: BoxProps) => <Box color="white" {...props} />;
 
-export default function Header({ data }) {
+export type SliceProps = {
+  slice_type: 'string';
+  primary:
+    | {
+        link_label: 'string';
+        link: 'object';
+      }
+    | {
+        label: 'string';
+        items: {
+          link_label: 'string';
+          link: {
+            link_type: 'string';
+          };
+        }[];
+      };
+};
+export type HeaderProps = {
+  top_level_navigation: MenuLinksProps[];
+  body: SliceProps[];
+};
+
+export default function Header({ data }: { data: HeaderProps }) {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const logoHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextWidth = useBreakpointValue({ base: 100, xl: 120 }) || 100;
-
-  const top_level_navigation = get(data, 'top_level_navigation');
-  const body = get(data, 'body');
 
   return (
     <>
@@ -57,7 +78,7 @@ export default function Header({ data }) {
             display={{ base: 'none', lg: 'flex' }}
           >
             <HStack spacing={2}>
-              {top_level_navigation?.map(({ link_label, link }) => (
+              {data?.top_level_navigation?.map(({ link_label, link }) => (
                 <Link
                   key={link_label}
                   href={PrismicLink.url(link, linkResolver)}
@@ -149,7 +170,7 @@ export default function Header({ data }) {
               </ChakraLink>
             </Link>
 
-            <DesktopNavigation data={body} />
+            <DesktopNavigation data={data?.body} />
 
             <IconButton
               ml="auto"
@@ -172,8 +193,8 @@ export default function Header({ data }) {
         <DrawerContent bg="white" px={5} pt={3} overflowY="auto">
           <MobileNavigation
             onClose={onClose}
-            data={body}
-            top_level_navigation={top_level_navigation}
+            data={data?.body}
+            top_level_navigation={data?.top_level_navigation}
           />
         </DrawerContent>
       </Drawer>

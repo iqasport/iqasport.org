@@ -1,7 +1,6 @@
 import { RichText } from 'prismic-reactjs';
 import { Heading, Box, useStyleConfig } from '@chakra-ui/react';
 import Text from 'components/text';
-import format from 'date-fns/format';
 import { linkResolver } from 'modules/prismic';
 import {
   CardTypes,
