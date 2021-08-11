@@ -26,11 +26,11 @@ export const HorizontalCardStyles = {
   variants: {
     white: {
       bg: 'gray.50',
-      color: 'black',
+      color: 'gray.800',
     },
     primary: {
       bg: 'gray.50',
-      color: 'black',
+      color: 'gray.800',
     },
   },
   defaultProps: {

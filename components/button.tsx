@@ -30,7 +30,7 @@ export const ButtonStyles = {
   variants: {
     white: {
       bg: 'gray.50',
-      color: 'black',
+      color: 'gray.800',
     },
     primary: {
       bg: 'iqaGreen',

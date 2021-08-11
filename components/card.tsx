@@ -26,11 +26,11 @@ export const CardStyles = {
   variants: {
     white: {
       bg: 'gray.50',
-      color: 'black',
+      color: 'gray.800',
     },
     primary: {
       bg: 'white',
-      color: 'black',
+      color: 'gray.800',
     },
   },
   defaultProps: {
