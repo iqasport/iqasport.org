@@ -49,7 +49,7 @@ const Hero = (rawData) => {
           as="h1"
           fontSize={{ base: '4xl', md: '8xl' }}
           color="white"
-          textShadow="lg"
+          textShadow="0 0 40px rgba(0,0,0,0.4)"
           textAlign="left"
           textTransform="uppercase"
         >

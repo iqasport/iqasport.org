@@ -65,6 +65,8 @@ export const linkResolver = ({ type, uid }) => {
       return `/about/${uid}`;
     case 'posts':
       return `/news/${uid}`;
+    case 'events':
+      return `/events/${uid}`;
     case 'pages':
       return uid === 'home' ? '/' : `/${uid}`;
     case 'news':
