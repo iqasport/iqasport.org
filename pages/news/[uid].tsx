@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 
@@ -11,15 +10,13 @@ import {
 } from 'modules/prismic';
 import SchemaArticle from 'components/schema-article';
 import { Flex } from 'components';
+import Meta from 'components/meta';
+import Page404 from 'pages/404';
+import PageLoading from 'components/page-loading';
+import NewsHero from 'components/news-hero';
+import NewsFooter from 'components/news-footer';
+
 const backgroundImage = '/images/news-bg.png';
-
-const Meta = dynamic(() => import('components/meta'));
-const Page404 = dynamic(() => import('pages/404'));
-const PageLoading = dynamic(() => import('components/page-loading'));
-const NewsHero = dynamic(() => import('components/news-hero'));
-// const NewsFooter = dynamic(() => import('components/news-footer'));
-
-// const BlogSupport = dynamic(() => import('components/blog-support'));
 
 const Post = ({ page: initialPage, preview, lang }) => {
   const router = useRouter();
@@ -60,7 +57,7 @@ const Post = ({ page: initialPage, preview, lang }) => {
       >
         <NewsHero {...page.data} />
         {PrismicSlice({ sections: page.data.body })}
-        {/* <NewsFooter {...page.data} tags={page.tags} /> */}
+        <NewsFooter {...page.data} tags={page.tags} />
       </Flex>
     </>
   );
@@ -69,7 +66,7 @@ const Post = ({ page: initialPage, preview, lang }) => {
 export const getStaticProps = async ({
   params: { uid },
   preview = null,
-  previewData = {},
+  previewData = { ref: null },
   locale,
   locales,
 }) => {

@@ -14,7 +14,6 @@ import {
   Drawer,
   DrawerContent,
   DrawerOverlay,
-  BoxProps,
 } from 'components';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import DesktopNavigation from 'layout/navigation';
@@ -33,7 +32,7 @@ const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="15px" width="15px" {...props} />
 );
 
-const Icon = (props: BoxProps) => <Box color="white" {...props} />;
+const Icon = (props) => <Box color="white" {...props} />;
 
 export type SliceProps = {
   slice_type: 'string';
@@ -144,6 +143,7 @@ export default function Header({ data }: { data: HeaderProps }) {
             bg="white"
             boxShadow="md"
             px={3}
+            aria-label="Main Navigation"
           >
             <Link href="/" passHref>
               <ChakraLink>
