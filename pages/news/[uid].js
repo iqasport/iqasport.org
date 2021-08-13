@@ -10,7 +10,7 @@ import {
   manageLocal,
 } from 'modules/prismic';
 import SchemaArticle from 'components/schema-article';
-import { Box } from 'components';
+import { Flex } from 'components';
 const backgroundImage = '/images/news-bg.png';
 
 const Meta = dynamic(() => import('components/meta'));
@@ -47,7 +47,7 @@ const Post = ({ page: initialPage, preview, lang }) => {
     <>
       <Meta {...formatMetadata(page.data)} />
       <SchemaArticle page={page} />
-      <Box
+      <Flex
         as="article"
         width="100%"
         bg="gray.100"
@@ -56,11 +56,12 @@ const Post = ({ page: initialPage, preview, lang }) => {
         bgImage={{ base: 'none', md: `url(${backgroundImage})` }}
         bgSize="100%"
         height="100%"
+        direction="column"
       >
         <NewsHero {...page.data} />
         {PrismicSlice({ sections: page.data.body })}
         {/* <NewsFooter {...page.data} tags={page.tags} /> */}
-      </Box>
+      </Flex>
     </>
   );
 };
