@@ -110,25 +110,12 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
-              },
-              "cta_text" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "CTA Text",
-                  "placeholder" : "CTA Button"
-                }
-              },
-              "cta_url" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "CTA URL",
-                  "placeholder" : "If linking out of QUK, include the https://"
-                }
               }
+              
             },
             "repeat" : { }
           },
@@ -159,8 +146,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               },
@@ -187,20 +174,6 @@
                   "label" : "Image support",
                   "placeholder" : "Support Text that will appear under the image"
                 }
-              },
-              "cta_text" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "CTA Text",
-                  "placeholder" : "CTA Button"
-                }
-              },
-              "cta_url" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "CTA URL",
-                  "placeholder" : "If linking out of QUK, include the https://"
-                }
               }
             }
           },
@@ -214,8 +187,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               }
@@ -262,18 +235,9 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
-                }
-              },
-              "horizontalScroll" : {
-                "type" : "Boolean",
-                "config" : {
-                  "placeholder_false" : "Off",
-                  "placeholder_true" : "On",
-                  "default_value" : false,
-                  "label" : "Horizontal Scroll on Mobile"
                 }
               }
             },
@@ -336,8 +300,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               }
@@ -401,7 +365,7 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
+                  "options" : [ "white", "primary" ],
                   "default_value" : "primary",
                   "label" : "Variant"
                 }
@@ -471,8 +435,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               },
@@ -498,20 +462,6 @@
                   "allowTargetBlank" : true,
                   "label" : "Embed Support text",
                   "placeholder" : "Text that will appear under the embedded video"
-                }
-              },
-              "cta_text" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "CTA Text",
-                  "placeholder" : "CTA Button"
-                }
-              },
-              "cta_url" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "CTA URL",
-                  "placeholder" : "If linking out of QUK, include the https://"
                 }
               }
             }
@@ -549,8 +499,8 @@
               "variant" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "primary", "white" ],
-                  "default_value" : "primary",
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
                   "label" : "Variant"
                 }
               }

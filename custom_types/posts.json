@@ -18,22 +18,20 @@
         "label": "UID"
       }
     },
-    "author": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "IQA Staff"
-        ],
-        "label": "author"
+    "author" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "IQA Staff", "Dec Ramsay", "Betsy Lewin-Leigh", "Pauline Raes", "Aaron Carroll", "Rahel Liviero" ],
+        "default_value" : "IQA Staff",
+        "label" : "author"
       }
     },
-    "category": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "Announcements"
-        ],
-        "label": "category"
+    "category" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Announcements" ],
+        "default_value" : "Announcements",
+        "label" : "category"
       }
     },
     "synopsis": {
@@ -100,20 +98,6 @@
                   ],
                   "default_value": "white",
                   "label": "Variant"
-                }
-              },
-              "cta_text": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA Text",
-                  "placeholder": "CTA Button"
-                }
-              },
-              "cta_url": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA URL",
-                  "placeholder": "If linking out of QUK, include the https://"
                 }
               }
             },
@@ -215,20 +199,6 @@
                   "allowTargetBlank": true,
                   "label": "Image support",
                   "placeholder": "Support Text that will appear under the image"
-                }
-              },
-              "cta_text": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA Text",
-                  "placeholder": "CTA Button"
-                }
-              },
-              "cta_url": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA URL",
-                  "placeholder": "If linking out of QUK, include the https://"
                 }
               }
             }
@@ -447,20 +417,6 @@
                   "label": "Embed support",
                   "placeholder": "Support Text that will appear under the embedded video"
                 }
-              },
-              "cta_text": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA Text",
-                  "placeholder": "CTA Button"
-                }
-              },
-              "cta_url": {
-                "type": "Text",
-                "config": {
-                  "label": "CTA URL",
-                  "placeholder": "If linking out of QUK, include the https://"
-                }
               }
             }
           },
@@ -578,6 +534,98 @@
                   "multi": "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item,o-list-item",
                   "allowTargetBlank": true,
                   "label": "Column Two"
+                }
+              }
+            }
+          },
+          "banner" : {
+            "type" : "Slice",
+            "fieldset" : "Banner",
+            "description" : "Full-width Image with text and CTA overlay",
+            "icon" : "panorama_horizontal",
+            "display" : "list",
+            "non-repeat" : {
+              "title" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "title"
+                }
+              },
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,strong,em",
+                  "label" : "content"
+                }
+              },
+              "cta_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "CTA Text"
+                }
+              },
+              "cta_url" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "CTA URL"
+                }
+              },
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "image"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "carousel" : {
+            "type" : "Slice",
+            "fieldset" : "Carousel",
+            "description" : "Full-width Image Carousel",
+            "icon" : "view_carousel",
+            "display" : "list",
+            "non-repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Title"
+                }
+              },
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Content"
+                }
+              },
+              "variant" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
+                  "label" : "Variant"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              },
+              "support" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Support",
+                  "placeholder" : "Image Support Text..."
                 }
               }
             }
