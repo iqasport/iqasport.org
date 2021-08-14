@@ -38,6 +38,9 @@ const HorizontalCardsSlice = (rawData) => {
               href: Link.url(link, linkResolver),
               target: link.target,
               ariaLabel: title,
+              ...(link.target === '_blank' && {
+                rel: 'noopener noreferrer',
+              }),
             }
           : null;
 

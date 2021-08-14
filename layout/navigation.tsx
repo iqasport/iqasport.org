@@ -134,7 +134,8 @@ const MenuList = ({ wrapperProps, data }) => {
                       passHref
                     >
                       <ChakraLink
-                        target={isExternal ? '_blank' : '_self'}
+                        target={isExternal && '_blank'}
+                        rel={isExternal && 'noopener noreferrer'}
                         display="grid"
                         gridTemplateColumns="1fr 10px"
                         p={2}
