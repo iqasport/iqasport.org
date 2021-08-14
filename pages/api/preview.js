@@ -1,7 +1,7 @@
+import { withSentry } from '@sentry/nextjs';
 import { Client, linkResolver } from 'modules/prismic';
 
-// eslint-disable-next-line consistent-return
-export default async (req, res) => {
+const handler = async (req, res) => {
   const { token: ref, documentId } = req.query;
   try {
     const redirectUrl = await Client(req)
@@ -20,3 +20,5 @@ export default async (req, res) => {
     res.status(400).json({ message: 'Something went wrong' });
   }
 };
+
+export default withSentry(handler);
