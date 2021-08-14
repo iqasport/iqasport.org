@@ -32,7 +32,7 @@ const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="15px" width="15px" {...props} />
 );
 
-const Icon = (props) => <Box color="white" {...props} />;
+const Icon = (props) => <Box color="gray.800" {...props} />;
 
 export type SliceProps = {
   slice_type: 'string';
@@ -84,10 +84,12 @@ export default function Header({ data }: { data: HeaderProps }) {
                   passHref
                 >
                   <ChakraLink
-                    color="white"
+                    color="gray.800"
                     pr={2}
-                    borderRight="1px solid white"
+                    borderRight="1px solid"
+                    borderColor="gray.800"
                     _last={{ borderRight: 'none' }}
+                    fontWeight={600}
                   >
                     {link_label}
                   </ChakraLink>
