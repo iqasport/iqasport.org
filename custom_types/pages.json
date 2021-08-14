@@ -62,7 +62,7 @@
               "slug" : {
                 "type" : "Text",
                 "config" : {
-                  "label" : "slug"
+                  "label" : "Title"
                 }
               },
               "image" : {
