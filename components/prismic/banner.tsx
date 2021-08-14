@@ -70,7 +70,7 @@ const Banner = (rawData) => {
 
           {cta_text && cta_url && (
             <Flex justifyContent="center">
-              <Button type="button" href={cta_url}>
+              <Button type="button" href={cta_url} aria-label={title}>
                 {cta_text}
               </Button>
             </Flex>

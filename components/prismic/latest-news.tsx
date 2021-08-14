@@ -23,12 +23,13 @@ const LatestNews = ({ posts, ...rawData }) => {
   return (
     <Slice variant={variant}>
       <Flex alignItems="center" justifyContent="space-between" mt={2} mb={4}>
-        <Heading as="h2" m={0}>
+        <Heading as="h2" m={0} id="latest-news">
           {RichText.asText(title)}
         </Heading>
         <Button
           href="/news"
           variant={buttonVariants[variant]}
+          aria-labelledby="latest-news"
           rightIcon={<ArrowForwardIcon />}
         >
           {cta_text}
