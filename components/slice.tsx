@@ -93,16 +93,6 @@ export default function Slice({
           py={{ base: 4, lg: 5 }}
           px={{ base: 4, sm: 8, md: 10 }}
           __css={styles.container}
-          sx={{
-            '& a': {
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              color: isWhiteVariant ? 'iqaGreen' : 'gray.800',
-              _hover: {
-                textDecoration: 'underline',
-              },
-            },
-          }}
         >
           <StylesProvider value={styles}>{children}</StylesProvider>
         </Box>

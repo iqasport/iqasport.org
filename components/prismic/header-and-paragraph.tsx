@@ -1,6 +1,6 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Flex, Heading, Button, Slice, Link } from 'components';
+import { Flex, Heading, Button, Slice, Link, Box } from 'components';
 
 import { linkResolver } from 'modules/prismic';
 
@@ -14,23 +14,36 @@ const HeaderAndParagraph = (rawData) => {
 
   return (
     <Slice size="sm" variant={variant}>
-      {RichText.asText(title) && (
-        <Heading as="h2" mt={2} textAlign={centerTitle ? 'center' : 'left'}>
-          {RichText.asText(title)}
-        </Heading>
-      )}
+      <Box
+        sx={{
+          '& a': {
+            fontWeight: 'bold',
+            textDecoration: 'none',
+            color: variant === 'white' ? 'iqaGreen' : 'gray.800',
+            _hover: {
+              textDecoration: 'underline',
+            },
+          },
+        }}
+      >
+        {RichText.asText(title) && (
+          <Heading as="h2" mt={2} textAlign={centerTitle ? 'center' : 'left'}>
+            {RichText.asText(title)}
+          </Heading>
+        )}
 
-      {RichText.asText(content) && (
-        <>{RichText.render(content, linkResolver)}</>
-      )}
+        {RichText.asText(content) && (
+          <>{RichText.render(content, linkResolver)}</>
+        )}
 
-      {cta_text && cta_url && (
-        <Flex justifyContent="center">
-          <Link href={cta_url}>
-            <Button type="button">{cta_text}</Button>
-          </Link>
-        </Flex>
-      )}
+        {cta_text && cta_url && (
+          <Flex justifyContent="center">
+            <Link href={cta_url}>
+              <Button type="button">{cta_text}</Button>
+            </Link>
+          </Flex>
+        )}
+      </Box>
     </Slice>
   );
 };

@@ -50,7 +50,7 @@ const Post = ({ page: initialPage, preview, lang }) => {
         bg="gray.100"
         backgroundRepeat="no-repeat"
         backgroundSize="fixed"
-        bgImage={{ base: 'none', md: `url(${backgroundImage})` }}
+        bgImage={`url(${backgroundImage})`}
         bgSize="100%"
         height="100%"
         direction="column"
