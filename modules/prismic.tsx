@@ -57,7 +57,7 @@ export const getPrismicDocByUid = (type, uid, options = {}) => {
 
 export const PAGE_SIZE = 6;
 
-export const linkResolver = ({ type, uid }) => {
+export const linkResolver = ({ type, uid }: { type: string; uid: string }) => {
   switch (type) {
     case 'volunteer':
       return `/volunteer/${uid}`;
@@ -118,4 +118,23 @@ export function PrismicSlice({ sections, posts }: PrismicSliceProps) {
 
     return <Component key={`prismic-${i}`} {...section} posts={posts} />;
   });
+}
+
+export async function getStaticPrismicProps({
+  type,
+  uid,
+  lang,
+  locales,
+  previewData,
+}) {
+  const { ref } = previewData;
+  const page = await getPrismicDocByUid(type, uid, { lang, ref });
+
+  const posts = await getDocs('posts', {
+    orderings: '[my.posts.date desc]',
+    lang,
+  });
+
+  const { currentLang, isMyMainLanguage } = manageLocal(locales, lang);
+  return { page, posts, lang: { currentLang, isMyMainLanguage } };
 }

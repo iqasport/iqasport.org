@@ -1,6 +1,3 @@
-// import NextLink from 'next/link';
-// import { linkResolver } from 'modules/prismic';
-// import { UnorderedList, ListItem, Link as ChakraLink } from 'components';
 import { Select } from 'components';
 import { useRouter } from 'next/router';
 

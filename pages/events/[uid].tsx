@@ -4,7 +4,7 @@ import PrismicPage from 'components/prismic-page';
 
 const Page = (props) => {
   const router = useRouter();
-  return <PrismicPage type="pages" uid={router.query.uid} {...props} />;
+  return <PrismicPage type="events" uid={router.query.uid} {...props} />;
 };
 
 export const getStaticProps = async ({
@@ -16,7 +16,7 @@ export const getStaticProps = async ({
 }) => {
   const prismicProps = await getStaticPrismicProps({
     previewData,
-    type: 'pages',
+    type: 'events',
     uid,
     lang: locale,
     locales,
@@ -29,10 +29,10 @@ export const getStaticProps = async ({
 };
 
 export const getStaticPaths = async () => {
-  const allPages = await getDocs('pages');
+  const allPages = await getDocs('events');
 
   return {
-    paths: allPages?.map(({ uid }) => `/${uid}`),
+    paths: allPages?.map(({ uid }) => `events/${uid}`),
     fallback: true,
   };
 };
