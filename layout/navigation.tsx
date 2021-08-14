@@ -8,7 +8,7 @@ import {
   PopoverArrow,
   PopoverContent,
   PopoverBody,
-  BoxProps,
+  ListItemProps,
 } from 'components';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
@@ -18,16 +18,29 @@ import get from 'just-safe-get';
 import { linkResolver } from 'modules/prismic';
 import type { SliceProps } from 'layout/header';
 
-const ActiveLink = ({ href, wrapperProps, children }) => {
+const MenuItem = ({
+  wrapperProps,
+  data,
+}: {
+  wrapperProps: ListItemProps;
+  data: SliceProps;
+}) => {
   const { asPath } = useRouter();
+  const link_label = get(data.primary, 'link_label');
+  const link = get(data.primary, 'link');
+  const href = PrismicLink.url(link, linkResolver);
+
   const regexAs = RegExp(href.replace(/\//g, '\\/'), 'g');
 
   const isActive = regexAs.test(asPath);
 
   return (
-    <ListItem {...wrapperProps}>
+    <ListItem role="none" {...wrapperProps}>
       <Link href={href} passHref>
         <ChakraLink
+          as="button"
+          bg="inherit"
+          border="0"
           display="grid"
           gridTemplateColumns="1fr"
           pb={1}
@@ -39,29 +52,10 @@ const ActiveLink = ({ href, wrapperProps, children }) => {
           _hover={{ color: 'iqaGreen' }}
           fontSize="1rem"
         >
-          {children}
+          {link_label}
         </ChakraLink>
       </Link>
     </ListItem>
-  );
-};
-
-const MenuItem = ({
-  wrapperProps,
-  data,
-}: {
-  wrapperProps: BoxProps;
-  data: SliceProps;
-}) => {
-  const link_label = get(data.primary, 'link_label');
-  const link = get(data.primary, 'link');
-  return (
-    <ActiveLink
-      href={PrismicLink.url(link, linkResolver)}
-      wrapperProps={wrapperProps}
-    >
-      {link_label}
-    </ActiveLink>
   );
 };
 
@@ -82,10 +76,11 @@ const MenuList = ({ wrapperProps, data }) => {
   }, [setChildActive, items, PrismicLink, linkResolver]);
 
   return (
-    <ListItem {...wrapperProps}>
+    <ListItem role="none" {...wrapperProps}>
       <Popover>
         <PopoverTrigger>
           <ChakraLink
+            role="menuitem"
             position="relative"
             fontWeight={600}
             color={childActive ? 'iqaGreen' : 'gray.800'}
@@ -180,6 +175,9 @@ export default function Navigation({ data }) {
       display={{ base: 'none', lg: 'flex' }}
       flexDirection="row"
       listStyleType="none"
+      id="mainNavigation"
+      role="menubar"
+      aria-label="Main Navigation"
     >
       {data?.map((slice, i) => {
         const Component = menuSlices[slice?.slice_type];
@@ -188,7 +186,6 @@ export default function Navigation({ data }) {
           <Component
             key={`menu-${slice?.slice_type}-${i}`}
             wrapperProps={{
-              tabIndex: 0,
               ml: 8,
               _first: { ml: 0 },
             }}
