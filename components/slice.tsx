@@ -92,7 +92,7 @@ export default function Slice({
           mx="auto"
           py={{ base: 4, lg: 5 }}
           px={{ base: 4, sm: 8, md: 10 }}
-          __css={styles.container}
+          sx={styles.container}
         >
           <StylesProvider value={styles}>{children}</StylesProvider>
         </Box>
