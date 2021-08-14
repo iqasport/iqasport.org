@@ -10,7 +10,6 @@ import {
   ListItemProps,
   HStack,
   LinkProps,
-  BoxProps,
 } from 'components';
 import FacebookIcon from 'public/images/facebook.svg';
 import YoutubeIcon from 'public/images/youtube.svg';
@@ -28,7 +27,7 @@ const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="15px" width="15px" {...props} />
 );
 
-const Icon = (props: BoxProps) => <Box color="white" {...props} />;
+const Icon = (props) => <Box color="white" {...props} />;
 
 const Item = (props: ListItemProps) => (
   <ListItem lineHeight="32px" {...props} />
@@ -62,12 +61,14 @@ const ActiveLink = ({ href, children }) => {
     <Link href={href} passHref>
       <ChakraLink
         textDecoration="none"
-        color="iqaGreen"
+        color={isActive ? 'white' : 'iqaGreen'}
         fontWeight={600}
         fontSize={{ base: 'xs', md: 'md' }}
         borderBottom="2px solid"
         borderColor={isActive ? 'white' : 'transparent'}
-        _hover={{ borderColor: 'iqaGreen' }}
+        _hover={{
+          borderColor: isActive ? 'white' : 'iqaGreen',
+        }}
       >
         {children}
       </ChakraLink>
