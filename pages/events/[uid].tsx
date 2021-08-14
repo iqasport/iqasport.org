@@ -32,7 +32,7 @@ export const getStaticPaths = async () => {
   const allPages = await getDocs('events');
 
   return {
-    paths: allPages?.map(({ uid }) => `events/${uid}`),
+    paths: allPages?.map(({ uid }) => `/events/${uid}`),
     fallback: true,
   };
 };
