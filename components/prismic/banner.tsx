@@ -34,7 +34,7 @@ const Banner = (rawData) => {
           position="absolute"
           minHeight={BANNER_MIN_HEIGHTS}
           bg="green.800"
-          opacity={0.7}
+          opacity={0.75}
           boxShadow="inset 0px 0px 100px rgba(0, 0, 0, 0.9)"
           width="100%"
           h="100%"
