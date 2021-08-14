@@ -241,7 +241,7 @@ export default function MobileNavigation({
         Social
       </Text>
 
-      <HStack spacing={2} mt={1} mb={2}>
+      <HStack spacing={5} mt={1} mb={2}>
         <IconWrapper
           aria-label="Like us on Facebook"
           href="https://www.facebook.com/InternationalQuidditchAssociation/"

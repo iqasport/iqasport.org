@@ -99,7 +99,7 @@ export default function Header({ data }: { data: HeaderProps }) {
 
             <LanguageSwitcher ml="auto" size="xs" />
 
-            <HStack spacing={2}>
+            <HStack spacing={5}>
               <IconWrapper
                 aria-label="Like us on Facebook"
                 href="https://www.facebook.com/InternationalQuidditchAssociation/"
