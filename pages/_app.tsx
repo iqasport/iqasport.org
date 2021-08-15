@@ -1,4 +1,6 @@
 import App from 'next/app';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -10,6 +12,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import Layout from 'layout';
 import type { FooterProps } from 'layout/footer';
 import type { HeaderProps } from 'layout/header';
+import { pageview } from 'modules/analytics';
 
 interface MyAppProps extends AppProps {
   props?: {
@@ -23,6 +26,19 @@ const Scripts = dynamic(() => import('document/scripts'), { ssr: false });
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps, props }: MyAppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events, pageview]);
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -56,10 +72,7 @@ MyApp.getInitialProps = async (appContext) => {
 
   return {
     ...appProps,
-    props: {
-      footer,
-      header,
-    },
+    props: { footer, header },
   };
 };
 

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-
+import Script from 'next/script';
 import reset from 'styles/reset';
 
 export default function DocumentHead() {
@@ -66,23 +66,21 @@ export default function DocumentHead() {
       <style dangerouslySetInnerHTML={{ __html: reset }} />
 
       {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <script
-        async
-        defer
+      <Script
+        strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TOKEN}`}
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_TOKEN}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-        }}
-      />
+
+      <Script strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_TOKEN}', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
     </Head>
   );
 }
