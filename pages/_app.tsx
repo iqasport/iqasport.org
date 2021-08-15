@@ -1,4 +1,5 @@
 import App from 'next/app';
+import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
@@ -12,7 +13,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import Layout from 'layout';
 import type { FooterProps } from 'layout/footer';
 import type { HeaderProps } from 'layout/header';
-import { pageview } from 'modules/analytics';
+import GTag, { pageview } from 'modules/analytics';
 
 interface MyAppProps extends AppProps {
   props?: {
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps, props }: MyAppProps) {
     <>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider theme={theme} resetCSS={false}>
+          <GTag />
           <DocumentHead />
           <Fonts />
           <Layout

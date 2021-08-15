@@ -1,3 +1,5 @@
+import Script from 'next/script';
+
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL) => {
   if (process.env.NODE_ENV !== 'development') {
@@ -24,3 +26,26 @@ export const event = ({ action, category, label, value }: GTagEvent) => {
     });
   }
 };
+
+// Global Site Tag (gtag.js) - Google Analytics
+const GTag = () => (
+  <>
+    <Script
+      strategy="lazyOnload"
+      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TOKEN}`}
+    />
+
+    <Script strategy="lazyOnload">
+      {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_TOKEN}', {
+            page_path: window.location.pathname,
+          });
+        `}
+    </Script>
+  </>
+);
+
+export default GTag;
