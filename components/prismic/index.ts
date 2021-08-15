@@ -10,6 +10,7 @@ import HorizontalCards from 'components/prismic/horizontal-cards';
 import LatestNews from 'components/prismic/latest-news';
 import Banner from 'components/prismic/banner';
 import Carousel from 'components/prismic/carousel';
+import MemberCards from 'components/prismic/member-cards';
 
 export {
   Hero,
@@ -24,4 +25,5 @@ export {
   LatestNews,
   Banner,
   Carousel,
+  MemberCards,
 };

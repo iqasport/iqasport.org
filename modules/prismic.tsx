@@ -12,6 +12,7 @@ import {
   HorizontalCards,
   LatestNews,
   Carousel,
+  MemberCards,
 } from 'components/prismic';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
@@ -100,6 +101,7 @@ const slices = {
   // // two_column_table: TwoColumnTable,
   banner: Banner,
   carousel: Carousel,
+  member_card: MemberCards,
 };
 
 type PrismicSliceProps = {
@@ -113,6 +115,7 @@ export function PrismicSlice({ sections, posts }: PrismicSliceProps) {
 
     if (!Component) {
       console.warn('Missing Prismic Component ID: ', section.slice_type);
+      console.warn(section);
       return null;
     }
 

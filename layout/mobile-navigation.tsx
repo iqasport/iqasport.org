@@ -110,8 +110,8 @@ const MenuList = ({ wrapperProps, data, onClose }) => {
             <ListItem key={item?.link_label} tabIndex={0}>
               <Link href={PrismicLink.url(item?.link, linkResolver)} passHref>
                 <ChakraLink
-                  target={isExternal && '_blank'}
-                  rel={isExternal && 'noopener noreferrer'}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
                   alignItems="center"
                   textDecoration="none"
                   color="iqaGreen"
@@ -211,8 +211,8 @@ export default function MobileNavigation({
             <ListItem key={link_label} tabIndex={0}>
               <Link href={PrismicLink.url(link, linkResolver)} passHref>
                 <ChakraLink
-                  target={isExternal ? '_blank' : '_self'}
-                  rel={isExternal && 'noopener noreferrer'}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
                   alignItems="center"
                   textDecoration="none"
                   color="iqaGreen"
