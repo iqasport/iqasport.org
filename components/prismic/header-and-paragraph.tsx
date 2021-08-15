@@ -27,7 +27,13 @@ const HeaderAndParagraph = (rawData) => {
         }}
       >
         {RichText.asText(title) && (
-          <Heading as="h2" mt={2} textAlign={centerTitle ? 'center' : 'left'}>
+          <Heading
+            as="h2"
+            mt={2}
+            textAlign={centerTitle ? 'center' : 'left'}
+            fontFamily="body"
+            fontWeight="black"
+          >
             {RichText.asText(title)}
           </Heading>
         )}

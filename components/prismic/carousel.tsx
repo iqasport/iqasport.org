@@ -68,7 +68,13 @@ const Carousel = (rawData) => {
   return (
     <Slice size="full" variant={variant}>
       {RichText.asText(title) && (
-        <Heading as="h2" mt={2} textAlign="center">
+        <Heading
+          as="h2"
+          mt={2}
+          textAlign="center"
+          fontFamily="body"
+          fontWeight="black"
+        >
           {RichText.asText(title)}
         </Heading>
       )}

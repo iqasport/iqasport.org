@@ -128,7 +128,14 @@ const EmbedSlice = (rawData) => {
   return (
     <Slice variant={variant}>
       {RichText.asText(title) && (
-        <Heading as="h2" fontSize="xl" mt={2} textAlign="center">
+        <Heading
+          as="h2"
+          fontSize="xl"
+          mt={2}
+          textAlign="center"
+          fontFamily="body"
+          fontWeight="black"
+        >
           {RichText.asText(title)}
         </Heading>
       )}

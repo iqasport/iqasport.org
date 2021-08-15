@@ -26,7 +26,13 @@ const Item = ({ item, isEmbedLeft }) => (
 
     <Flex direction="column" justifyContent="center" gridArea="content">
       {RichText.asText(item.title) && (
-        <Heading as="h2" fontSize="xl" mt={2}>
+        <Heading
+          as="h2"
+          fontSize="xl"
+          mt={2}
+          fontFamily="body"
+          fontWeight="black"
+        >
           {RichText.asText(item.title)}
         </Heading>
       )}

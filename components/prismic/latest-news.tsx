@@ -23,7 +23,13 @@ const LatestNews = ({ posts, ...rawData }) => {
   return (
     <Slice variant={variant}>
       <Flex alignItems="center" justifyContent="space-between" mt={2} mb={4}>
-        <Heading as="h2" m={0} id="latest-news">
+        <Heading
+          as="h2"
+          m={0}
+          id="latest-news"
+          fontFamily="body"
+          fontWeight="black"
+        >
           {RichText.asText(title)}
         </Heading>
         <Button

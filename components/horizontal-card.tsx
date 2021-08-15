@@ -108,7 +108,7 @@ const HorizontalCard = ({
           minHeight={image?.src ? 'initial' : '300px'}
         >
           {title && (
-            <Heading as="h2" fontSize="xl">
+            <Heading as="h2" fontSize="xl" fontFamily="body">
               {title}
             </Heading>
           )}

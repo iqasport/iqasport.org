@@ -46,7 +46,13 @@ const Item = ({ item, isImageLeft }) => (
 
     <Flex direction="column" justifyContent="center" gridArea="content">
       {RichText.asText(item.title) && (
-        <Heading as="h2" fontSize={{ base: 'xl', md: '3xl' }} mt={2}>
+        <Heading
+          as="h2"
+          fontSize={{ base: 'xl', md: '3xl' }}
+          mt={2}
+          fontFamily="body"
+          fontWeight="black"
+        >
           {RichText.asText(item.title)}
         </Heading>
       )}
@@ -54,16 +60,6 @@ const Item = ({ item, isImageLeft }) => (
       {item.content && (
         <RichText render={item.content} linkResolver={linkResolver} />
       )}
-
-      {/* {item.cta_text && (
-        <Flex justifyContent="center">
-          <ExternalLink href={item.cta_url}>
-            <Button type="button" variant={buttonVariants[item.variant]} ml={2}>
-              {item.cta_text}
-            </Button>
-          </ExternalLink>
-        </Flex>
-      )} */}
     </Flex>
   </Grid>
 );
