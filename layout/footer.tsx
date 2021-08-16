@@ -96,7 +96,6 @@ export default function Footer({ data }: { data: FooterProps }) {
         <Image
           gridArea="logo"
           src={logo}
-          priority={true}
           layout="responsive"
           alt="IQA Logo"
           height={200}
