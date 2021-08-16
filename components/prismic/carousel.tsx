@@ -1,7 +1,7 @@
 import { RichText } from 'prismic-reactjs';
 import Flickity from 'react-flickity-component';
 import get from 'just-safe-get';
-import { Slice, Box, Heading, Text } from 'components';
+import { Slice, Box, Heading, Text, Image, Flex } from 'components';
 import { linkResolver } from 'modules/prismic';
 
 const CarouselContainer = (props) => (
@@ -13,7 +13,7 @@ const CarouselContainer = (props) => (
     sx={{
       '.flickity-prev-next-button': {
         position: 'absolute',
-        top: { base: '30%', md: '40%' },
+        top: '40%',
         background: 'white',
         opacity: '0.8',
         fill: 'gray.800',
@@ -41,7 +41,7 @@ const CarouselContainer = (props) => (
         cursor: 'grab',
       },
 
-      em: {
+      'div[data-carousel="caption"]': {
         opacity: 0,
         transition: 'opacity 0.2s ease',
       },
@@ -51,7 +51,7 @@ const CarouselContainer = (props) => (
         transition: 'opacity 0.2s ease',
       },
 
-      'div.is-selected em': {
+      'div.is-selected div[data-carousel="caption"]': {
         opacity: 1,
         transition: 'opacity 0.2s ease',
       },
@@ -73,7 +73,7 @@ const Carousel = (rawData) => {
           mt={2}
           textAlign="center"
           fontFamily="body"
-          fontWeight="black"
+          fontWeight="bold"
         >
           {RichText.asText(title)}
         </Heading>
@@ -95,19 +95,34 @@ const Carousel = (rawData) => {
         >
           {items.map((item, i) => (
             <Box
-              width="66%"
+              width={{ base: '100%', md: '66%' }}
               key={`carousel-image-${item?.image.url}-${i}`}
               mx={{ base: 0, md: 4 }}
+              position="relative"
+              pb={{ base: '56.25%', md: '40%' }}
             >
-              <Box
-                as="img"
+              <Image
+                layout="fill"
                 src={item?.image?.url}
                 alt={item?.image?.alt}
-                width="100%"
+                objectFit="cover"
                 borderRadius={{ base: 0, md: '2xl' }}
               />
-              <Box p={2} mt={0}>
-                <Text as="em" fontStyle="italic" fontSize="sm">
+              <Flex
+                flexDirection="column"
+                justifyContent="flex-end"
+                data-carousel="caption"
+                p={2}
+                mt={0}
+                position="absolute"
+                bottom="0"
+                width="100%"
+                height="150px"
+                borderRadius={{ base: 0, md: '2xl' }}
+                bgGradient="linear(to-t, rgba(0,0,0,1), rgba(0,0,0,0))"
+                zIndex="2"
+              >
+                <Text as="em" fontStyle="italic" fontSize="sm" color="white">
                   {item.support && (
                     <>
                       {item.support}
@@ -121,7 +136,7 @@ const Carousel = (rawData) => {
                     </>
                   )}
                 </Text>
-              </Box>
+              </Flex>
             </Box>
           ))}
         </Flickity>
