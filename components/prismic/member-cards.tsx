@@ -39,7 +39,13 @@ const MemberCardsSlice = (rawData) => {
   return (
     <Slice variant={variant}>
       {RichText.asText(title) && (
-        <Heading as="h2" mt={2} textAlign="center" px={{ base: 0, md: 9 }}>
+        <Heading
+          as="h2"
+          mt={2}
+          textAlign="center"
+          px={{ base: 0, md: 9 }}
+          fontFamily="body"
+        >
           {RichText.asText(title)}
         </Heading>
       )}
