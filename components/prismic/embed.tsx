@@ -70,6 +70,7 @@ export const Embed = ({ embed, thumbnail }) => {
         size="full"
         onClose={onClose}
         allowPinchZoom={true}
+        isCentered
       >
         <ModalOverlay bg="blackAlpha.800" />
         <ModalContent
