@@ -28,7 +28,7 @@ const LatestNews = ({ posts, ...rawData }) => {
           m={0}
           id="latest-news"
           fontFamily="body"
-          fontWeight="black"
+          fontWeight="bold"
         >
           {RichText.asText(title)}
         </Heading>

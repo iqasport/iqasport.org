@@ -31,7 +31,7 @@ const Item = ({ item, isEmbedLeft }) => (
           fontSize="xl"
           mt={2}
           fontFamily="body"
-          fontWeight="black"
+          fontWeight="bold"
         >
           {RichText.asText(item.title)}
         </Heading>

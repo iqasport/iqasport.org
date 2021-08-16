@@ -51,7 +51,7 @@ const Item = ({ item, isImageLeft }) => (
           fontSize={{ base: 'xl', md: '3xl' }}
           mt={2}
           fontFamily="body"
-          fontWeight="black"
+          fontWeight="bold"
         >
           {RichText.asText(item.title)}
         </Heading>

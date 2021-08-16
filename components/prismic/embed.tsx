@@ -135,7 +135,7 @@ const EmbedSlice = (rawData) => {
           mt={2}
           textAlign="center"
           fontFamily="body"
-          fontWeight="black"
+          fontWeight="bold"
         >
           {RichText.asText(title)}
         </Heading>
