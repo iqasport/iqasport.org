@@ -1,7 +1,6 @@
 import { Box } from 'components';
 import { useMultiStyleConfig, StylesProvider } from '@chakra-ui/react';
-// import { mode } from '@chakra-ui/theme-tools';
-const backgroundImage = '/images/bg.png';
+const backgroundImage = '/images/bg.webp';
 
 export const SliceStyles = {
   parts: ['slice', 'container'],
