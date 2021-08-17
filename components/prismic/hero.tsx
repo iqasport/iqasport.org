@@ -26,7 +26,6 @@ const Hero = (rawData) => {
         objectPosition="center center"
         objectFit="cover"
         borderRadius={0}
-        priority={true}
         clipPath="ellipse(100% 51% at 46% 43%)"
       />
       <Flex
