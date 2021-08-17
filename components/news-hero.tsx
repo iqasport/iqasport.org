@@ -29,15 +29,13 @@ const NewsHero = ({ title, date, category, image }) => {
         </Heading>
       </Container>
       <Container maxWidth="768px">
-        <Box
-          as={Image}
+        <Image
           layout="responsive"
           src={image?.url}
           alt={image?.alt}
           priority={true}
           width={image?.dimensions?.width}
           height={image?.dimensions?.height}
-          borderRadius={{ base: 'none', md: '2xl' }}
         />
         {image?.copyright && (
           <Box p={2} mt={2}>
