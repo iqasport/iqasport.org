@@ -24,6 +24,10 @@ const HeaderAndParagraph = (rawData) => {
               textDecoration: 'underline',
             },
           },
+          '& li': {
+            lineHeight: '1.5rem',
+            fontSize: '1.125rem',
+          },
         }}
       >
         {RichText.asText(title) && (

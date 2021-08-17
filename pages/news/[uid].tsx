@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
+import { RichText } from 'prismic-reactjs';
 
 import {
   getDocs,
@@ -40,9 +41,16 @@ const Post = ({ page: initialPage, preview, lang }) => {
 
   const page = preview ? initialPage : queryData;
 
+  const metaData = {
+    description:
+      page?.data?.meta_description || RichText.asText(page?.data?.synopsis),
+    subTitle: page?.data?.meta_title || page?.data?.title,
+    image: page?.data?.meta_image.url || page?.data?.image?.url,
+  };
+
   return (
     <>
-      <Meta {...formatMetadata(page.data)} />
+      <Meta {...metaData} />
       <SchemaArticle page={page} />
       <Flex
         as="article"
