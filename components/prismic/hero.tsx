@@ -1,9 +1,7 @@
 import get from 'just-safe-get';
-import dynamic from 'next/dynamic';
 import { Box, Flex, Heading } from 'components';
 import { HERO_MIN_HEIGHTS } from 'styles/hero-heights';
-
-const Image = dynamic(() => import('components/image'));
+import Image from 'next/image';
 
 const Hero = (rawData) => {
   const title = get(rawData, 'primary.slug');
@@ -19,13 +17,14 @@ const Hero = (rawData) => {
       px={0}
       minHeight={HERO_MIN_HEIGHTS}
     >
-      <Image
+      <Box
+        as={Image}
         src={image.url}
         alt={image.alt}
         layout="fill"
         objectPosition="center center"
         objectFit="cover"
-        borderRadius={0}
+        priority={true}
         clipPath="ellipse(100% 51% at 46% 43%)"
       />
       <Flex
