@@ -112,7 +112,9 @@ export const LinkWrapper = ({ href, ...props }) => (
   </Link>
 );
 
-export const PlainWrapper = (props) => <GridItem {...props} />;
+export const PlainWrapper = (props) => (
+  <GridItem display="flex" flexGrow={1} {...props} />
+);
 
 const Card = ({
   image,
