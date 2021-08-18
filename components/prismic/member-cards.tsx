@@ -1,5 +1,6 @@
 import { RichText, Link } from 'prismic-reactjs';
 import get from 'just-safe-get';
+import { InfoOutlineIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 
 import { Flex, Heading, Box, Slice, Card, Grid, Text } from 'components';
 import { cardVariants } from 'components/card';
@@ -69,11 +70,18 @@ const MemberCardsSlice = (rawData) => {
           };
 
           const content = (
-            <Text>
-              <strong>Country:</strong> {data?.country}
-              <br />
-              <strong>Web:</strong> {data?.link?.url}
-            </Text>
+            <>
+              <Heading fontSize="3xl" fontFamily="body" mb={0} mt={0}>
+                {data?.title}
+              </Heading>
+              <Text fontSize="sm" fontStyle="italic" mt={2}>
+                <InfoOutlineIcon mr={2} color="gray.400" />
+                {data?.country}
+                <br />
+                <ExternalLinkIcon mr={2} color="gray.400" />
+                {data?.link?.url}
+              </Text>
+            </>
           );
 
           return (
@@ -83,7 +91,7 @@ const MemberCardsSlice = (rawData) => {
             >
               <Card
                 {...linkProps}
-                title={data?.title}
+                // title={data?.title}
                 content={content}
                 variant={cardVariants[variant]}
                 image={{
