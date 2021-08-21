@@ -161,7 +161,11 @@ const Card = ({
           sx={{
             '& a': {
               fontWeight: 'bold',
-              color: 'gray.800',
+              color: 'iqaGreen',
+              textDecoration: 'none',
+              _hover: {
+                textDecoration: 'underline',
+              },
             },
           }}
         >
