@@ -106,6 +106,16 @@ const HorizontalCard = ({
           px={4}
           gridArea="content"
           minHeight={image?.src ? 'initial' : '300px'}
+          sx={{
+            '& a': {
+              fontWeight: 'bold',
+              color: 'iqaGreen',
+              textDecoration: 'none',
+              _hover: {
+                textDecoration: 'underline',
+              },
+            },
+          }}
         >
           {title && (
             <Heading as="h2" fontSize="xl" fontFamily="body">
