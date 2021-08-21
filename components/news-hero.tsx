@@ -1,4 +1,5 @@
-import { Heading, Container, Box, Text, Flex, Image } from 'components';
+import { Heading, Container, Box, Text, Flex } from 'components';
+import Image from 'next/image';
 import formatLocale from 'modules/dates';
 import { useRouter } from 'next/router';
 
@@ -32,9 +33,9 @@ const NewsHero = ({ title, date, category, image }) => {
           layout="responsive"
           src={image?.url}
           alt={image?.alt}
+          priority={true}
           width={image?.dimensions?.width}
           height={image?.dimensions?.height}
-          borderRadius={{ base: 'none', md: '2xl' }}
         />
         {image?.copyright && (
           <Box p={2} mt={2}>

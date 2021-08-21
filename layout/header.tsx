@@ -3,7 +3,6 @@ import { linkResolver } from 'modules/prismic';
 
 import {
   Flex,
-  Image,
   HStack,
   useBreakpointValue,
   Box,
@@ -15,6 +14,7 @@ import {
   DrawerContent,
   DrawerOverlay,
 } from 'components';
+import Image from 'next/image';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import DesktopNavigation from 'layout/navigation';
 import Headroom from 'react-headroom';
@@ -168,7 +168,6 @@ export default function Header({ data }: { data: HeaderProps }) {
                     layout="fixed"
                     height={logoHeight}
                     width={logoHeight}
-                    borderRadius="0"
                   />
                   <Image
                     src="/images/logo-text.png"
@@ -177,7 +176,6 @@ export default function Header({ data }: { data: HeaderProps }) {
                     layout="fixed"
                     height={logoTextHeight}
                     width={logoTextWidth}
-                    borderRadius="0"
                   />
                 </HStack>
               </ChakraLink>

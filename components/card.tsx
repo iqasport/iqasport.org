@@ -112,7 +112,9 @@ export const LinkWrapper = ({ href, ...props }) => (
   </Link>
 );
 
-export const PlainWrapper = (props) => <GridItem {...props} />;
+export const PlainWrapper = (props) => (
+  <GridItem display="flex" flexGrow={1} {...props} />
+);
 
 const Card = ({
   image,
@@ -153,7 +155,16 @@ const Card = ({
             />
           )}
         </Box>
-        <ContentBox py={5} px={4}>
+        <ContentBox
+          py={5}
+          px={4}
+          sx={{
+            '& a': {
+              fontWeight: 'bold',
+              color: 'gray.800',
+            },
+          }}
+        >
           <Grid
             gridTemplateColumns={logo ? '3fr 1fr' : '1fr'}
             alignItems="center"
