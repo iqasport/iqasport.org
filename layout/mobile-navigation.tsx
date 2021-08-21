@@ -22,6 +22,7 @@ import FacebookIcon from 'public/images/facebook.svg';
 import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
+import GithubIcon from 'public/images/github.svg';
 
 const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="20px" width="20px" {...props} />
@@ -278,6 +279,14 @@ export default function MobileNavigation({
           rel="noopener noreferrer"
         >
           <Icon as={YoutubeIcon} />
+        </IconWrapper>
+        <IconWrapper
+          aria-label="Follow us on Github"
+          href="https://github.com/iqasport/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon as={GithubIcon} />
         </IconWrapper>
       </HStack>
     </>

@@ -15,6 +15,7 @@ import FacebookIcon from 'public/images/facebook.svg';
 import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
+import GithubIcon from 'public/images/github.svg';
 
 import { Link as PrismicLink } from 'prismic-reactjs';
 import Link from 'next/link';
@@ -217,6 +218,15 @@ export default function Footer({ data }: { data: FooterProps }) {
               rel="noopener noreferrer"
             >
               <Icon as={YoutubeIcon} />
+            </IconWrapper>
+
+            <IconWrapper
+              aria-label="Follow us on Github"
+              href="https://github.com/iqasport/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon as={GithubIcon} />
             </IconWrapper>
           </HStack>
         </Flex>
