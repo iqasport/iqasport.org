@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { Client } from 'modules/prismic';
 import {
   Flex,
   Box,
@@ -34,24 +36,6 @@ const Item = (props: ListItemProps) => (
   <ListItem lineHeight="32px" {...props} />
 );
 
-export type MenuLinksProps = {
-  link_label: 'string';
-  link: {
-    url: 'string';
-  };
-};
-
-export type FooterProps = {
-  menu_1_label: string;
-  menu_2_label: string;
-  menu_3_label: string;
-  menu_1_links: MenuLinksProps[];
-  menu_2_links: MenuLinksProps[];
-  menu_3_links: MenuLinksProps[];
-  disclaimer_label: string;
-  disclaimer: string;
-};
-
 const ActiveLink = ({ href, children }) => {
   const { asPath } = useRouter();
   const regexAs = RegExp(href, 'g');
@@ -77,7 +61,22 @@ const ActiveLink = ({ href, children }) => {
   );
 };
 
-export default function Footer({ data }: { data: FooterProps }) {
+export default function Footer() {
+  const [data, setData] = useState(null);
+
+  const { locale } = useRouter();
+  useEffect(() => {
+    if (!data) {
+      const fetchData = async () => {
+        const { data: footer } = await Client().getSingle('footer', {
+          lang: locale,
+        });
+        setData(footer);
+      };
+      fetchData();
+    }
+  }, [data, locale]);
+
   return (
     <Box as="footer" bg="gray.800" px={{ base: 4, sm: 8, md: 10 }}>
       <Grid

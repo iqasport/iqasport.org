@@ -3,10 +3,6 @@ import get from 'just-safe-get';
 import { Grid, Flex, Heading, Text, Slice, Image, Box } from 'components';
 import { linkResolver } from 'modules/prismic';
 
-// import { buttonVariants } from 'components/prismic-wrapper';
-// const ExternalLink = dynamic(() => import('components/external-link'));
-// const Button = dynamic(() => import('components/button'));
-
 const Item = ({ item, isImageLeft }) => (
   <Grid
     gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}

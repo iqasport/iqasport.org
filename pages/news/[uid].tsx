@@ -5,7 +5,6 @@ import { RichText } from 'prismic-reactjs';
 import {
   getDocs,
   getPrismicDocByUid,
-  formatMetadata,
   PrismicSlice,
   manageLocal,
 } from 'modules/prismic';

@@ -1,12 +1,10 @@
-import { useColorModeValue } from '@chakra-ui/react';
 import { Grid, Flex, Text, Link, Box } from 'components';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
 
-const Layout = ({ children, preview = false, footerData, headerData }) => {
-  const color = useColorModeValue('gray.800', 'white');
+const Layout = ({ children, preview = false }) => {
   return (
-    <Grid color={color} width="100%" bg="iqaGreen">
+    <Grid color="gray.800" width="100%" bg="iqaGreen">
       {preview && (
         <Flex
           bg="red"
@@ -30,7 +28,7 @@ const Layout = ({ children, preview = false, footerData, headerData }) => {
         </Flex>
       )}
 
-      <Header data={headerData} />
+      <Header />
       <Box
         as="main"
         sx={{
@@ -43,7 +41,7 @@ const Layout = ({ children, preview = false, footerData, headerData }) => {
       >
         {children}
       </Box>
-      <Footer data={footerData} />
+      <Footer />
     </Grid>
   );
 };
