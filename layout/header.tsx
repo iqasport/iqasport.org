@@ -1,5 +1,8 @@
+import { useState, useEffect } from 'react';
 import { Link as PrismicLink } from 'prismic-reactjs';
 import { linkResolver } from 'modules/prismic';
+import { useRouter } from 'next/router';
+import { Client } from 'modules/prismic';
 
 import {
   Flex,
@@ -28,7 +31,6 @@ import InstagramIcon from 'public/images/instagram.svg';
 import GithubIcon from 'public/images/github.svg';
 
 import MobileNavigation from './mobile-navigation';
-import { MenuLinksProps } from './footer';
 
 const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="15px" width="15px" {...props} />
@@ -53,16 +55,27 @@ export type SliceProps = {
         }[];
       };
 };
-export type HeaderProps = {
-  top_level_navigation: MenuLinksProps[];
-  body: SliceProps[];
-};
 
-export default function Header({ data }: { data: HeaderProps }) {
+export default function Header() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const logoHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextWidth = useBreakpointValue({ base: 100, xl: 120 }) || 100;
+  const [data, setData] = useState(null);
+
+  const { locale } = useRouter();
+
+  useEffect(() => {
+    if (!data) {
+      const fetchData = async () => {
+        const { data: header } = await Client().getSingle('header', {
+          lang: locale,
+        });
+        setData(header);
+      };
+      fetchData();
+    }
+  }, [data, Client]);
 
   return (
     <>

@@ -73,7 +73,7 @@ const MenuList = ({ wrapperProps, data }) => {
     });
 
     setChildActive(childrenActive.some((v) => v));
-  }, [setChildActive, items, PrismicLink, linkResolver]);
+  }, [setChildActive, items, PrismicLink, linkResolver, asPath]);
 
   return (
     <ListItem role="none" {...wrapperProps}>
