@@ -60,7 +60,7 @@ export default function Header() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const logoHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
-  const logoTextWidth = useBreakpointValue({ base: 100, xl: 120 }) || 100;
+  const logoTextWidth = useBreakpointValue({ base: 90, xl: 115 }) || 90;
   const [data, setData] = useState(null);
 
   const { locale } = useRouter();
@@ -75,7 +75,7 @@ export default function Header() {
       };
       fetchData();
     }
-  }, [data, Client]);
+  }, [data, locale]);
 
   return (
     <>

@@ -16,9 +16,10 @@ const MemberCardsSlice = (rawData) => {
   const title = get(rawData, 'primary.title');
   const content = get(rawData, 'primary.content');
   const variant = get(rawData, 'primary.variant');
-  const items = get(rawData, 'items') || [];
 
   useEffect(() => {
+    const items = get(rawData, 'items') ?? [];
+
     const getMembers = async () => {
       const membersPromises = items.map(({ member }) =>
         getPrismicDocByUid('members', member.uid)
@@ -29,7 +30,7 @@ const MemberCardsSlice = (rawData) => {
     };
 
     getMembers();
-  }, [items, setMembers, getPrismicDocByUid]);
+  }, [rawData, setMembers]);
 
   let spacers = [];
 

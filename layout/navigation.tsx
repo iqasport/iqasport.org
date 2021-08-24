@@ -73,7 +73,7 @@ const MenuList = ({ wrapperProps, data }) => {
     });
 
     setChildActive(childrenActive.some((v) => v));
-  }, [setChildActive, items, PrismicLink, linkResolver, asPath]);
+  }, [setChildActive, items, asPath]);
 
   return (
     <ListItem role="none" {...wrapperProps}>
@@ -117,8 +117,6 @@ const MenuList = ({ wrapperProps, data }) => {
           <PopoverBody as="nav" py={4} px={2}>
             <UnorderedList listStyleType="none" pl={0} ml={0} spacing={3}>
               {items.map((item) => {
-                const { asPath } = useRouter();
-
                 const regexAs = RegExp(
                   PrismicLink.url(item?.link, linkResolver),
                   'g'
@@ -176,9 +174,6 @@ export default function Navigation({ data }) {
       display={{ base: 'none', lg: 'flex' }}
       flexDirection="row"
       listStyleType="none"
-      id="mainNavigation"
-      role="menubar"
-      aria-label="Main Navigation"
     >
       {data?.map((slice, i) => {
         const Component = menuSlices[slice?.slice_type];

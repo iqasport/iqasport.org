@@ -78,6 +78,7 @@ const MenuItem = ({ wrapperProps, data, onClose }) => {
 const MenuList = ({ wrapperProps, data, onClose }) => {
   const label = get(data.primary, 'label');
   const items = get(data, 'items');
+  const { asPath } = useRouter();
 
   return (
     <ListItem {...wrapperProps}>
@@ -97,8 +98,6 @@ const MenuList = ({ wrapperProps, data, onClose }) => {
 
       <UnorderedList listStyleType="none" pl={0} ml={0} spacing={3}>
         {items.map((item) => {
-          const { asPath } = useRouter();
-
           const regexAs = RegExp(
             PrismicLink.url(item?.link, linkResolver),
             'g'
@@ -146,7 +145,7 @@ export default function MobileNavigation({
   top_level_navigation,
   data,
 }) {
-  const { push } = useRouter();
+  const { push, asPath } = useRouter();
   return (
     <>
       <Flex justifyContent="space-between" alignItems="center" h="70px">
@@ -202,8 +201,6 @@ export default function MobileNavigation({
 
       <UnorderedList listStyleType="none" p={0} ml={0} mt={0} spacing={3}>
         {top_level_navigation?.map(({ link_label, link }) => {
-          const { asPath } = useRouter();
-
           const regexAs = RegExp(PrismicLink.url(link, linkResolver), 'g');
 
           const isActive = regexAs.test(asPath);

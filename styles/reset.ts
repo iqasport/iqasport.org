@@ -1,4 +1,4 @@
-export default `
+const reset = `
 /* Document
    ========================================================================== */
 
@@ -355,3 +355,5 @@ html {
   box-sizing: inherit;
 }
 `;
+
+export default reset;

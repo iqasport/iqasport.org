@@ -30,7 +30,7 @@ const animationVariants = {
   hidden: { opacity: 0 },
 };
 
-const FadeInImage = (props) => {
+const FadeInImage = ({ alt, src, ...props }) => {
   const [loaded, setLoaded] = useState(props.priority || false);
   const animationControls = useAnimation();
 
@@ -46,7 +46,7 @@ const FadeInImage = (props) => {
       variants={animationVariants}
       transition={{ ease: 'easeOut', duration: 0.1 }}
     >
-      <Image {...props} onLoad={() => setLoaded(true)} />
+      <Image src={src} alt={alt} {...props} onLoad={() => setLoaded(true)} />
     </motion.div>
   );
 };

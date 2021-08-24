@@ -75,7 +75,7 @@ export default function Footer() {
       };
       fetchData();
     }
-  }, [data, Client]);
+  }, [data, locale]);
 
   return (
     <Box as="footer" bg="gray.800" px={{ base: 4, sm: 8, md: 10 }}>

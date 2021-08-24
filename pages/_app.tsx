@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events, pageview]);
+  }, [router.events]);
 
   return (
     <>
