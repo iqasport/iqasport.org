@@ -13,7 +13,6 @@ import {
   Stack,
   Text,
   Textarea,
-  Flex,
 } from 'components';
 import { CheckIcon } from '@chakra-ui/icons';
 import { buttonVariants } from 'components/button';
@@ -39,7 +38,11 @@ const handleContactSubmit = async (
     // await api.post('/contact/form', values);
 
     setServerSuccess(true);
-    resetForm({});
+    resetForm({
+      name: '',
+      email: '',
+      message: '',
+    });
   } catch (err) {
     setServerError(err?.response?.data?.error?.message);
   }
@@ -68,6 +71,11 @@ const ContactForm = (rawData) => {
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
   });
 
   const variant = get(rawData, 'primary.variant');
@@ -94,6 +102,7 @@ const ContactForm = (rawData) => {
               render={({ field }) => (
                 <Input
                   {...field}
+                  placeholder="Your name..."
                   id="name"
                   bg="white"
                   border="1px solid"
@@ -107,7 +116,11 @@ const ContactForm = (rawData) => {
               )}
             />
             {errors?.name && (
-              <Text fontSize="sm" color="red.400" mb={0}>
+              <Text
+                fontSize="sm"
+                color={variant === 'white' ? 'red.400' : 'red.900'}
+                mb={0}
+              >
                 {errors?.name?.message}
               </Text>
             )}
@@ -123,6 +136,7 @@ const ContactForm = (rawData) => {
               render={({ field }) => (
                 <Input
                   {...field}
+                  placeholder="Your email address..."
                   id="email"
                   bg="white"
                   border="1px solid"
@@ -136,7 +150,11 @@ const ContactForm = (rawData) => {
               )}
             />
             {errors?.email && (
-              <Text fontSize="sm" color="red.400" mb={0}>
+              <Text
+                fontSize="sm"
+                color={variant === 'white' ? 'red.400' : 'red.900'}
+                mb={0}
+              >
                 {errors?.email?.message}
               </Text>
             )}
@@ -152,6 +170,7 @@ const ContactForm = (rawData) => {
               render={({ field }) => (
                 <Textarea
                   {...field}
+                  placeholder="Your message..."
                   id="message"
                   bg="white"
                   p={2}
@@ -165,7 +184,11 @@ const ContactForm = (rawData) => {
               )}
             />
             {errors?.message && (
-              <Text fontSize="sm" color="red.400" mb={0}>
+              <Text
+                fontSize="sm"
+                color={variant === 'white' ? 'red.400' : 'red.900'}
+                mb={0}
+              >
                 {errors?.message?.message}
               </Text>
             )}
@@ -191,7 +214,7 @@ const ContactForm = (rawData) => {
       </form>
 
       {serverError && (
-        <Text color="red.400" my={3}>
+        <Text color={variant === 'white' ? 'red.400' : 'red.900'} my={3}>
           {serverError}
         </Text>
       )}

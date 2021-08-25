@@ -13,6 +13,7 @@ import {
   LatestNews,
   Carousel,
   MemberCards,
+  ContactForm,
 } from 'components/prismic';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
@@ -102,6 +103,7 @@ const slices = {
   banner: Banner,
   carousel: Carousel,
   member_card: MemberCards,
+  contact_form: ContactForm,
 };
 
 type PrismicSliceProps = {
