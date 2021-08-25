@@ -16,10 +16,13 @@
     "@chakra-ui/react": "1.6.6",
     "@emotion/react": "11.4.0",
     "@emotion/styled": "11.3.0",
+    "@hookform/resolvers": "^2.8.0",
     "@prismicio/client": "5.1.0",
+    "@sendgrid/mail": "^7.4.6",
     "@sentry/nextjs": "6.11.0",
     "@svgr/webpack": "5.5.0",
     "axe-core": "4.2.2",
+    "axios": "^0.21.1",
     "cypress-axe": "0.12.2",
     "date-fns": "2.22.1",
     "flickity": "2.2.2",
@@ -31,9 +34,11 @@
     "react-dom": "17.0.2",
     "react-flickity-component": "3.6.1",
     "react-headroom": "3.1.1",
+    "react-hook-form": "^7.13.0",
     "react-intersection-observer": "8.32.0",
     "react-query": "3.16.0",
-    "sharp": "^0.29.0"
+    "sharp": "^0.29.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",
