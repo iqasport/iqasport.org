@@ -11,6 +11,7 @@ import LatestNews from 'components/prismic/latest-news';
 import Banner from 'components/prismic/banner';
 import Carousel from 'components/prismic/carousel';
 import MemberCards from 'components/prismic/member-cards';
+import ContactForm from 'components/prismic/contact-form';
 
 export {
   Hero,
@@ -26,4 +27,5 @@ export {
   Banner,
   Carousel,
   MemberCards,
+  ContactForm,
 };
