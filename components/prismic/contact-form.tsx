@@ -16,6 +16,7 @@ import {
 } from 'components';
 import { CheckIcon } from '@chakra-ui/icons';
 import { buttonVariants } from 'components/button';
+import axios from 'axios';
 
 const schema = object().shape({
   name: string().required('Please enter your name'),
@@ -35,7 +36,7 @@ const handleContactSubmit = async (
     setServerError(null);
     setServerSuccess(null);
 
-    // await api.post('/contact/form', values);
+    await axios.post('/api/contact', values);
 
     setServerSuccess(true);
     resetForm({
