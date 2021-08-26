@@ -62,20 +62,21 @@ export default function Header() {
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextWidth = useBreakpointValue({ base: 90, xl: 115 }) || 90;
   const [data, setData] = useState(null);
-
   const { locale } = useRouter();
+  const [currentLang, setCurrentLang] = useState(locale);
 
   useEffect(() => {
-    if (!data) {
+    if (!data || locale !== currentLang) {
       const fetchData = async () => {
         const { data: header } = await Client().getSingle('header', {
           lang: locale,
         });
         setData(header);
+        setCurrentLang(locale);
       };
       fetchData();
     }
-  }, [data, locale]);
+  }, [data, locale, currentLang]);
 
   return (
     <>

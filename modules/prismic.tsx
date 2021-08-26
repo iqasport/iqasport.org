@@ -14,6 +14,7 @@ import {
   Carousel,
   MemberCards,
   ContactForm,
+  WorldMap,
 } from 'components/prismic';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
@@ -104,6 +105,7 @@ const slices = {
   carousel: Carousel,
   member_card: MemberCards,
   contact_form: ContactForm,
+  world_map: WorldMap,
 };
 
 type PrismicSliceProps = {

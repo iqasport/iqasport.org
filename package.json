@@ -24,6 +24,7 @@
     "axe-core": "4.2.2",
     "axios": "^0.21.1",
     "cypress-axe": "0.12.2",
+    "d3-geo-projection": "^4.0.0",
     "date-fns": "2.22.1",
     "flickity": "2.2.2",
     "framer-motion": "4.1.16",
@@ -37,6 +38,7 @@
     "react-hook-form": "^7.13.0",
     "react-intersection-observer": "8.32.0",
     "react-query": "3.16.0",
+    "react-simple-maps": "^2.3.0",
     "sharp": "^0.29.0",
     "yup": "^0.32.9"
   },
