@@ -3,6 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string } from 'yup';
 import get from 'just-safe-get';
+import axios from 'axios';
 
 import {
   Heading,
@@ -16,7 +17,6 @@ import {
 } from 'components';
 import { CheckIcon } from '@chakra-ui/icons';
 import { buttonVariants } from 'components/button';
-import axios from 'axios';
 
 const schema = object().shape({
   name: string().required('Please enter your name'),
@@ -42,6 +42,7 @@ const handleContactSubmit = async (
     resetForm({
       name: '',
       email: '',
+      subject: '',
       message: '',
     });
   } catch (err) {
@@ -75,6 +76,7 @@ const ContactForm = (rawData) => {
     defaultValues: {
       name: '',
       email: '',
+      subject: '',
       message: '',
     },
   });
@@ -157,6 +159,40 @@ const ContactForm = (rawData) => {
                 mb={0}
               >
                 {errors?.email?.message}
+              </Text>
+            )}
+          </Box>
+
+          <Box>
+            <Text as="label" fontSize="md" pb={4} htmlFor="subject">
+              Subject
+            </Text>
+            <Controller
+              name="subject"
+              control={control}
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  placeholder="What the message is about..."
+                  id="subject"
+                  bg="white"
+                  border="1px solid"
+                  borderColor={errors?.subject ? 'red.400' : 'white'}
+                  mt={2}
+                  p={2}
+                  color="gray.800"
+                  fontSize="md"
+                  width="100%"
+                />
+              )}
+            />
+            {errors?.subject && (
+              <Text
+                fontSize="sm"
+                color={variant === 'white' ? 'red.400' : 'red.900'}
+                mb={0}
+              >
+                {errors?.subject?.message}
               </Text>
             )}
           </Box>

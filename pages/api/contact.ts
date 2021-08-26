@@ -7,12 +7,12 @@ sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     try {
-      const { message, email, name } = req?.body;
+      const { message, email, name, subject } = req?.body;
 
       const msg = {
-        to: 'tech@iqasport.org',
-        from: 'tech@iqasport.org',
-        subject: `Contact Form: ${email}`,
+        to: 'info@iqasport.org',
+        from: 'info@iqasport.org',
+        subject: `Contact Form: ${subject}`,
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${req?.body.message}`,
         html: `
           <b>Name:</b> ${name}<br />
