@@ -701,6 +701,48 @@
                 }
               }
             }
+          },
+          "contact_form": {
+            "type": "Slice",
+            "fieldset": "Contact Form",
+            "description": "Contact Form slice",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "primary"
+                  ],
+                  "default_value": "white",
+                  "label": "Variant"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "world_map": {
+            "type": "Slice",
+            "fieldset": "World Map",
+            "description": "World Map with current IQA Members",
+            "icon": "map",
+            "display": "list",
+            "non-repeat": {
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "primary"
+                  ],
+                  "default_value": "white",
+                  "label": "Variant"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

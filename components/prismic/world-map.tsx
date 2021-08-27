@@ -31,9 +31,9 @@ const WorldMap = (rawData) => {
         Quidditch around the world
       </Heading>
 
-      <Box mb={{ base: '-2rem', md: '-7rem', lg: '-10rem', xl: '-10rem' }}>
+      <Box>
         <ComposableMap
-          projection={geoVanDerGrinten3().scale(115)}
+          projection={geoVanDerGrinten3().scale(150).center([0, 30])}
           width={980}
           height={500}
           style={{
@@ -82,7 +82,7 @@ const WorldMap = (rawData) => {
           </Geographies>
         </ComposableMap>
       </Box>
-      <Box textAlign="center">
+      <Box textAlign="center" mt={2}>
         <Button variant={buttonVariants[variant]} href="/about/members">
           See all our members
         </Button>
