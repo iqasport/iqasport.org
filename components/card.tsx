@@ -175,7 +175,7 @@ const Card = ({
             justifyItems="flex-start"
             flexGrow={1}
           >
-            <Flex direction="column" justifyContent="space-between">
+            <Flex direction="column">
               {title && (
                 <Heading as="h2" fontSize="xl" fontFamily="body">
                   {title}
@@ -186,7 +186,7 @@ const Card = ({
               )}
               {content && !Array.isArray(content) && <>{content}</>}
               {date && (
-                <Text fontSize="xs" marginTop="auto">
+                <Text fontSize="xs" marginTop="auto" justifySelf="flex-end">
                   {formatLocale({ date: new Date(date), locale })}
                 </Text>
               )}
