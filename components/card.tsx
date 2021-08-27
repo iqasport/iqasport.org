@@ -173,6 +173,7 @@ const Card = ({
             gridTemplateColumns={logo ? '3fr 1fr' : '1fr'}
             justifyContent="space-between"
             justifyItems="flex-start"
+            gridGap={logo ? 2 : 0}
           >
             <Box>
               {title && (
