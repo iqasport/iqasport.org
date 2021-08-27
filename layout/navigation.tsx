@@ -38,12 +38,8 @@ const MenuItem = ({
     <ListItem role="none" {...wrapperProps}>
       <Link href={href} passHref>
         <ChakraLink
-          as="button"
-          bg="inherit"
-          border="0"
           display="grid"
           gridTemplateColumns="1fr"
-          pb={1}
           alignItems="center"
           textDecoration="none"
           color={isActive ? 'iqaGreen' : 'gray.800'}
@@ -92,7 +88,6 @@ const MenuList = ({ wrapperProps, data }) => {
             gridTemplateColumns="1fr 10px"
             alignItems="center"
             gridGap={2}
-            pb={1}
             _after={{
               content: '""',
               width: 0,

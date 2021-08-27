@@ -140,6 +140,8 @@ export async function getStaticPrismicProps({
   const posts = await getDocs('posts', {
     orderings: '[my.posts.date desc]',
     lang,
+    pageSize: 4,
+    page: 1,
   });
 
   const { currentLang, isMyMainLanguage } = manageLocal(locales, lang);

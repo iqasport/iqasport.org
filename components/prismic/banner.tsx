@@ -21,6 +21,7 @@ const Banner = (rawData) => {
         position="relative"
         backgroundSize="cover"
         overflow="hidden"
+        bg="white"
       >
         <Image
           src={image.url}
@@ -29,13 +30,14 @@ const Banner = (rawData) => {
           objectPosition="center center"
           objectFit="cover"
           borderRadius={0}
+          sx={{ filter: 'grayscale(100%)' }}
         />
         <Flex
           position="absolute"
           minHeight={BANNER_MIN_HEIGHTS}
-          bg="green.800"
-          opacity={0.75}
-          boxShadow="inset 0px 0px 100px rgba(0, 0, 0, 0.9)"
+          bg="green.700"
+          opacity={0.85}
+          boxShadow="inset 0px 0px 100px rgba(0, 0, 0, 0.5)"
           width="100%"
           h="100%"
         />
