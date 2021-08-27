@@ -23,7 +23,7 @@ const WorldMap = (rawData) => {
     getMembers();
   }, [rawData, setMembers]);
 
-  const memberFill = variant === 'primary' ? '#F6AF95' : '#62b058';
+  const memberFill = variant === 'primary' ? '#fff019' : '#62b058';
 
   return (
     <Slice variant={variant} size="full">
