@@ -171,11 +171,11 @@ const Card = ({
         >
           <Grid
             gridTemplateColumns={logo ? '3fr 1fr' : '1fr'}
-            justifyContent="space-between"
-            justifyItems="flex-start"
             gridGap={logo ? 2 : 0}
+            justifyItems="flex-start"
+            flexGrow={1}
           >
-            <Box>
+            <Flex direction="column" justifyContent="space-between">
               {title && (
                 <Heading as="h2" fontSize="xl" fontFamily="body">
                   {title}
@@ -190,7 +190,7 @@ const Card = ({
                   {formatLocale({ date: new Date(date), locale })}
                 </Text>
               )}
-            </Box>
+            </Flex>
             {logo && (
               <Image
                 src={logo?.src}
