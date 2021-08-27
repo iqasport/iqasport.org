@@ -171,7 +171,6 @@ const Card = ({
         >
           <Grid
             gridTemplateColumns={logo ? '3fr 1fr' : '1fr'}
-            alignItems="center"
             justifyContent="space-between"
             justifyItems="flex-start"
           >

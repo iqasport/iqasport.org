@@ -41,6 +41,9 @@ const MemberCard = ({ member, variant }) => {
         <InfoOutlineIcon mr={2} color="gray.400" />
         {data?.country}
         <br />
+        <InfoOutlineIcon mr={2} color="gray.400" />
+        {data?.membership_type}
+        <br />
         <ExternalLinkIcon mr={2} color="gray.400" />
         {data?.link?.url}
       </Text>
