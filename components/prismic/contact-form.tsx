@@ -23,6 +23,7 @@ const schema = object().shape({
   email: string()
     .email('Please enter a valid email address')
     .required('Please enter an email address'),
+  subject: string().required('Please enter a subject'),
   message: string().required('Please enter your message'),
 });
 
