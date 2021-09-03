@@ -1,6 +1,6 @@
 import { RichText, Link } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { InfoOutlineIcon, ExternalLinkIcon } from '@chakra-ui/icons';
+import { InfoOutlineIcon, ExternalLinkIcon, StarIcon } from '@chakra-ui/icons';
 
 import { Flex, Heading, Box, Slice, Card, Grid, Text } from 'components';
 import { cardVariants } from 'components/card';
@@ -41,7 +41,7 @@ const MemberCard = ({ member, variant }) => {
         <InfoOutlineIcon mr={2} color="gray.400" />
         {data?.country}
         <br />
-        <InfoOutlineIcon mr={2} color="gray.400" />
+        <StarIcon mr={2} color="gray.400" />
         {data?.membership_type}
         <br />
         <ExternalLinkIcon mr={2} color="gray.400" />
