@@ -13,6 +13,71 @@ const moduleExports = {
   images: {
     domains: ['images.prismic.io', 'iqasport.cdn.prismic.io'],
   },
+  async redirects() {
+    // legacy redirects from old site
+    return [
+      {
+        source: '/board-of-trustees',
+        destination: '/about/meet-the-iqa',
+        permanent: true,
+      },
+      {
+        source: '/media-inquiries',
+        destination: '/about/contact-us',
+        permanent: true,
+      },
+      {
+        source: '/partners',
+        destination: '/about/contact-us',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/about/contact-us',
+        permanent: true,
+      },
+      {
+        source: '/media',
+        destination: '/videos',
+        permanent: true,
+      },
+      {
+        source: '/documents',
+        destination: '/about/documents-and-policies',
+        permanent: true,
+      },
+      {
+        source: '/national-governing-bodies',
+        destination: '/about/members',
+        permanent: true,
+      },
+      {
+        source: '/teams',
+        destination: '/about/members',
+        permanent: true,
+      },
+      {
+        source: '/history',
+        destination: '/about/mission-and-values',
+        permanent: true,
+      },
+      {
+        source: '/events',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/resources',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/guides',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
