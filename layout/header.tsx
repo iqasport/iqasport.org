@@ -23,7 +23,8 @@ import DesktopNavigation from 'layout/navigation';
 import Headroom from 'react-headroom';
 import Link from 'next/link';
 
-import LanguageSwitcher from 'components/language-switcher';
+// TODO: Re-enable when website translated
+// import LanguageSwitcher from 'components/language-switcher';
 import FacebookIcon from 'public/images/facebook.svg';
 import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
@@ -113,7 +114,7 @@ export default function Header() {
               ))}
             </HStack>
 
-            <LanguageSwitcher ml="auto" size="xs" />
+            {/* <LanguageSwitcher ml="auto" size="xs" /> */}
 
             <HStack spacing={5}>
               <IconWrapper
