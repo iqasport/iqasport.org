@@ -1,8 +1,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { Flex, Box, Heading, Text, Link as ChakraLink } from '@chakra-ui/react';
+import { Flex, Heading, Text, Link as ChakraLink } from '@chakra-ui/react';
 
-const Image = dynamic(() => import('components/image'));
 const Container = dynamic(() => import('components/container'));
 const Meta = dynamic(() => import('components/meta'));
 

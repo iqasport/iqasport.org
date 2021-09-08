@@ -1,6 +1,7 @@
 import { Grid, Flex, Text, Link, Box } from 'components';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
+import PageErrorBoundary from 'components/errorBoundaries/page';
 
 const Layout = ({ children, preview = false }) => {
   return (
@@ -29,18 +30,20 @@ const Layout = ({ children, preview = false }) => {
       )}
 
       <Header />
-      <Box
-        as="main"
-        sx={{
-          'div[data-type="wave"]:last-of-type': {
-            display: 'none',
-          },
-        }}
-        display="flex"
-        flexDirection="column"
-      >
-        {children}
-      </Box>
+      <PageErrorBoundary>
+        <Box
+          as="main"
+          sx={{
+            'div[data-type="wave"]:last-of-type': {
+              display: 'none',
+            },
+          }}
+          display="flex"
+          flexDirection="column"
+        >
+          {children}
+        </Box>
+      </PageErrorBoundary>
       <Footer />
     </Grid>
   );
