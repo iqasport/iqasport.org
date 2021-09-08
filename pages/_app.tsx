@@ -8,6 +8,7 @@ import DocumentHead from 'document/head';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import Layout from 'layout';
 import GTag, { pageview } from 'modules/analytics';
+import AppErrorBoundary from 'components/errorBoundaries/app';
 
 const queryClient = new QueryClient();
 
@@ -26,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <>
+    <AppErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider theme={theme} resetCSS={false}>
           <GTag />
@@ -41,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         defer
         src={`//static.cdn.prismic.io/prismic.js?${process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME}&new=true`}
       />
-    </>
+    </AppErrorBoundary>
   );
 }
 
