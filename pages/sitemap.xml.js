@@ -7,6 +7,7 @@ const getPages = async (page, documents = []) => {
       'pages',
       'posts',
       'volunteer',
+      'events',
       'about',
     ]),
     { page, pageSize: 100, fetch: [] }
@@ -24,7 +25,7 @@ const createSitemap = ({ documents }) => `<?xml version="1.0" encoding="UTF-8"?>
       .map(
         (document) => `
       <url>
-        <loc>https://iqasport.com${linkResolver(document)}</loc>
+        <loc>https://iqasport.org${linkResolver(document)}</loc>
         <lastmod>${new Date(
           document.last_publication_date
         ).toISOString()}</lastmod>

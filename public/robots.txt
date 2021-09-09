@@ -28,4 +28,4 @@ Allow: /*?utm_source=*
 User-agent: *
 Allow: /*?utm_source=*
 
-Sitemap: https://iqasport.com/sitemap.xml
+Sitemap: https://iqasport.org/sitemap.xml
