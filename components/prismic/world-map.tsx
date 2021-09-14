@@ -12,16 +12,18 @@ const mapPath =
 
 const WorldMap = (rawData) => {
   const variant = get(rawData, 'primary.variant') || 'primary';
-  const [members, setMembers] = useState(null);
+  const [members, setMembers] = useState([]);
 
   useEffect(() => {
     const getMembers = async () => {
-      const allMembers = await getDocs('members');
+      const allMembers = await getDocs('members', { pageSize: 100 });
       setMembers(allMembers);
     };
 
     getMembers();
   }, [rawData, setMembers]);
+
+  console.log(members);
 
   const memberFill = variant === 'primary' ? '#fff019' : '#62b058';
 
