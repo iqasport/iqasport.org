@@ -596,6 +596,85 @@
                 }
               }
             }
+          },
+          "contact_form" : {
+            "type" : "Slice",
+            "fieldset" : "Contact Form",
+            "description" : "Contact Form slice",
+            "icon" : "email",
+            "display" : "list",
+            "non-repeat" : {
+              "variant" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
+                  "label" : "Variant"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "world_map" : {
+            "type" : "Slice",
+            "fieldset" : "World Map",
+            "description" : "World Map with current IQA Members",
+            "icon" : "map",
+            "display" : "list",
+            "non-repeat" : {
+              "variant" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
+                  "label" : "Variant"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "news_card" : {
+            "type" : "Slice",
+            "fieldset" : "News Card",
+            "description" : "Grid of News Cards",
+            "icon" : "dashboard",
+            "display" : "grid",
+            "non-repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "title"
+                }
+              },
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "content"
+                }
+              },
+              "variant" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "primary" ],
+                  "default_value" : "white",
+                  "label" : "Variant"
+                }
+              }
+            },
+            "repeat" : {
+              "post" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "customtypes" : [ "posts" ],
+                  "label" : "News Post",
+                  "placeholder" : "Select an article..."
+                }
+              }
+            }
           }
         }
       }

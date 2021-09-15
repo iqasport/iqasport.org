@@ -13,6 +13,7 @@ import Carousel from 'components/prismic/carousel';
 import MemberCards from 'components/prismic/member-cards';
 import ContactForm from 'components/prismic/contact-form';
 import WorldMap from 'components/prismic/world-map';
+import NewsCards from 'components/prismic/news-cards';
 
 export {
   Hero,
@@ -30,4 +31,5 @@ export {
   MemberCards,
   ContactForm,
   WorldMap,
+  NewsCards,
 };
