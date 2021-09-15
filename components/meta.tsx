@@ -13,7 +13,7 @@ type MetaTypes = {
 
 const Meta = ({
   subTitle = null,
-  description = 'The official site of the international governing body for Quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.',
+  description = 'The official site of the international governing body for quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.',
   image = `${SITE_URL}/open-graph.png`,
   title = 'International Quidditch Association',
   type = 'website',
