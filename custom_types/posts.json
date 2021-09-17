@@ -114,6 +114,14 @@
                   "default_value" : "white",
                   "label" : "Variant"
                 }
+              },
+              "size" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "sm", "md", "full" ],
+                  "default_value" : "sm",
+                  "label" : "Size"
+                }
               }
             },
             "repeat" : {

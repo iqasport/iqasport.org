@@ -190,6 +190,14 @@
                   "default_value" : "white",
                   "label" : "Variant"
                 }
+              },
+              "size" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "md", "full", "sm" ],
+                  "default_value" : "md",
+                  "label" : "Size"
+                }
               }
             },
             "repeat" : {
