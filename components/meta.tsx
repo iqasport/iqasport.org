@@ -18,7 +18,6 @@ const Meta = ({
   title = 'International Quidditch Association',
   type = 'website',
 }: MetaTypes): React.ReactElement => {
-  console.log(image);
   const descriptionWithFallback =
     description ??
     'The official site of the international governing body for quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.';
