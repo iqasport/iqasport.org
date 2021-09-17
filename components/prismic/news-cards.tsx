@@ -10,8 +10,6 @@ import { useEffect, useState } from 'react';
 const NewsCard = ({ post, variant }) => {
   const [data, setData] = useState(null);
 
-  console.log(post);
-
   useEffect(() => {
     if (!data) {
       const getPost = async () => {
@@ -23,8 +21,6 @@ const NewsCard = ({ post, variant }) => {
       getPost();
     }
   }, [data, setData, post.uid]);
-
-  console.log(data);
 
   if (!data) {
     return (

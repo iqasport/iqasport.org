@@ -44,7 +44,7 @@ export const formatMetadata = ({
 }) => ({
   description: meta_description,
   subTitle: meta_title,
-  image: meta_image.url,
+  image: meta_image?.url,
 });
 
 export const getDocs = async (type, options = {}) => {

@@ -12,12 +12,16 @@ type MetaTypes = {
 };
 
 const Meta = ({
-  subTitle = null,
-  description = 'The official site of the international governing body for quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.',
+  subTitle,
+  description,
   image = `${SITE_URL}/open-graph.png`,
   title = 'International Quidditch Association',
   type = 'website',
 }: MetaTypes): React.ReactElement => {
+  console.log(image);
+  const descriptionWithFallback =
+    description ??
+    'The official site of the international governing body for quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.';
   const { asPath } = useRouter();
   const url = `${SITE_URL}${asPath}`;
   const formattedTitle = subTitle ? `${subTitle} | ${title}` : title;
@@ -26,8 +30,8 @@ const Meta = ({
     <Head>
       <title>{formattedTitle}</title>
       <link rel="canonical" href={url} />
-      <meta name="description" content={description} />
-      <meta property="og:description" content={description} />
+      <meta name="description" content={descriptionWithFallback} />
+      <meta property="og:description" content={descriptionWithFallback} />
       <meta property="og:image" content={image} />
       <meta property="og:title" content={formattedTitle} />
       <meta property="og:type" content={type} />
