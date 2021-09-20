@@ -36,7 +36,7 @@
     "react-flickity-component": "3.6.1",
     "react-headroom": "3.1.1",
     "react-hook-form": "7.13.0",
-    "react-intersection-observer": "8.32.0",
+    "react-intersection-observer": "8.32.1",
     "react-query": "3.16.0",
     "react-simple-maps": "2.3.0",
     "sharp": "0.29.0",
