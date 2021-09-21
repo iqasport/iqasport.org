@@ -19,7 +19,7 @@
     "@hookform/resolvers": "2.8.0",
     "@prismicio/client": "5.1.0",
     "@sendgrid/mail": "7.4.6",
-    "@sentry/nextjs": "6.11.0",
+    "@sentry/nextjs": "6.13.1",
     "@svgr/webpack": "5.5.0",
     "axe-core": "4.2.2",
     "axios": "0.21.4",
