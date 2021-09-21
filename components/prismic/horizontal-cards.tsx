@@ -29,7 +29,7 @@ const HorizontalCardsSlice = (rawData) => {
 
       {content && (
         <Box textAlign="center" pb={3} px={{ base: 0, md: 9 }}>
-          {RichText.render(content, linkResolver)}
+          <RichText render={content} linkResolver={linkResolver} />
         </Box>
       )}
 

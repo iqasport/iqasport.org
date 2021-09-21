@@ -1,5 +1,4 @@
-import { RichText } from 'prismic-reactjs';
-import get from 'just-safe-get';
+import { RichText, RichTextBlock } from 'prismic-reactjs';
 import dynamic from 'next/dynamic';
 import { Box, Flex, Heading, Button } from 'components';
 import { BANNER_MIN_HEIGHTS } from 'styles/hero-heights';
@@ -7,12 +6,23 @@ import { linkResolver } from 'modules/prismic';
 
 const Image = dynamic(() => import('components/image'));
 
-const Banner = (rawData) => {
-  const title = get(rawData, 'primary.title');
-  const image = get(rawData, 'primary.image');
-  const content = get(rawData, 'primary.content');
-  const cta_text = get(rawData, 'primary.cta_text');
-  const cta_url = get(rawData, 'primary.cta_url');
+type BannerProps = {
+  primary: {
+    content?: RichTextBlock[];
+    title?: string;
+    image?: {
+      url?: string;
+      alt?: string;
+    };
+    cta_text?: string;
+    cta_url?: string;
+  };
+};
+
+const Banner = (rawData: BannerProps) => {
+  const {
+    primary: { content, title, image, cta_text, cta_url },
+  } = rawData;
 
   return (
     <Box data-type="banner" as="section" px={0} py={4}>
@@ -67,7 +77,7 @@ const Banner = (rawData) => {
           </Heading>
 
           {content && RichText.asText(content) && (
-            <>{RichText.render(content, linkResolver)}</>
+            <RichText render={content} linkResolver={linkResolver} />
           )}
 
           {cta_text && cta_url && (
