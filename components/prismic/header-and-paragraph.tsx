@@ -43,7 +43,7 @@ const HeaderAndParagraph = (rawData) => {
         )}
 
         {RichText.asText(content) && (
-          <>{RichText.render(content, linkResolver)}</>
+          <RichText render={content} linkResolver={linkResolver} />
         )}
 
         {cta_text && cta_url && (

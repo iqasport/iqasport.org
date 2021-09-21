@@ -81,7 +81,7 @@ const Carousel = (rawData) => {
 
       <Box maxWidth="768px" px={{ base: 4, sm: 8, md: 10 }} m="0 auto">
         {RichText.asText(content) && (
-          <>{RichText.render(content, linkResolver)}</>
+          <RichText render={content} linkResolver={linkResolver} />
         )}
       </Box>
 
