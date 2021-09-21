@@ -18,7 +18,14 @@ import {
 import { CheckIcon } from '@chakra-ui/icons';
 import { buttonVariants } from 'components/button';
 
-const schema = object().shape({
+type FormValues = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
+const schema = object({
   name: string().required('Please enter your name'),
   email: string()
     .email('Please enter a valid email address')
@@ -71,7 +78,7 @@ const ContactForm = (rawData) => {
     reset,
     control,
     formState: { isSubmitting, errors },
-  } = useForm({
+  } = useForm<FormValues>({
     mode: 'onBlur',
     resolver: yupResolver(schema),
     defaultValues: {
