@@ -76,7 +76,7 @@ export interface CardTypes extends GridItemProps {
     width: number;
   };
   title?: string;
-  content?: RichTextBlock;
+  content?: RichTextBlock[] | JSX.Element;
   variant?: string;
   href?: string;
   target?: string;

@@ -122,7 +122,10 @@ const HorizontalCard = ({
               {title}
             </Heading>
           )}
-          {content && <RichText render={content} linkResolver={linkResolver} />}
+          {content && Array.isArray(content) && (
+            <RichText render={content} linkResolver={linkResolver} />
+          )}
+          {content && !Array.isArray(content) && <>{content}</>}
           {date && (
             <Text fontSize="xs" marginTop="auto">
               {formatLocale({
