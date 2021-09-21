@@ -1,4 +1,4 @@
-import { RichText } from 'prismic-reactjs';
+import { RichText, RichTextBlock } from 'prismic-reactjs';
 import {
   Heading,
   Box,
@@ -76,7 +76,7 @@ export interface CardTypes extends GridItemProps {
     width: number;
   };
   title?: string;
-  content?: React.ReactNode;
+  content?: RichTextBlock;
   variant?: string;
   href?: string;
   target?: string;
