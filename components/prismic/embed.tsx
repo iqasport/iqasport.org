@@ -39,13 +39,16 @@ export const Embed = ({ embed, thumbnail }) => {
         justifyContent="center"
         alignItems="center"
         transition="all 0.2s ease"
-        height="100%"
+        height="0"
+        pt="56.25%"
         width="100%"
         minHeight="200px"
         bg={`url(${thumbnail?.url}) no-repeat`}
         borderRadius="2xl"
         backgroundPosition="center center"
         bgSize="cover"
+        overflow="hidden"
+        position="relative"
         _hover={{
           _after: {
             bg: 'iqaGreen',
@@ -62,6 +65,10 @@ export const Embed = ({ embed, thumbnail }) => {
           width: '50px',
           bg: 'rgba(255, 255, 255, 0.8)',
           transition: 'all 0.2s ease',
+          position: 'absolute',
+          transform: 'translate(-50%, -50%)',
+          top: '50%',
+          left: '50%',
         }}
       />
 
@@ -123,11 +130,12 @@ const EmbedSlice = (rawData) => {
   const content = get(rawData, 'primary.content');
   const items = get(rawData, 'items');
   const variant = get(rawData, 'primary.variant');
+  const size = get(rawData, 'primary.size');
 
   const multipleEmbeds = items.length > 1;
 
   return (
-    <Slice variant={variant}>
+    <Slice variant={variant} size={size}>
       {RichText.asText(title) && (
         <Heading
           as="h2"
