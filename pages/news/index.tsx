@@ -47,10 +47,14 @@ const News = ({ page, posts: initialPosts = [], lang }) => {
     initialPosts;
 
   useEffect(() => {
-    if (posts?.length % PAGE_SIZE !== 0 || posts?.length === 0) {
+    if (
+      posts?.length % PAGE_SIZE !== 0 ||
+      posts?.length === 0 ||
+      data?.pages[data?.pages?.length - 1]?.results?.length === 0
+    ) {
       setShowLoadMore(false);
     }
-  }, [posts]);
+  }, [posts, data]);
 
   return (
     <Box bg="gray.100">
