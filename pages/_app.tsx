@@ -38,10 +38,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           </Layout>
         </ChakraProvider>
       </QueryClientProvider>
-      <script
+      {/* <script
         defer
         src={`//static.cdn.prismic.io/prismic.js?repo=${process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME}&new=true`}
-      />
+      /> */}
     </AppErrorBoundary>
   );
 }
