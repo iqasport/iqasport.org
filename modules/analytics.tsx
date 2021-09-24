@@ -2,7 +2,7 @@ import Script from 'next/script';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL) => {
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== 'development' && typeof window !== 'undefined') {
     window.gtag('config', process.env.NEXT_PUBLIC_GA_TOKEN, {
       page_path: url,
     });
@@ -18,7 +18,7 @@ type GTagEvent = {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = ({ action, category, label, value }: GTagEvent) => {
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== 'development' && typeof window !== 'undefined') {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
@@ -35,7 +35,7 @@ const GTag = () => (
       src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TOKEN}`}
     />
 
-    <Script strategy="lazyOnload">
+    <Script id="google-gtag" strategy="lazyOnload">
       {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
