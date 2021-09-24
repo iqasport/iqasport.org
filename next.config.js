@@ -8,7 +8,7 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const moduleExports = {
   i18n: {
     defaultLocale: 'en-us',
-    locales: ['en-us', 'de-de', 'fr-fr', 'es-es'],
+    locales: ['en-us'],
   },
   images: {
     domains: ['images.prismic.io', 'iqasport.cdn.prismic.io'],
@@ -75,6 +75,21 @@ const moduleExports = {
         source: '/guides',
         destination: '/',
         permanent: true,
+      },
+      {
+        source: '/de-de',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/fr-fr',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/es-es',
+        destination: '/',
+        permanent: false,
       },
     ];
   },
