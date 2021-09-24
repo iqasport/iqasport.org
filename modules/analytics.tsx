@@ -3,7 +3,7 @@ import Script from 'next/script';
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL) => {
   if (process.env.NODE_ENV !== 'development' && typeof window !== 'undefined') {
-    window.gtag('config', process.env.NEXT_PUBLIC_GA_TOKEN, {
+    window?.gtag('config', process.env.NEXT_PUBLIC_GA_TOKEN, {
       page_path: url,
     });
   }
@@ -19,7 +19,7 @@ type GTagEvent = {
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = ({ action, category, label, value }: GTagEvent) => {
   if (process.env.NODE_ENV !== 'development' && typeof window !== 'undefined') {
-    window.gtag('event', action, {
+    window?.gtag('event', action, {
       event_category: category,
       event_label: label,
       value,
