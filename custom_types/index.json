@@ -1,0 +1,50 @@
+[
+  {
+    "id": "posts",
+    "name": "Posts",
+    "repeatable": true,
+    "value": "posts.json"
+  },
+  {
+    "id": "footer",
+    "name": "Footer",
+    "repeatable": true,
+    "value": "footer.json"
+  },
+  {
+    "id": "header",
+    "name": "Header",
+    "repeatable": true,
+    "value": "header.json"
+  },
+  {
+    "id": "pages",
+    "name": "Pages",
+    "repeatable": true,
+    "value": "pages.json"
+  },
+  {
+    "id": "about",
+    "name": "About",
+    "repeatable": true,
+    "value": "pages.json"
+  },
+  {
+    "id": "events",
+    "name": "Events",
+    "repeatable": true,
+    "value": "pages.json"
+  },
+  {
+    "id": "news",
+    "name": "News",
+    "repeatable": false,
+    "value": "news.json"
+  },
+  {
+    "id": "members",
+    "name": "Members",
+    "repeatable": true,
+    "value": "members.json"
+  }
+]
