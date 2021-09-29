@@ -1,0 +1,61 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "NGB Name..."
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
+    "link": {
+      "type": "Link",
+      "config": {
+        "label": "Link",
+        "placeholder": "Link to NGB's Primary Website...",
+        "select": null
+      }
+    },
+    "country": {
+      "type": "Text",
+      "config": {
+        "label": "Country",
+        "placeholder": "Country"
+      }
+    },
+    "membership_type": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Full Member",
+          "Associate, developing member",
+          "Associate, emerging area member",
+          "Area of interest"
+        ],
+        "default_value": "Full Member",
+        "label": "Membership Type"
+      }
+    },
+    "ngb_logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "NGB Logo"
+      }
+    },
+    "ngb_photo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "NGB Photo"
+      }
+    }
+  }
+}
