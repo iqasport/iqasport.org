@@ -7,13 +7,16 @@ import {
   PrismicSlice,
   manageLocal,
 } from 'modules/prismic';
-import SchemaArticle from 'components/schema-article';
 import { Flex } from '@chakra-ui/react';
-import Meta from 'components/meta';
-import Page404 from 'pages/404';
-import PageLoading from 'components/page-loading';
-import NewsHero from 'components/news-hero';
-import NewsFooter from 'components/news-footer';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+
+const SchemaArticle = dynamic(() => import('components/schema-article'));
+const Meta = dynamic(() => import('components/meta'));
+const Page404 = dynamic(() => import('pages/404'));
+const PageLoading = dynamic(() => import('components/page-loading'));
+const NewsHero = dynamic(() => import('components/news-hero'));
+const NewsFooter = dynamic(() => import('components/news-footer'));
 
 const backgroundImage = '/images/news-bg.png';
 
@@ -43,13 +46,18 @@ const Post = ({ page, preview }) => {
         as="article"
         width="100%"
         bg="gray.100"
-        backgroundRepeat="no-repeat"
-        backgroundSize="fixed"
-        bgImage={`url(${backgroundImage})`}
-        bgSize="100%"
-        height="100%"
         direction="column"
+        backgroundSize="cover"
+        minHeight="100vh"
+        position="relative"
       >
+        <Image
+          src={backgroundImage}
+          layout="fill"
+          objectFit="cover"
+          alt=""
+          objectPosition="top center"
+        />
         <NewsHero {...page.data} />
         {PrismicSlice({ sections: page.data.body })}
         <NewsFooter {...page.data} tags={page.tags} />
