@@ -179,7 +179,6 @@ export default function Header() {
                   <Image
                     src="/images/logo.png"
                     alt="International Quidditch Association"
-                    priority={true}
                     layout="fixed"
                     height={logoHeight}
                     width={logoHeight}
@@ -187,7 +186,6 @@ export default function Header() {
                   <Image
                     src="/images/logo-text.png"
                     alt="International Quidditch Association"
-                    priority={true}
                     layout="fixed"
                     height={logoTextHeight}
                     width={logoTextWidth}
