@@ -5,7 +5,15 @@ import { Button, Card, Container } from 'components';
 import { Flex, Grid, Box, Heading } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 import { getDocs, PAGE_SIZE, Client, manageLocal } from 'modules/prismic';
-import { useInfiniteQuery } from 'react-query';
+
+import {
+  QueryClientProvider,
+  QueryClient,
+  useInfiniteQuery,
+} from 'react-query';
+
+const queryClient = new QueryClient();
+
 const Meta = dynamic(() => import('components/meta'));
 
 const getPagedDocs = ({ pageParam = 0, lang }) =>
@@ -109,6 +117,12 @@ const News = ({ page, posts: initialPosts = [], lang }) => {
   );
 };
 
+const NewsWrapper = (props) => (
+  <QueryClientProvider client={queryClient}>
+    <News {...props} />
+  </QueryClientProvider>
+);
+
 export const getStaticProps = async ({ locale, locales }) => {
   const page = await Client().getSingle('news', { lang: locale });
   const posts = await getDocs('posts', {
@@ -125,4 +139,4 @@ export const getStaticProps = async ({ locale, locales }) => {
   };
 };
 
-export default News;
+export default NewsWrapper;

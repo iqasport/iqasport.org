@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { useQuery } from 'react-query';
 import { RichText } from 'prismic-reactjs';
 
 import {
@@ -18,27 +17,16 @@ import NewsFooter from 'components/news-footer';
 
 const backgroundImage = '/images/news-bg.png';
 
-const Post = ({ page: initialPage, preview, lang }) => {
+const Post = ({ page, preview }) => {
   const router = useRouter();
 
-  const { data: queryData } = useQuery(
-    ['posts', router.query.uid, lang?.currentLang],
-    () =>
-      getPrismicDocByUid('posts', router.query.uid, {
-        lang: lang?.currentLang,
-      }),
-    { initialData: initialPage, enabled: !preview }
-  );
-
-  if (router.isFallback && !queryData) {
+  if (router.isFallback && !page) {
     return <PageLoading />;
   }
 
-  if (!queryData && !preview) {
+  if (!page && !preview) {
     return <Page404 />;
   }
-
-  const page = preview ? initialPage : queryData;
 
   const metaData = {
     description:
