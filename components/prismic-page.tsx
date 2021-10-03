@@ -4,7 +4,8 @@ import dynamic from 'next/dynamic';
 const Meta = dynamic(() => import('components/meta'));
 const Page404 = dynamic(() => import('pages/404'));
 const PageLoading = dynamic(() => import('components/page-loading'));
-import { formatMetadata, PrismicSlice } from 'modules/prismic';
+import { formatMetadata } from 'modules/prismic';
+const PrismicSlice = dynamic(() => import('components/prismic'));
 
 // Base Prismic page component with 404 and loading fallbacks
 const Base = ({ page, posts, preview }) => {
@@ -21,7 +22,7 @@ const Base = ({ page, posts, preview }) => {
   return (
     <>
       <Meta {...formatMetadata(page.data)} />
-      <>{PrismicSlice({ sections: page.data.body, posts: posts })}</>
+      <PrismicSlice sections={page.data.body} posts={posts} />
     </>
   );
 };

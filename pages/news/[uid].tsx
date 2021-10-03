@@ -1,16 +1,12 @@
 import { useRouter } from 'next/router';
 import { RichText } from 'prismic-reactjs';
 
-import {
-  getDocs,
-  getPrismicDocByUid,
-  PrismicSlice,
-  manageLocal,
-} from 'modules/prismic';
+import { getDocs, getPrismicDocByUid, manageLocal } from 'modules/prismic';
 import { Flex } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
+const PrismicSlice = dynamic(() => import('components/prismic'));
 const SchemaArticle = dynamic(() => import('components/schema-article'));
 const Meta = dynamic(() => import('components/meta'));
 const Page404 = dynamic(() => import('pages/404'));
@@ -59,7 +55,7 @@ const Post = ({ page, preview }) => {
           objectPosition="top center"
         />
         <NewsHero {...page.data} />
-        {PrismicSlice({ sections: page.data.body })}
+        <PrismicSlice sections={page.data.body} />
         <NewsFooter {...page.data} tags={page.tags} />
       </Flex>
     </>
