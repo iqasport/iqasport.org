@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router';
 import usePrismicQuery from 'hooks/usePrismicQuery';
 import usePrismicPostsQuery from 'hooks/usePrismicPostsQuery';
-import Meta from 'components/meta';
-import Page404 from 'pages/404';
-import PageLoading from 'components/page-loading';
+import dynamic from 'next/dynamic';
+
+const Meta = dynamic(() => import('components/meta'));
+const Page404 = dynamic(() => import('pages/404'));
+const PageLoading = dynamic(() => import('components/page-loading'));
 import { formatMetadata, PrismicSlice } from 'modules/prismic';
 
 // Base Prismic page component with react-query refresh, 404 and loading fallbacks

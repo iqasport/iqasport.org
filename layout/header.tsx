@@ -13,9 +13,6 @@ import {
   LinkProps,
   IconButton,
   useDisclosure,
-  Drawer,
-  DrawerContent,
-  DrawerOverlay,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { HamburgerIcon } from '@chakra-ui/icons';
@@ -31,7 +28,9 @@ import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
 import GithubIcon from 'public/images/github.svg';
 
-import MobileNavigation from './mobile-navigation';
+import dynamic from 'next/dynamic';
+
+const Sidebar = dynamic(() => import('./sidebar'));
 
 const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="15px" width="15px" {...props} />
@@ -212,16 +211,7 @@ export default function Header() {
         </Box>
       </Box>
 
-      <Drawer isOpen={isOpen} onClose={onClose} placement="right" size="xs">
-        <DrawerOverlay />
-        <DrawerContent bg="white" px={5} pt={3} overflowY="auto">
-          <MobileNavigation
-            onClose={onClose}
-            data={data?.body}
-            top_level_navigation={data?.top_level_navigation}
-          />
-        </DrawerContent>
-      </Drawer>
+      <Sidebar isOpen={isOpen} onClose={onClose} data={data} />
     </>
   );
 }
