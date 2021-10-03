@@ -77,6 +77,11 @@ const moduleExports = {
         permanent: true,
       },
       {
+        source: '/wp-content/uploads/2020/10/Rulebook-20.pdf',
+        destination: '/rulebook',
+        permanent: false,
+      },
+      {
         source: '/de-de',
         destination: '/',
         permanent: false,
