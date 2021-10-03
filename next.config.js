@@ -15,6 +15,7 @@ const moduleExports = {
     locales: ['en-us'],
   },
   images: {
+    deviceSizes: [320, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     domains: ['images.prismic.io', 'iqasport.cdn.prismic.io'],
   },
   async redirects() {
@@ -107,6 +108,7 @@ const moduleExports = {
       },
     ];
   },
+
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
