@@ -7,5 +7,4 @@ import HorizontalCard from 'components/horizontal-card';
 import Button from 'components/button';
 import Text from 'components/text';
 
-export * from '@chakra-ui/react';
 export { Meta, Container, Image, Slice, Card, HorizontalCard, Button, Text };

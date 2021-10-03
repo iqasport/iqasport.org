@@ -1,3 +1,4 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
 import Prismic from '@prismicio/client';
 import { Client, linkResolver } from 'modules/prismic';
 
@@ -36,18 +37,12 @@ const createSitemap = ({ documents }) => `<?xml version="1.0" encoding="UTF-8"?>
   </urlset>
 `;
 
-const Sitemap = () => {};
-
-export const getServerSideProps = async ({ res }) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const documents = await getPages(1, []);
 
   res.setHeader('Content-Type', 'text/xml');
   res.write(createSitemap({ documents }));
   res.end();
-
-  return {
-    props: {},
-  };
 };
 
-export default Sitemap;
+export default handler;

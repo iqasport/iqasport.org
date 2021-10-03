@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Client } from 'modules/prismic';
+import { Image, Text } from 'components';
+
 import {
   Flex,
   Box,
-  Image,
-  Text,
   Grid,
   ListItem,
   Link as ChakraLink,
@@ -12,7 +12,7 @@ import {
   ListItemProps,
   HStack,
   LinkProps,
-} from 'components';
+} from '@chakra-ui/react';
 import FacebookIcon from 'public/images/facebook.svg';
 import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';

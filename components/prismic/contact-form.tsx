@@ -5,16 +5,8 @@ import { object, string } from 'yup';
 import get from 'just-safe-get';
 import axios from 'axios';
 
-import {
-  Heading,
-  Button,
-  Slice,
-  Input,
-  Box,
-  Stack,
-  Text,
-  Textarea,
-} from 'components';
+import { Button, Slice, Text } from 'components';
+import { Heading, Input, Box, Stack, Textarea } from '@chakra-ui/react';
 import { CheckIcon } from '@chakra-ui/icons';
 import { buttonVariants } from 'components/button';
 

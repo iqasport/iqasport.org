@@ -1,4 +1,5 @@
-import { Heading, Container, Box, Text, Flex } from 'components';
+import { Heading, Container, Box, Flex } from '@chakra-ui/react';
+import { Text } from 'components';
 import Image from 'next/image';
 import formatLocale from 'modules/dates';
 import { useRouter } from 'next/router';

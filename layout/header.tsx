@@ -16,7 +16,7 @@ import {
   Drawer,
   DrawerContent,
   DrawerOverlay,
-} from 'components';
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import DesktopNavigation from 'layout/navigation';

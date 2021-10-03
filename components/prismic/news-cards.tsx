@@ -1,7 +1,8 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
 
-import { Flex, Heading, Box, Slice, Card, HorizontalCard } from 'components';
+import { Slice, Card, HorizontalCard } from 'components';
+import { Flex, Heading, Box } from '@chakra-ui/react';
 import { cardVariants } from 'components/card';
 
 import { getPrismicDocByUid, linkResolver } from 'modules/prismic';

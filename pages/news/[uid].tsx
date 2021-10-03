@@ -9,7 +9,7 @@ import {
   manageLocal,
 } from 'modules/prismic';
 import SchemaArticle from 'components/schema-article';
-import { Flex } from 'components';
+import { Flex } from '@chakra-ui/react';
 import Meta from 'components/meta';
 import Page404 from 'pages/404';
 import PageLoading from 'components/page-loading';

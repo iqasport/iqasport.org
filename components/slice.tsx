@@ -1,5 +1,4 @@
-import { Box } from 'components';
-import { useMultiStyleConfig, StylesProvider } from '@chakra-ui/react';
+import { useMultiStyleConfig, StylesProvider, Box } from '@chakra-ui/react';
 const backgroundImage = '/images/bg.png';
 
 export const SliceStyles = {

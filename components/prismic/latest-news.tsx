@@ -1,15 +1,8 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import {
-  Slice,
-  HorizontalCard,
-  Card,
-  Heading,
-  Grid,
-  Flex,
-  Button,
-} from 'components';
+import { Slice, HorizontalCard, Card, Button } from 'components';
+import { Heading, Grid, Flex } from '@chakra-ui/react';
 import { cardVariants } from 'components/card';
 import { buttonVariants } from 'components/button';
 

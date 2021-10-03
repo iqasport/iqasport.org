@@ -1,6 +1,7 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Flex, Heading, Button, Slice, Link, Box } from 'components';
+import { Button, Slice } from 'components';
+import { Flex, Heading, Link, Box } from '@chakra-ui/react';
 
 import { linkResolver } from 'modules/prismic';
 

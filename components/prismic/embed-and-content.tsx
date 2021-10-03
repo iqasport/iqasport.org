@@ -1,6 +1,7 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Grid, Flex, Heading, Text, Slice } from 'components';
+import { Text, Slice } from 'components';
+import { Grid, Flex, Heading } from '@chakra-ui/react';
 import { Embed } from './embed';
 
 import { linkResolver } from 'modules/prismic';

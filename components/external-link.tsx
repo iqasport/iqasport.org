@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Link as ChakraLink } from 'components';
+import { Link as ChakraLink } from '@chakra-ui/react';
 
 const ExternalLink = ({ href, children, ...props }) => {
   const regex = new RegExp('(http)|(mailto)', 'g');

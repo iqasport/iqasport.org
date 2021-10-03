@@ -1,4 +1,4 @@
-import { Select } from 'components';
+import { Select } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
 function getFlagEmoji(countryCode) {

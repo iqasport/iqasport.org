@@ -10,8 +10,8 @@ import {
   Link as ChakraLink,
   LinkProps,
   IconButton,
-  Text,
-} from 'components';
+} from '@chakra-ui/react';
+import { Text } from 'components';
 import { CloseIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 
 import Link from 'next/link';

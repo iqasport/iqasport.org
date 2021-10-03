@@ -1,6 +1,7 @@
 import get from 'just-safe-get';
 
-import { Slice, Box, Grid, Text, Image } from 'components';
+import { Slice, Text, Image } from 'components';
+import { Box, Grid } from '@chakra-ui/react';
 
 const Item = ({ item }) => {
   const { height, width } = item.image?.dimensions;

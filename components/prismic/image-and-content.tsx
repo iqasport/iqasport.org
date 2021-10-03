@@ -1,6 +1,7 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Grid, Flex, Heading, Text, Slice, Image, Box } from 'components';
+import { Text, Slice, Image } from 'components';
+import { Grid, Flex, Heading, Box } from '@chakra-ui/react';
 import { linkResolver } from 'modules/prismic';
 
 const Item = ({ item, isImageLeft }) => (

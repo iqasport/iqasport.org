@@ -1,16 +1,17 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
+import { Slice } from 'components';
+
 import {
   Box,
   Grid,
   Heading,
-  Slice,
   useDisclosure,
   Modal,
   ModalOverlay,
   ModalContent,
   Flex,
-} from 'components';
+} from '@chakra-ui/react';
 
 import { linkResolver } from 'modules/prismic';
 

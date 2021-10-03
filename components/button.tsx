@@ -1,5 +1,9 @@
-import { useStyleConfig, Button as ChakraButton, Box } from '@chakra-ui/react';
-import { ButtonProps } from 'components';
+import {
+  useStyleConfig,
+  Button as ChakraButton,
+  Box,
+  ButtonProps,
+} from '@chakra-ui/react';
 import ExternalLink from 'components/external-link';
 
 export const ButtonStyles = {

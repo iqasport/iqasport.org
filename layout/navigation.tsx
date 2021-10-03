@@ -9,7 +9,7 @@ import {
   PopoverContent,
   PopoverBody,
   ListItemProps,
-} from 'components';
+} from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { Link as PrismicLink } from 'prismic-reactjs';

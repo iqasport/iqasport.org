@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-
 import get from 'just-safe-get';
-import { Box, Flex, Text, Link as ChakraLink, HStack } from 'components';
+import { Box, Flex, Link as ChakraLink, HStack } from '@chakra-ui/react';
+import { Text } from 'components';
 
 import FacebookIcon from 'public/images/facebook.svg';
 import WhatsappIcon from 'public/images/whatsapp.svg';

@@ -2,7 +2,8 @@ import { RichText, Link } from 'prismic-reactjs';
 import get from 'just-safe-get';
 import { InfoOutlineIcon, ExternalLinkIcon, StarIcon } from '@chakra-ui/icons';
 
-import { Flex, Heading, Box, Slice, Card, Grid, Text } from 'components';
+import { Slice, Card, Text } from 'components';
+import { Flex, Heading, Box, Grid } from '@chakra-ui/react';
 import { cardVariants } from 'components/card';
 
 import { getPrismicDocByUid, linkResolver } from 'modules/prismic';

@@ -3,7 +3,8 @@ import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import get from 'just-safe-get';
 import { geoVanDerGrinten3 } from 'd3-geo-projection';
 
-import { Slice, Box, Heading, Button } from 'components';
+import { Slice, Button } from 'components';
+import { Box, Heading } from '@chakra-ui/react';
 import { buttonVariants } from 'components/button';
 import { getDocs } from 'modules/prismic';
 

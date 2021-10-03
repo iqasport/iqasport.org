@@ -8,6 +8,7 @@
     "prepare": "husky install",
     "lint": "eslint pages components styles modules document layout cypress",
     "lint:fix": "eslint pages components styles modules document layout cypress --fix",
+    "build:analyze": "ANALYZE=true next build",
     "cypress": "cypress run",
     "cypress:dev": "cypress open"
   },
@@ -46,6 +47,7 @@
     "@babel/core": "7.15.5",
     "@babel/eslint-parser": "7.15.7",
     "@emotion/babel-plugin": "11.3.0",
+    "@next/bundle-analyzer": "^11.1.2",
     "@types/gtag.js": "0.0.7",
     "@types/node": "15.12.4",
     "@types/react": "17.0.26",

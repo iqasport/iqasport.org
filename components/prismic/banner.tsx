@@ -1,6 +1,7 @@
 import { RichText, RichTextBlock } from 'prismic-reactjs';
 import dynamic from 'next/dynamic';
-import { Box, Flex, Heading, Button } from 'components';
+import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Button } from 'components';
 import { BANNER_MIN_HEIGHTS } from 'styles/hero-heights';
 import { linkResolver } from 'modules/prismic';
 

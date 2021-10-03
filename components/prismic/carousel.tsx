@@ -1,7 +1,8 @@
 import { RichText } from 'prismic-reactjs';
 import Flickity from 'react-flickity-component';
 import get from 'just-safe-get';
-import { Slice, Box, Heading, Text, Image, Flex } from 'components';
+import { Slice, Text, Image } from 'components';
+import { Box, Heading, Flex } from '@chakra-ui/react';
 import { linkResolver } from 'modules/prismic';
 
 const CarouselContainer = (props) => (

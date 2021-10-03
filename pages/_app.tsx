@@ -1,22 +1,21 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
-import Fonts from 'styles/fonts';
-import theme from 'styles/theme';
-import DocumentHead from 'document/head';
-import { QueryClientProvider, QueryClient } from 'react-query';
-import Layout from 'layout';
 import GTag, { pageview } from 'modules/analytics';
-import AppErrorBoundary from 'components/errorBoundaries/app';
+import dynamic from 'next/dynamic';
 
-const queryClient = new QueryClient();
+const Layout = dynamic(() => import('layout'));
+const Fonts = dynamic(() => import('styles/fonts'));
+const DocumentHead = dynamic(() => import('document/head'));
+const AppErrorBoundary = dynamic(
+  () => import('components/errorBoundaries/app')
+);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    const handleRouteChange = (url: URL) => {
+    const handleRouteChange = async (url: URL) => {
       pageview(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -28,16 +27,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <AppErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <ChakraProvider theme={theme} resetCSS={false}>
-          <GTag />
-          <DocumentHead />
-          <Fonts />
-          <Layout {...pageProps}>
-            <Component {...pageProps} />
-          </Layout>
-        </ChakraProvider>
-      </QueryClientProvider>
+      <GTag />
+      <DocumentHead />
+      <Fonts />
+      <Layout {...pageProps}>
+        <Component {...pageProps} />
+      </Layout>
     </AppErrorBoundary>
   );
 }

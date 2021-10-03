@@ -1,7 +1,8 @@
 import Prismic from '@prismicio/client';
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { Flex, Button, Grid, Card, Container, Box, Heading } from 'components';
+import { Button, Card, Container } from 'components';
+import { Flex, Grid, Box, Heading } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 import { getDocs, PAGE_SIZE, Client, manageLocal } from 'modules/prismic';
 import { useInfiniteQuery } from 'react-query';
