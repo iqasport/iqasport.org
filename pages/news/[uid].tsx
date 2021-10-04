@@ -43,17 +43,12 @@ const Post = ({ page, preview }) => {
         width="100%"
         bg="gray.100"
         direction="column"
-        backgroundSize="cover"
-        minHeight="100vh"
-        position="relative"
+        backgroundRepeat="no-repeat"
+        backgroundSize="fixed"
+        bgImage={`url(${backgroundImage})`}
+        bgSize="100%"
+        height="100%"
       >
-        <Image
-          src={backgroundImage}
-          layout="fill"
-          objectFit="cover"
-          alt=""
-          objectPosition="top center"
-        />
         <NewsHero {...page.data} />
         <PrismicSlice sections={page.data.body} />
         <NewsFooter {...page.data} tags={page.tags} />
