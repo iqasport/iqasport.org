@@ -1,7 +1,5 @@
 import { getStaticPrismicProps } from 'modules/prismic';
-import dynamic from 'next/dynamic';
-
-const PrismicPage = dynamic(() => import('components/prismic-page'));
+import PrismicPage from 'components/prismic-page';
 
 const Home = (props) => {
   return <PrismicPage type="pages" uid="home" {...props} />;
