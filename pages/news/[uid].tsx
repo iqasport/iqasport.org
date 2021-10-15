@@ -4,7 +4,6 @@ import { RichText } from 'prismic-reactjs';
 import { getDocs, getPrismicDocByUid, manageLocal } from 'modules/prismic';
 import { Flex } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 
 const PrismicSlice = dynamic(() => import('components/prismic'));
 const SchemaArticle = dynamic(() => import('components/schema-article'));
