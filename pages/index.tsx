@@ -23,6 +23,7 @@ export const getStaticProps = async ({
 
   return {
     props: { ...prismicProps, preview },
+    revalidate: 1,
   };
 };
 
