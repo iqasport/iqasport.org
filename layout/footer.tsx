@@ -61,21 +61,23 @@ const ActiveLink = ({ href, children }) => {
   );
 };
 
-export default function Footer() {
-  const [data, setData] = useState(null);
-
+export default function Footer({ data: initialData }) {
+  const [data, setData] = useState(initialData);
   const { locale } = useRouter();
+  const [currentLang, setCurrentLang] = useState(locale);
+
   useEffect(() => {
-    if (!data) {
+    if (!data || locale !== currentLang) {
       const fetchData = async () => {
         const { data: footer } = await Client().getSingle('footer', {
           lang: locale,
         });
         setData(footer);
+        setCurrentLang(locale);
       };
       fetchData();
     }
-  }, [data, locale]);
+  }, [data, locale, currentLang]);
 
   return (
     <Box as="footer" bg="gray.800" px={{ base: 4, sm: 8, md: 10 }}>

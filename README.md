@@ -9,7 +9,7 @@ Please note that this project is released with a Contributor Code of Conduct. By
 ## Powered by Vercel
 
 <p align="left">
-  <a aria-label="Vercel logo" href="https://vercel.com/?utm_source=quidditchuk">
+  <a aria-label="Vercel logo" href="https://vercel.com/?utm_source=iqasport">
     <img src="public/images/powered-by-vercel.svg" width="212" height="44">
   </a>
 </p>

@@ -12,6 +12,7 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const moduleExports = {
   i18n: {
     defaultLocale: 'en-us',
+    // locales: ['en-us', 'fr-fr', 'de-de', 'es-es'],
     locales: ['en-us'],
   },
   images: {
@@ -86,21 +87,21 @@ const moduleExports = {
         destination: '/rulebook',
         permanent: false,
       },
-      {
-        source: '/de-de',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/fr-fr',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/es-es',
-        destination: '/',
-        permanent: false,
-      },
+      // {
+      //   source: '/de-de',
+      //   destination: '/',
+      //   permanent: false,
+      // },
+      // {
+      //   source: '/fr-fr',
+      //   destination: '/',
+      //   permanent: false,
+      // },
+      // {
+      //   source: '/es-es',
+      //   destination: '/',
+      //   permanent: false,
+      // },
       {
         source: '/sitemap.xml',
         destination: '/api/sitemap.xml',

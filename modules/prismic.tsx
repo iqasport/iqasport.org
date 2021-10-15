@@ -81,6 +81,8 @@ export async function getStaticPrismicProps({
   previewData,
 }) {
   const { ref } = previewData;
+  const { data: header } = await Client().getSingle('header', { lang });
+  const { data: footer } = await Client().getSingle('footer', { lang });
   const page = await getPrismicDocByUid(type, uid, { lang, ref });
 
   const posts = await getDocs('posts', {
@@ -91,5 +93,11 @@ export async function getStaticPrismicProps({
   });
 
   const { currentLang, isMyMainLanguage } = manageLocal(locales, lang);
-  return { page, posts, lang: { currentLang, isMyMainLanguage } };
+  return {
+    page,
+    posts,
+    header,
+    footer,
+    lang: { currentLang, isMyMainLanguage },
+  };
 }

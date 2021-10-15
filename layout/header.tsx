@@ -56,12 +56,12 @@ export type SliceProps = {
       };
 };
 
-export default function Header() {
+export default function Header({ data: initialData }) {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const logoHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextWidth = useBreakpointValue({ base: 90, xl: 115 }) || 90;
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(initialData);
   const { locale } = useRouter();
   const [currentLang, setCurrentLang] = useState(locale);
 
