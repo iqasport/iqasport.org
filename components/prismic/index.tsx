@@ -29,7 +29,7 @@ const slices = {
   header_and_paragraph: HeaderAndParagraph,
   images: Images,
   embed: Embed,
-  // image_and_content: ImageAndContent,
+  image_and_content: ImageAndContent,
   cards: Cards,
   // embed_and_content: EmbedAndContent,
   // latest_news: LatestNews,
