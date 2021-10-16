@@ -38,7 +38,7 @@ const slices = {
   carousel: Carousel,
   member_card: MemberCards,
   contact_form: ContactForm,
-  // world_map: WorldMap,
+  world_map: WorldMap,
   news_card: NewsCards,
 };
 
