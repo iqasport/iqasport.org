@@ -5,8 +5,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import theme from 'styles/theme';
 
 const Text = dynamic(() => import('components/text'));
-const Header = dynamic(() => import('layout/header'));
-const Footer = dynamic(() => import('layout/footer'));
+// const Header = dynamic(() => import('layout/header'));
+// const Footer = dynamic(() => import('layout/footer'));
 const PageErrorBoundary = dynamic(
   () => import('components/errorBoundaries/page')
 );
@@ -38,7 +38,7 @@ const Layout = ({ children, preview = false, header, footer }) => {
           </Flex>
         )}
 
-        <Header data={header} />
+        {/* <Header data={header} /> */}
         <PageErrorBoundary>
           <Box
             as="main"
@@ -53,7 +53,7 @@ const Layout = ({ children, preview = false, header, footer }) => {
             {children}
           </Box>
         </PageErrorBoundary>
-        <Footer data={footer} />
+        {/* <Footer data={footer} /> */}
       </Grid>
     </ChakraProvider>
   );
