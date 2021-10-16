@@ -25,21 +25,21 @@ const WorldMap = dynamic(() => import('components/prismic/world-map'));
 const NewsCards = dynamic(() => import('components/prismic/news-cards'));
 
 const slices = {
-  // hero: Hero,
-  // header_and_paragraph: HeaderAndParagraph,
-  // images: Images,
-  // embed: Embed,
-  // image_and_content: ImageAndContent,
-  // cards: Cards,
-  // embed_and_content: EmbedAndContent,
-  // latest_news: LatestNews,
-  // horizontal_card: HorizontalCards,
-  // banner: Banner,
-  // carousel: Carousel,
-  // member_card: MemberCards,
-  // contact_form: ContactForm,
-  // world_map: WorldMap,
-  // news_card: NewsCards,
+  hero: Hero,
+  header_and_paragraph: HeaderAndParagraph,
+  images: Images,
+  embed: Embed,
+  image_and_content: ImageAndContent,
+  cards: Cards,
+  embed_and_content: EmbedAndContent,
+  latest_news: LatestNews,
+  horizontal_card: HorizontalCards,
+  banner: Banner,
+  carousel: Carousel,
+  member_card: MemberCards,
+  contact_form: ContactForm,
+  world_map: WorldMap,
+  news_card: NewsCards,
 };
 
 type PrismicSliceProps = {
