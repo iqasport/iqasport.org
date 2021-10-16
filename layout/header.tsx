@@ -16,9 +16,9 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import DesktopNavigation from 'layout/navigation';
 import Headroom from 'react-headroom';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 // TODO: Re-enable when website translated
 // import LanguageSwitcher from 'components/language-switcher';
@@ -28,8 +28,7 @@ import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
 import GithubIcon from 'public/images/github.svg';
 
-import dynamic from 'next/dynamic';
-
+const DesktopNavigation = dynamic(() => import('layout/navigation'));
 const Sidebar = dynamic(() => import('./sidebar'));
 
 const IconWrapper = (props: LinkProps) => (

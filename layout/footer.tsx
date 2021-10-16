@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Client } from 'modules/prismic';
-import { Image, Text } from 'components';
+import dynamic from 'next/dynamic';
 
 import {
   Flex,
@@ -23,6 +23,9 @@ import { Link as PrismicLink } from 'prismic-reactjs';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { linkResolver } from 'modules/prismic';
+
+const Image = dynamic(() => import('components/image'));
+const Text = dynamic(() => import('components/text'));
 
 const logo = '/images/logo_short_monochrome_white.png';
 
