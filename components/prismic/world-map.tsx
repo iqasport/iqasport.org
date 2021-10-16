@@ -11,7 +11,7 @@ import { getDocs } from 'modules/prismic';
 const Slice = dynamic(() => import('components/slice'));
 const Button = dynamic(() => import('components/button'));
 
-const mapPath = '/worldmap.json';
+const mapPath = 'public/worldmap.json';
 
 const WorldMap = (rawData) => {
   const variant = get(rawData, 'primary.variant') || 'primary';
