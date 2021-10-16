@@ -25,7 +25,7 @@ const WorldMap = dynamic(() => import('components/prismic/world-map'));
 const NewsCards = dynamic(() => import('components/prismic/news-cards'));
 
 const slices = {
-  hero: Hero,
+  // hero: Hero,
   header_and_paragraph: HeaderAndParagraph,
   images: Images,
   embed: Embed,
