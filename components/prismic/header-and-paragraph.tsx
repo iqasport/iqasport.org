@@ -1,6 +1,10 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Button, Slice } from 'components';
+import dynamic from 'next/dynamic';
+
+const Button = dynamic(() => import('components/button'));
+const Slice = dynamic(() => import('components/slice'));
+
 import { Flex, Heading, Link, Box } from '@chakra-ui/react';
 
 import { linkResolver } from 'modules/prismic';
