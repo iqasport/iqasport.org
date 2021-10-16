@@ -72,11 +72,10 @@ const MenuList = ({ wrapperProps, data }) => {
   }, [setChildActive, items, asPath]);
 
   return (
-    <ListItem role="none" {...wrapperProps}>
+    <ListItem role="listitem" {...wrapperProps}>
       <Popover>
         <PopoverTrigger>
           <ChakraLink
-            role="menuitem"
             position="relative"
             fontWeight={600}
             color={childActive ? 'iqaGreen' : 'gray.800'}
@@ -169,6 +168,7 @@ export default function Navigation({ data }) {
       display={{ base: 'none', lg: 'flex' }}
       flexDirection="row"
       listStyleType="none"
+      role="list"
     >
       {data?.map((slice, i) => {
         const Component = menuSlices[slice?.slice_type];
