@@ -32,7 +32,7 @@ const slices = {
   image_and_content: ImageAndContent,
   cards: Cards,
   // embed_and_content: EmbedAndContent,
-  // latest_news: LatestNews,
+  latest_news: LatestNews,
   horizontal_card: HorizontalCards,
   banner: Banner,
   carousel: Carousel,
