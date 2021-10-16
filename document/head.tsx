@@ -54,6 +54,7 @@ export default function DocumentHead() {
       {/* <link rel="manifest" href="/manifest.json" /> */}
 
       {/* Fonts */}
+      <link rel="preconnect" href="https://use.typekit.net" />
       <link
         rel="preload"
         href="https://use.typekit.net/ltm4yyn.css"

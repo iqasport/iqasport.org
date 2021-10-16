@@ -37,8 +37,8 @@ export default extendTheme({
   },
 
   fonts: {
-    heading: 'metropolis, sans-serif',
-    body: 'proxima-nova, sans-serif',
+    heading: 'metropolis, helvetica, arial, sans-serif',
+    body: 'proxima-nova, helvetica, arial, sans-serif',
   },
 
   styles: {
