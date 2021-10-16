@@ -1,7 +1,6 @@
 import Prismic from '@prismicio/client';
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { Button, Card, Container } from 'components';
 import { Flex, Grid, Box, Heading } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
 import { getDocs, PAGE_SIZE, Client, manageLocal } from 'modules/prismic';
@@ -15,6 +14,9 @@ import {
 const queryClient = new QueryClient();
 
 const Meta = dynamic(() => import('components/meta'));
+const Button = dynamic(() => import('components/button'));
+const Card = dynamic(() => import('components/card'));
+const Container = dynamic(() => import('components/container'));
 
 const getPagedDocs = ({ pageParam = 0, lang }) =>
   Client().query(Prismic.Predicates.at('document.type', 'posts'), {

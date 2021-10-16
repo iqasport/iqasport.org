@@ -1,11 +1,13 @@
 import { useRouter } from 'next/router';
 import get from 'just-safe-get';
 import { Box, Flex, Link as ChakraLink, HStack } from '@chakra-ui/react';
-import { Text } from 'components';
+import dynamic from 'next/dynamic';
 
 import FacebookIcon from 'public/images/facebook.svg';
 import WhatsappIcon from 'public/images/whatsapp.svg';
 import TwitterIcon from 'public/images/twitter.svg';
+
+const Text = dynamic(() => import('components/text'));
 
 const IconWrapper = (props) => (
   <ChakraLink height="25px" width="25px" {...props} />

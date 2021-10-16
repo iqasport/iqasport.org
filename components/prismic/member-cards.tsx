@@ -1,13 +1,17 @@
 import { RichText, Link } from 'prismic-reactjs';
 import get from 'just-safe-get';
+import dynamic from 'next/dynamic';
 import { InfoOutlineIcon, ExternalLinkIcon, StarIcon } from '@chakra-ui/icons';
 
-import { Slice, Card, Text } from 'components';
 import { Flex, Heading, Box, Grid } from '@chakra-ui/react';
 import { cardVariants } from 'components/card';
 
 import { getPrismicDocByUid, linkResolver } from 'modules/prismic';
 import { useEffect, useState } from 'react';
+
+const Slice = dynamic(() => import('components/slice'));
+const Card = dynamic(() => import('components/card'));
+const Text = dynamic(() => import('components/text'));
 
 const MIN_CARDS = 3;
 

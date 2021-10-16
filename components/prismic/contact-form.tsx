@@ -4,11 +4,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string } from 'yup';
 import get from 'just-safe-get';
 import axios from 'axios';
-
-import { Button, Slice, Text } from 'components';
+import dynamic from 'next/dynamic';
 import { Heading, Input, Box, Stack, Textarea } from '@chakra-ui/react';
 import { CheckIcon } from '@chakra-ui/icons';
 import { buttonVariants } from 'components/button';
+
+const Slice = dynamic(() => import('components/slice'));
+const Text = dynamic(() => import('components/text'));
+const Button = dynamic(() => import('components/button'));
 
 type FormValues = {
   name: string;

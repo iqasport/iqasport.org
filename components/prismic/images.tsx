@@ -1,7 +1,11 @@
 import get from 'just-safe-get';
+import dynamic from 'next/dynamic';
 
-import { Slice, Text, Image } from 'components';
 import { Box, Grid } from '@chakra-ui/react';
+
+const Slice = dynamic(() => import('components/slice'));
+const Text = dynamic(() => import('components/text'));
+const Image = dynamic(() => import('components/image'));
 
 const Item = ({ item }) => {
   const { height, width } = item.image?.dimensions;

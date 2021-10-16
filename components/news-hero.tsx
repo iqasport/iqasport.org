@@ -1,8 +1,10 @@
 import { Heading, Container, Box, Flex } from '@chakra-ui/react';
-import { Text } from 'components';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import formatLocale from 'modules/dates';
 import { useRouter } from 'next/router';
+
+const Text = dynamic(() => import('components/text'));
 
 const NewsHero = ({ title, date, category, image }) => {
   const { locale } = useRouter();

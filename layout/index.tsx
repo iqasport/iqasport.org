@@ -1,10 +1,10 @@
-import { Text } from 'components';
 import { Grid, Flex, Link, Box } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import { ChakraProvider } from '@chakra-ui/react';
 
 import theme from 'styles/theme';
 
+const Text = dynamic(() => import('components/text'));
 const Header = dynamic(() => import('layout/header'));
 const Footer = dynamic(() => import('layout/footer'));
 const PageErrorBoundary = dynamic(
