@@ -46,10 +46,6 @@ export default function DocumentHead() {
       <meta property="twitter:card" content="summary_large_image" />
 
       <link rel="preconnect" href="//images.prismic.io" />
-      <link
-        rel="preconnect"
-        href={`//${process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME}.prismic.io`}
-      />
       {/* Offline-Mode */}
       {/* <link rel="manifest" href="/manifest.json" /> */}
 
