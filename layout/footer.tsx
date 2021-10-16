@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Client } from 'modules/prismic';
-import { Image, Text } from 'components';
+import dynamic from 'next/dynamic';
 
 import {
   Flex,
@@ -23,6 +23,9 @@ import { Link as PrismicLink } from 'prismic-reactjs';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { linkResolver } from 'modules/prismic';
+
+const Image = dynamic(() => import('components/image'));
+const Text = dynamic(() => import('components/text'));
 
 const logo = '/images/logo_short_monochrome_white.png';
 
@@ -61,21 +64,23 @@ const ActiveLink = ({ href, children }) => {
   );
 };
 
-export default function Footer() {
-  const [data, setData] = useState(null);
-
+export default function Footer({ data: initialData }) {
+  const [data, setData] = useState(initialData);
   const { locale } = useRouter();
+  const [currentLang, setCurrentLang] = useState(locale);
+
   useEffect(() => {
-    if (!data) {
+    if (!data || locale !== currentLang) {
       const fetchData = async () => {
         const { data: footer } = await Client().getSingle('footer', {
           lang: locale,
         });
         setData(footer);
+        setCurrentLang(locale);
       };
       fetchData();
     }
-  }, [data, locale]);
+  }, [data, locale, currentLang]);
 
   return (
     <Box as="footer" bg="gray.800" px={{ base: 4, sm: 8, md: 10 }}>

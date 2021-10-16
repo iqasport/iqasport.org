@@ -11,7 +11,7 @@ const PageErrorBoundary = dynamic(
   () => import('components/errorBoundaries/page')
 );
 
-const Layout = ({ children, preview = false }) => {
+const Layout = ({ children, preview = false, header, footer }) => {
   return (
     <ChakraProvider theme={theme} resetCSS={false}>
       <Grid color="gray.800" width="100%" bg="iqaGreen">
@@ -38,7 +38,7 @@ const Layout = ({ children, preview = false }) => {
           </Flex>
         )}
 
-        <Header />
+        <Header data={header} />
         <PageErrorBoundary>
           <Box
             as="main"
@@ -53,7 +53,7 @@ const Layout = ({ children, preview = false }) => {
             {children}
           </Box>
         </PageErrorBoundary>
-        <Footer />
+        <Footer data={footer} />
       </Grid>
     </ChakraProvider>
   );

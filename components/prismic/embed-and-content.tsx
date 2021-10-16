@@ -1,8 +1,12 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Text, Slice } from 'components';
+import dynamic from 'next/dynamic';
+
 import { Grid, Flex, Heading } from '@chakra-ui/react';
-import { Embed } from './embed';
+
+const Embed = dynamic(() => import('components/embed'));
+const Text = dynamic(() => import('components/text'));
+const Slice = dynamic(() => import('components/slice'));
 
 import { linkResolver } from 'modules/prismic';
 

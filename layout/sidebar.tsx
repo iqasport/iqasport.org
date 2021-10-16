@@ -1,5 +1,7 @@
 import { Drawer, DrawerContent, DrawerOverlay } from '@chakra-ui/react';
-import MobileNavigation from './mobile-navigation';
+import dynamic from 'next/dynamic';
+
+const MobileNavigation = dynamic(() => import('./mobile-navigation'));
 
 export default function Sidebar({ isOpen, onClose, data }) {
   return (

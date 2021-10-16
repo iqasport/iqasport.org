@@ -16,9 +16,9 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import DesktopNavigation from 'layout/navigation';
 import Headroom from 'react-headroom';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 // TODO: Re-enable when website translated
 // import LanguageSwitcher from 'components/language-switcher';
@@ -28,8 +28,7 @@ import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
 import GithubIcon from 'public/images/github.svg';
 
-import dynamic from 'next/dynamic';
-
+const DesktopNavigation = dynamic(() => import('layout/navigation'));
 const Sidebar = dynamic(() => import('./sidebar'));
 
 const IconWrapper = (props: LinkProps) => (
@@ -56,12 +55,12 @@ export type SliceProps = {
       };
 };
 
-export default function Header() {
+export default function Header({ data: initialData }) {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const logoHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextWidth = useBreakpointValue({ base: 90, xl: 115 }) || 90;
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(initialData);
   const { locale } = useRouter();
   const [currentLang, setCurrentLang] = useState(locale);
 
@@ -179,6 +178,7 @@ export default function Header() {
                     src="/images/logo.png"
                     alt="International Quidditch Association"
                     layout="fixed"
+                    priority={true}
                     height={logoHeight}
                     width={logoHeight}
                   />
@@ -186,6 +186,7 @@ export default function Header() {
                     src="/images/logo-text.png"
                     alt="International Quidditch Association"
                     layout="fixed"
+                    priority={true}
                     height={logoTextHeight}
                     width={logoTextWidth}
                   />

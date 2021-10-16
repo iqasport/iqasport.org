@@ -12,6 +12,8 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const moduleExports = {
   i18n: {
     defaultLocale: 'en-us',
+    // TODO re-enable once website translated
+    // locales: ['en-us', 'fr-fr', 'de-de', 'es-es'],
     locales: ['en-us'],
   },
   images: {

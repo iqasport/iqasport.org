@@ -10,8 +10,11 @@ import {
   Grid,
 } from '@chakra-ui/react';
 import { linkResolver } from 'modules/prismic';
-import Image from 'components/image';
-import Text from 'components/text';
+import dynamic from 'next/dynamic';
+
+const Image = dynamic(() => import('components/image'));
+const Text = dynamic(() => import('components/text'));
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import formatLocale from 'modules/dates';

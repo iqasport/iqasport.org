@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { Link as PrismicLink } from 'prismic-reactjs';
 import { linkResolver } from 'modules/prismic';
 import get from 'just-safe-get';
@@ -11,7 +12,6 @@ import {
   LinkProps,
   IconButton,
 } from '@chakra-ui/react';
-import { Text } from 'components';
 import { CloseIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 
 import Link from 'next/link';
@@ -24,6 +24,7 @@ import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
 import GithubIcon from 'public/images/github.svg';
+const Text = dynamic(() => import('components/text'));
 
 const IconWrapper = (props: LinkProps) => (
   <ChakraLink height="20px" width="20px" {...props} />

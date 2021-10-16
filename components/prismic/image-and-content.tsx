@@ -1,8 +1,12 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
-import { Text, Slice, Image } from 'components';
 import { Grid, Flex, Heading, Box } from '@chakra-ui/react';
 import { linkResolver } from 'modules/prismic';
+import dynamic from 'next/dynamic';
+
+const Text = dynamic(() => import('components/text'));
+const Slice = dynamic(() => import('components/slice'));
+const Image = dynamic(() => import('components/image'));
 
 const Item = ({ item, isImageLeft }) => (
   <Grid

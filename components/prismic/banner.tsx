@@ -1,10 +1,11 @@
 import { RichText, RichTextBlock } from 'prismic-reactjs';
 import dynamic from 'next/dynamic';
 import { Box, Flex, Heading } from '@chakra-ui/react';
-import { Button } from 'components';
+
 import { BANNER_MIN_HEIGHTS } from 'styles/hero-heights';
 import { linkResolver } from 'modules/prismic';
 
+const Button = dynamic(() => import('components/button'));
 const Image = dynamic(() => import('components/image'));
 
 type BannerProps = {
