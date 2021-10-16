@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <AppErrorBoundary>
-      <GTag />
+      {/* <GTag /> */}
       <DocumentHead />
       <Fonts />
       <Layout {...pageProps}>
