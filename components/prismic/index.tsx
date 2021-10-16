@@ -31,14 +31,14 @@ const slices = {
   embed: Embed,
   image_and_content: ImageAndContent,
   cards: Cards,
-  // embed_and_content: EmbedAndContent,
+  embed_and_content: EmbedAndContent,
   latest_news: LatestNews,
   horizontal_card: HorizontalCards,
   banner: Banner,
   carousel: Carousel,
   member_card: MemberCards,
   contact_form: ContactForm,
-  world_map: WorldMap,
+  // world_map: WorldMap,
   news_card: NewsCards,
 };
 
