@@ -1,10 +1,16 @@
 import { RichText } from 'prismic-reactjs';
 import get from 'just-safe-get';
+import dynamic from 'next/dynamic';
+
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Slice, HorizontalCard, Card, Button } from 'components';
 import { Heading, Grid, Flex } from '@chakra-ui/react';
 import { cardVariants } from 'components/card';
 import { buttonVariants } from 'components/button';
+
+const Slice = dynamic(() => import('components/slice'));
+const HorizontalCard = dynamic(() => import('components/horizontal-card'));
+const Card = dynamic(() => import('components/card'));
+const Button = dynamic(() => import('components/button'));
 
 const LatestNews = ({ posts, ...rawData }) => {
   const [firstPost, ...rest] = posts;

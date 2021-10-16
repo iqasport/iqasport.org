@@ -1,11 +1,14 @@
 import { RichText, Link } from 'prismic-reactjs';
+import { Flex, Heading, Box, Grid } from '@chakra-ui/react';
+
+import dynamic from 'next/dynamic';
 import get from 'just-safe-get';
 
-import { Slice, Card } from 'components';
-import { Flex, Heading, Box, Grid } from '@chakra-ui/react';
 import { cardVariants } from 'components/card';
-
 import { linkResolver } from 'modules/prismic';
+
+const Card = dynamic(() => import('components/card'));
+const Slice = dynamic(() => import('components/slice'));
 
 const CardsSlice = (rawData) => {
   const title = get(rawData, 'primary.title');

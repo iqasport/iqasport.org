@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import get from 'just-safe-get';
 import { geoVanDerGrinten3 } from 'd3-geo-projection';
+import dynamic from 'next/dynamic';
 
-import { Slice, Button } from 'components';
 import { Box, Heading } from '@chakra-ui/react';
 import { buttonVariants } from 'components/button';
 import { getDocs } from 'modules/prismic';
 
-const mapPath =
-  'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-50m-simplified.json';
+const Slice = dynamic(() => import('components/slice'));
+const Button = dynamic(() => import('components/button'));
+
+const mapPath = '/worldmap.json';
 
 const WorldMap = (rawData) => {
   const variant = get(rawData, 'primary.variant') || 'primary';
