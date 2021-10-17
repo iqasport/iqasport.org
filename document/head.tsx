@@ -50,13 +50,13 @@ export default function DocumentHead() {
       {/* <link rel="manifest" href="/manifest.json" /> */}
 
       {/* Fonts */}
-      {/* <link rel="preconnect" href="//use.typekit.net" />
+      <link rel="preconnect" href="//use.typekit.net" />
       <link
         rel="preload"
         href="https://use.typekit.net/ltm4yyn.css"
         as="style"
       />
-      <link rel="stylesheet" href="https://use.typekit.net/ltm4yyn.css" /> */}
+      <link rel="stylesheet" href="https://use.typekit.net/ltm4yyn.css" />
 
       {/* Static CSS */}
       <style dangerouslySetInnerHTML={{ __html: reset }} />
