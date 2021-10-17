@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import GTag, { pageview } from 'modules/analytics';
 import dynamic from 'next/dynamic';
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from 'styles/theme';
 
 const Layout = dynamic(() => import('layout'));
 const Fonts = dynamic(() => import('styles/fonts'));
@@ -27,12 +29,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <AppErrorBoundary>
-      {/* <GTag /> */}
+      <GTag />
       <DocumentHead />
       <Fonts />
-      <Layout {...pageProps}>
-        <Component {...pageProps} />
-      </Layout>
+      <ChakraProvider theme={theme} resetCSS={false}>
+        <Layout {...pageProps}>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
     </AppErrorBoundary>
   );
 }
