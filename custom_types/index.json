@@ -46,5 +46,11 @@
     "name": "Members",
     "repeatable": true,
     "value": "members.json"
+  },
+  {
+    "id": "roles",
+    "name": "Roles",
+    "repeatable": true,
+    "value": "roles.json"
   }
 ]

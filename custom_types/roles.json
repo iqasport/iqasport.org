@@ -1,0 +1,76 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Role Title e.g. French Translator"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID"
+      }
+    },
+    "department": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Board of Trustees",
+          "Communications & Technology",
+          "Events & Membership Services",
+          "Gameplay",
+          "Human Resources & Operations"
+        ],
+        "label": "Department",
+        "placeholder": "Select department"
+      }
+    },
+    "level": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "Junior",
+          "Team Lead",
+          "Manager",
+          "Director",
+          "Trustee"
+        ],
+        "label": "Level",
+        "placeholder": "Select seniority level"
+      }
+    },
+    "team": {
+      "type": "Text",
+      "config": {
+        "label": "Team",
+        "placeholder": "Optional"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item",
+        "allowTargetBlank": true,
+        "label": "Description",
+        "placeholder": "Include description of the role, any desirable/essential skills"
+      }
+    },
+    "close_date": {
+      "type": "Timestamp",
+      "config": {
+        "label": "Close date",
+        "placeholder": "Optional"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    }
+  }
+}
