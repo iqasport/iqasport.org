@@ -40,7 +40,7 @@
     "react-intersection-observer": "8.32.1",
     "react-query": "3.27.0",
     "react-simple-maps": "2.3.0",
-    "sharp": "0.29.1",
+    "sharp": "0.29.2",
     "yup": "0.32.11"
   },
   "devDependencies": {
