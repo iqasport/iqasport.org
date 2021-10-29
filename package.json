@@ -22,7 +22,7 @@
     "@sendgrid/mail": "7.5.0",
     "@sentry/nextjs": "6.13.3",
     "@svgr/webpack": "5.5.0",
-    "axe-core": "4.3.3",
+    "axe-core": "4.3.5",
     "axios": "0.24.0",
     "cypress-axe": "0.13.0",
     "d3-geo-projection": "4.0.0",
