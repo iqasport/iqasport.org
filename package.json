@@ -44,8 +44,8 @@
     "yup": "0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "7.15.8",
-    "@babel/eslint-parser": "7.15.8",
+    "@babel/core": "7.16.0",
+    "@babel/eslint-parser": "7.16.0",
     "@emotion/babel-plugin": "11.3.0",
     "@next/bundle-analyzer": "11.1.2",
     "@types/gtag.js": "0.0.7",
