@@ -686,6 +686,27 @@
             },
             "repeat": {}
           },
+          "volunteer_form": {
+            "type": "Slice",
+            "fieldset": "Volunteer Form",
+            "description": "Volunteer Form slice",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "primary"
+                  ],
+                  "default_value": "white",
+                  "label": "Variant"
+                }
+              }
+            },
+            "repeat": {}
+          },
           "world_map": {
             "type": "Slice",
             "fieldset": "World Map",

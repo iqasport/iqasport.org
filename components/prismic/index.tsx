@@ -23,6 +23,9 @@ const Banner = dynamic(() => import('components/prismic/banner'));
 const Carousel = dynamic(() => import('components/prismic/carousel'));
 const MemberCards = dynamic(() => import('components/prismic/member-cards'));
 const ContactForm = dynamic(() => import('components/prismic/contact-form'));
+const VolunteerForm = dynamic(
+  () => import('components/prismic/volunteer-form')
+);
 const WorldMap = dynamic(() => import('components/prismic/world-map'));
 const NewsCards = dynamic(() => import('components/prismic/news-cards'));
 const RoleCards = dynamic(() => import('components/prismic/role-cards'));
@@ -41,6 +44,7 @@ const slices = {
   carousel: Carousel,
   member_card: MemberCards,
   contact_form: ContactForm,
+  volunteer_form: VolunteerForm,
   world_map: WorldMap,
   news_card: NewsCards,
   role_card: RoleCards,
