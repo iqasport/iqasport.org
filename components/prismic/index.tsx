@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+import { Slice, PrismicDocument } from '@prismicio/types';
 import dynamic from 'next/dynamic';
 
 const Hero = dynamic(() => import('components/prismic/hero'));
@@ -23,6 +25,7 @@ const MemberCards = dynamic(() => import('components/prismic/member-cards'));
 const ContactForm = dynamic(() => import('components/prismic/contact-form'));
 const WorldMap = dynamic(() => import('components/prismic/world-map'));
 const NewsCards = dynamic(() => import('components/prismic/news-cards'));
+const RoleCards = dynamic(() => import('components/prismic/role-cards'));
 
 const slices = {
   hero: Hero,
@@ -40,21 +43,22 @@ const slices = {
   contact_form: ContactForm,
   world_map: WorldMap,
   news_card: NewsCards,
+  role_card: RoleCards,
 };
 
 type PrismicSliceProps = {
-  sections: Array<any>;
-  posts?: Array<any>;
+  sections: Array<Slice>;
+  posts?: Array<PrismicDocument>;
 };
 
-function PrismicSlice({ sections, posts }: PrismicSliceProps) {
+function PrismicSlice({ sections, posts }: PrismicSliceProps): ReactElement {
   return (
     <>
       {sections.map((section, i) => {
-        const Component = slices[section.slice_type];
+        const Component = slices[section?.slice_type];
 
         if (!Component) {
-          console.warn('Missing Prismic Component ID: ', section.slice_type);
+          console.warn('Missing Prismic Component ID: ', section?.slice_type);
           console.warn(section);
           return null;
         }
