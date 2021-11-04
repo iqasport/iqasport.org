@@ -48,7 +48,7 @@
     "@babel/eslint-parser": "7.16.0",
     "@emotion/babel-plugin": "11.3.0",
     "@next/bundle-analyzer": "11.1.2",
-    "@types/gtag.js": "0.0.7",
+    "@types/gtag.js": "0.0.8",
     "@types/node": "15.12.4",
     "@types/react": "17.0.34",
     "@typescript-eslint/eslint-plugin": "4.33.0",
