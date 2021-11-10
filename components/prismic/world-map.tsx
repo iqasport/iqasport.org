@@ -36,7 +36,7 @@ const WorldMap = (rawData) => {
     };
 
     getMembers();
-  }, [rawData, setMembers, loaded, members]);
+  }, [setMembers, loaded, members]);
 
   const memberFill = variant === 'primary' ? '#fff019' : '#62b058';
 

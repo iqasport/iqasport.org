@@ -58,7 +58,7 @@
       }
     },
     "close_date": {
-      "type": "Timestamp",
+      "type": "Date",
       "config": {
         "label": "Close date",
         "placeholder": "Optional"

@@ -686,6 +686,27 @@
             },
             "repeat": {}
           },
+          "volunteer_form": {
+            "type": "Slice",
+            "fieldset": "Volunteer Form",
+            "description": "Volunteer Form slice",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "primary"
+                  ],
+                  "default_value": "white",
+                  "label": "Variant"
+                }
+              }
+            },
+            "repeat": {}
+          },
           "world_map": {
             "type": "Slice",
             "fieldset": "World Map",
@@ -751,6 +772,65 @@
                   ],
                   "label": "News Post",
                   "placeholder": "Select an article..."
+                }
+              }
+            }
+          },
+          "role_card": {
+            "type": "Slice",
+            "fieldset": "Role Card",
+            "description": "Grid of Role Cards",
+            "icon": "face",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Content"
+                }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "primary"
+                  ],
+                  "default_value": "white",
+                  "label": "Variant"
+                }
+              }
+            },
+            "repeat": {
+              "role": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": [
+                    "roles"
+                  ],
+                  "label": "Role",
+                  "placeholder": "Select Role..."
+                }
+              },
+              "layout_content": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "image-left",
+                    "image-right"
+                  ],
+                  "default_value": "image-left",
+                  "label": "Layout content"
                 }
               }
             }

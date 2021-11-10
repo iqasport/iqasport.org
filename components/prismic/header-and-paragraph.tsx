@@ -1,6 +1,6 @@
-import { RichText } from 'prismic-reactjs';
-import get from 'just-safe-get';
+import { RichText, RichTextBlock } from 'prismic-reactjs';
 import dynamic from 'next/dynamic';
+import { Slice as TSlice, SelectField, KeyTextField } from '@prismicio/types';
 
 const Button = dynamic(() => import('components/button'));
 const Slice = dynamic(() => import('components/slice'));
@@ -8,14 +8,20 @@ const Slice = dynamic(() => import('components/slice'));
 import { Flex, Heading, Link, Box } from '@chakra-ui/react';
 
 import { linkResolver } from 'modules/prismic';
+import { ReactElement } from 'react';
 
-const HeaderAndParagraph = (rawData) => {
-  const title = get(rawData, 'primary.title');
-  const centerTitle = get(rawData, 'primary.center_title');
-  const content = get(rawData, 'primary.content');
-  const variant = get(rawData, 'primary.variant');
-  const cta_text = get(rawData, 'primary.cta_text');
-  const cta_url = get(rawData, 'primary.cta_url');
+type PrimaryProps = {
+  title: RichTextBlock[];
+  center_title: boolean;
+  content: RichTextBlock[];
+  variant: SelectField;
+  cta_text: KeyTextField;
+  cta_url: string;
+};
+
+const HeaderAndParagraph = (rawData: TSlice): ReactElement => {
+  const { title, center_title, content, variant, cta_text, cta_url } =
+    rawData?.primary as unknown as PrimaryProps;
 
   return (
     <Slice size="sm" variant={variant}>
@@ -39,7 +45,7 @@ const HeaderAndParagraph = (rawData) => {
           <Heading
             as="h2"
             mt={2}
-            textAlign={centerTitle ? 'center' : 'left'}
+            textAlign={center_title ? 'center' : 'left'}
             fontFamily="body"
             fontWeight="bold"
           >

@@ -1,3 +1,4 @@
+import { KeyTextField } from '@prismicio/types';
 import { useMultiStyleConfig, StylesProvider, Box } from '@chakra-ui/react';
 const backgroundImage = '/images/bg.png';
 
@@ -57,7 +58,7 @@ export const SliceStyles = {
 
 type SliceType = {
   size?: string;
-  variant?: string;
+  variant?: string | KeyTextField;
   children: React.ReactNode;
 };
 
