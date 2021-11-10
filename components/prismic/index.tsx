@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+import { Slice, PrismicDocument } from '@prismicio/types';
 import dynamic from 'next/dynamic';
 
 const Hero = dynamic(() => import('components/prismic/hero'));
@@ -21,8 +23,12 @@ const Banner = dynamic(() => import('components/prismic/banner'));
 const Carousel = dynamic(() => import('components/prismic/carousel'));
 const MemberCards = dynamic(() => import('components/prismic/member-cards'));
 const ContactForm = dynamic(() => import('components/prismic/contact-form'));
+const VolunteerForm = dynamic(
+  () => import('components/prismic/volunteer-form')
+);
 const WorldMap = dynamic(() => import('components/prismic/world-map'));
 const NewsCards = dynamic(() => import('components/prismic/news-cards'));
+const RoleCards = dynamic(() => import('components/prismic/role-cards'));
 
 const slices = {
   hero: Hero,
@@ -38,23 +44,25 @@ const slices = {
   carousel: Carousel,
   member_card: MemberCards,
   contact_form: ContactForm,
+  volunteer_form: VolunteerForm,
   world_map: WorldMap,
   news_card: NewsCards,
+  role_card: RoleCards,
 };
 
 type PrismicSliceProps = {
-  sections: Array<any>;
-  posts?: Array<any>;
+  sections: Array<Slice>;
+  posts?: Array<PrismicDocument>;
 };
 
-function PrismicSlice({ sections, posts }: PrismicSliceProps) {
+function PrismicSlice({ sections, posts }: PrismicSliceProps): ReactElement {
   return (
     <>
       {sections.map((section, i) => {
-        const Component = slices[section.slice_type];
+        const Component = slices[section?.slice_type];
 
         if (!Component) {
-          console.warn('Missing Prismic Component ID: ', section.slice_type);
+          console.warn('Missing Prismic Component ID: ', section?.slice_type);
           console.warn(section);
           return null;
         }
