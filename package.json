@@ -64,8 +64,8 @@
     "eslint-plugin-react": "7.27.0",
     "husky": "7.0.4",
     "lint-staged": "11.2.6",
-    "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0",
+    "patch-package": "6.4.7",
+    "postinstall-postinstall": "2.1.0",
     "prettier": "2.4.1",
     "typescript": "4.4.4"
   },
