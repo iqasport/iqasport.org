@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import { object, string, boolean } from 'yup';
 import get from 'just-safe-get';
 import axios from 'axios';
