@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import get from 'just-safe-get';
 import { Box, Flex, Link as ChakraLink, HStack } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 
@@ -19,10 +18,9 @@ const Icon = (props) => (
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
-const NewsFooter = (rawData) => {
+const NewsFooter = ({ title }) => {
   const router = useRouter();
   const url = `${SITE_URL}${router.asPath}`;
-  const title = get(rawData, 'title');
 
   return (
     <>

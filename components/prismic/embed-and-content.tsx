@@ -1,5 +1,4 @@
 import { RichText } from 'prismic-reactjs';
-import get from 'just-safe-get';
 import dynamic from 'next/dynamic';
 
 import { Grid, Flex, Heading } from '@chakra-ui/react';
@@ -49,34 +48,18 @@ const Item = ({ item, isEmbedLeft }) => (
   </Grid>
 );
 
-const EmbedAndContent = (rawData) => {
-  const items = get(rawData, 'items');
+const EmbedAndContent = ({ items }) => (
+  <>
+    {items.map((item, i) => {
+      const isEmbedLeft = item.layout_content === 'embed-left';
 
-  return (
-    <>
-      {items.map((itemData, i) => {
-        const item = {
-          title: get(itemData, 'title'),
-          content: get(itemData, 'content'),
-          embed: get(itemData, 'embed'),
-          thumbnail: get(itemData, 'thumbnail'),
-          variant: get(itemData, 'variant'),
-          layout: get(itemData, 'layout_content'),
-          support: get(itemData, 'support'),
-          cta_text: get(itemData, 'cta_text'),
-          cta_url: get(itemData, 'cta_url'),
-        };
-
-        const isEmbedLeft = item.layout === 'embed-left';
-
-        return (
-          <Slice variant={item.variant} key={`embed-and-content-${i}`}>
-            <Item item={item} isEmbedLeft={isEmbedLeft} />
-          </Slice>
-        );
-      })}
-    </>
-  );
-};
+      return (
+        <Slice variant={item.variant} key={`embed-and-content-${i}`}>
+          <Item item={item} isEmbedLeft={isEmbedLeft} />
+        </Slice>
+      );
+    })}
+  </>
+);
 
 export default EmbedAndContent;

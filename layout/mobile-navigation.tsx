@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Link as PrismicLink } from 'prismic-reactjs';
 import { linkResolver } from 'modules/prismic';
-import get from 'just-safe-get';
+
 import {
   Flex,
   ListItem,
@@ -64,8 +64,8 @@ const ActiveLink = ({ href, wrapperProps, onClick, children }) => {
 };
 
 const MenuItem = ({ wrapperProps, data, onClose }) => {
-  const link_label = get(data.primary, 'link_label');
-  const link = get(data.primary, 'link');
+  const { link, link_label } = data?.primary;
+
   return (
     <ActiveLink
       href={PrismicLink.url(link, linkResolver)}
@@ -78,8 +78,8 @@ const MenuItem = ({ wrapperProps, data, onClose }) => {
 };
 
 const MenuList = ({ wrapperProps, data, onClose }) => {
-  const label = get(data.primary, 'label');
-  const items = get(data, 'items');
+  const { items } = data;
+  const { label } = data?.primary;
   const { asPath } = useRouter();
 
   return (

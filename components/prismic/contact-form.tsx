@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import { object, string } from 'yup';
-import get from 'just-safe-get';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
 import { Heading, Input, Box, Stack, Textarea } from '@chakra-ui/react';
@@ -53,7 +52,7 @@ const handleContactSubmit = async (
   }
 };
 
-const ContactForm = (rawData) => {
+const ContactForm = ({ primary }) => {
   const [serverError, setServerError] = useState(null);
   const [serverSuccess, setServerSuccess] = useState(null);
 
@@ -84,7 +83,7 @@ const ContactForm = (rawData) => {
     },
   });
 
-  const variant = get(rawData, 'primary.variant');
+  const { variant } = primary;
 
   return (
     <Slice size="sm" variant={variant}>

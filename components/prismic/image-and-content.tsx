@@ -1,5 +1,5 @@
 import { RichText } from 'prismic-reactjs';
-import get from 'just-safe-get';
+
 import { Grid, Flex, Heading, Box } from '@chakra-ui/react';
 import { linkResolver } from 'modules/prismic';
 import dynamic from 'next/dynamic';
@@ -65,24 +65,11 @@ const Item = ({ item, isImageLeft }) => (
   </Grid>
 );
 
-const ImageAndContent = (rawData) => {
-  const items = get(rawData, 'items');
-
+const ImageAndContent = ({ items }) => {
   return (
     <>
-      {items.map((itemData, i) => {
-        const item = {
-          title: get(itemData, 'title'),
-          content: get(itemData, 'content'),
-          image: get(itemData, 'image'),
-          variant: get(itemData, 'variant'),
-          layout: get(itemData, 'layout_content'),
-          support: get(itemData, 'support'),
-          cta_text: get(itemData, 'cta_text'),
-          cta_url: get(itemData, 'cta_url'),
-        };
-
-        const isImageLeft = item.layout === 'image-left';
+      {items.map((item, i) => {
+        const isImageLeft = item.layout_content === 'image-left';
 
         return (
           <Slice variant={item.variant} key={`image-and-content-${i}`}>

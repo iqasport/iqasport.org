@@ -1,4 +1,3 @@
-import get from 'just-safe-get';
 import dynamic from 'next/dynamic';
 
 import { Box, Grid } from '@chakra-ui/react';
@@ -42,10 +41,8 @@ const Item = ({ item }) => {
   );
 };
 
-const Images = (rawData) => {
-  const items = get(rawData, 'items');
-  const variant = get(rawData, 'primary.variant');
-  const size = get(rawData, 'primary.size');
+const Images = ({ items, primary }) => {
+  const { variant, size } = primary;
 
   const multipleImages = items.length > 1;
 
@@ -58,16 +55,9 @@ const Images = (rawData) => {
         }}
         gridGap={{ base: 4, md: 9 }}
       >
-        {items.map((itemData, i) => {
-          const item = {
-            image: get(itemData, 'image'),
-            support: get(itemData, 'support'),
-          };
-
-          return (
-            <Item key={`image-slice-${item.image.url}-${i}`} item={item} />
-          );
-        })}
+        {items.map((item, i) => (
+          <Item key={`image-slice-${item?.image?.url}-${i}`} item={item} />
+        ))}
       </Grid>
     </Slice>
   );

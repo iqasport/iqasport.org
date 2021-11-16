@@ -1,9 +1,7 @@
 import { RichText, Link } from 'prismic-reactjs';
-import { Slice as TSlice } from '@prismicio/types';
 import { Flex, Heading, Box, Grid } from '@chakra-ui/react';
 
 import dynamic from 'next/dynamic';
-import get from 'just-safe-get';
 
 import { cardVariants } from 'components/card';
 import { linkResolver } from 'modules/prismic';
@@ -12,11 +10,9 @@ import { ReactElement } from 'react';
 const Card = dynamic(() => import('components/card'));
 const Slice = dynamic(() => import('components/slice'));
 
-function CardsSlice(rawData: TSlice): ReactElement {
-  const title = get(rawData, 'primary.title');
-  const content = get(rawData, 'primary.content');
-  const variant = get(rawData, 'primary.variant');
-  const items = get(rawData, 'items') || [];
+function CardsSlice(rawData): ReactElement {
+  const { primary, items = [] } = rawData;
+  const { title, content, variant } = primary;
 
   return (
     <Slice variant={variant}>
@@ -43,10 +39,7 @@ function CardsSlice(rawData: TSlice): ReactElement {
         gridGap={8}
       >
         {items.map((item, i) => {
-          const title = get(item, 'title');
-          const content = get(item, 'content');
-          const image = get(item, 'image');
-          const link = get(item, 'link');
+          const { title, content, image, link } = item;
 
           const linkProps = Link.url(link, linkResolver)
             ? {

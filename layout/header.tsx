@@ -37,22 +37,24 @@ const IconWrapper = (props: LinkProps) => (
 
 const Icon = (props) => <Box color="gray.800" {...props} />;
 
+type SingleItem = {
+  link_label: 'string';
+  link: 'object';
+};
+
+type DropdownItem = {
+  label: 'string';
+  items: {
+    link_label: 'string';
+    link: {
+      link_type: 'string';
+    };
+  }[];
+};
+
 export type SliceProps = {
   slice_type: 'string';
-  primary:
-    | {
-        link_label: 'string';
-        link: 'object';
-      }
-    | {
-        label: 'string';
-        items: {
-          link_label: 'string';
-          link: {
-            link_type: 'string';
-          };
-        }[];
-      };
+  primary: SingleItem | DropdownItem;
 };
 
 export default function Header({ data: initialData }) {

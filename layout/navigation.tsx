@@ -8,26 +8,16 @@ import {
   PopoverArrow,
   PopoverContent,
   PopoverBody,
-  ListItemProps,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { Link as PrismicLink } from 'prismic-reactjs';
 import { useRouter } from 'next/router';
-import get from 'just-safe-get';
 import { linkResolver } from 'modules/prismic';
-import type { SliceProps } from 'layout/header';
 
-const MenuItem = ({
-  wrapperProps,
-  data,
-}: {
-  wrapperProps: ListItemProps;
-  data: SliceProps;
-}) => {
+const MenuItem = ({ wrapperProps, data }) => {
   const { asPath } = useRouter();
-  const link_label = get(data.primary, 'link_label');
-  const link = get(data.primary, 'link');
+  const { link_label, link } = data.primary;
   const href = PrismicLink.url(link, linkResolver);
 
   const regexAs = RegExp(href.replace(/\//g, '\\/'), 'g');
@@ -58,18 +48,16 @@ const MenuItem = ({
 const MenuList = ({ wrapperProps, data }) => {
   const { asPath } = useRouter();
   const [childActive, setChildActive] = useState(false);
-  const label = get(data.primary, 'label');
-  const items = get(data, 'items');
 
   useEffect(() => {
-    const childrenActive = items?.map(({ link }) => {
+    const childrenActive = data?.items?.map(({ link }) => {
       const regexAs = RegExp(PrismicLink.url(link, linkResolver), 'g');
 
       return regexAs.test(asPath);
     });
 
     setChildActive(childrenActive.some((v) => v));
-  }, [setChildActive, items, asPath]);
+  }, [setChildActive, data?.items, asPath]);
 
   return (
     <ListItem role="listitem" {...wrapperProps}>
@@ -103,14 +91,14 @@ const MenuList = ({ wrapperProps, data }) => {
               },
             }}
           >
-            {label}
+            {data?.primary?.label}
           </ChakraLink>
         </PopoverTrigger>
         <PopoverContent bg="iqaGreen" color="white">
           <PopoverArrow bg="iqaGreen" />
           <PopoverBody as="nav" py={4} px={2}>
             <UnorderedList listStyleType="none" pl={0} ml={0} spacing={3}>
-              {items.map((item) => {
+              {data?.items.map((item) => {
                 const regexAs = RegExp(
                   PrismicLink.url(item?.link, linkResolver),
                   'g'

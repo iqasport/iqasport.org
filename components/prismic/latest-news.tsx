@@ -1,5 +1,5 @@
 import { RichText } from 'prismic-reactjs';
-import get from 'just-safe-get';
+
 import dynamic from 'next/dynamic';
 
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -12,12 +12,9 @@ const HorizontalCard = dynamic(() => import('components/horizontal-card'));
 const Card = dynamic(() => import('components/card'));
 const Button = dynamic(() => import('components/button'));
 
-const LatestNews = ({ posts, ...rawData }) => {
+const LatestNews = ({ posts, primary }) => {
   const [firstPost, ...rest] = posts;
-
-  const variant = get(rawData, 'primary.variant');
-  const title = get(rawData, 'primary.title');
-  const cta_text = get(rawData, 'primary.cta_text');
+  const { variant, title, cta_text } = primary;
 
   return (
     <Slice variant={variant}>

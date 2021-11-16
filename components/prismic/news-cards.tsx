@@ -1,5 +1,4 @@
 import { RichText } from 'prismic-reactjs';
-import get from 'just-safe-get';
 import dynamic from 'next/dynamic';
 
 import { Flex, Heading, Box } from '@chakra-ui/react';
@@ -55,11 +54,8 @@ const NewsCard = ({ post, variant }) => {
   );
 };
 
-const NewsCardSlice = (rawData) => {
-  const title = get(rawData, 'primary.title');
-  const content = get(rawData, 'primary.content');
-  const variant = get(rawData, 'primary.variant');
-  const items = get(rawData, 'items');
+const NewsCardSlice = ({ primary, items }) => {
+  const { title, content, variant } = primary;
 
   return (
     <Slice variant={variant}>

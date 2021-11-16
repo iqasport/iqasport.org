@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import get from 'just-safe-get';
 import { geoVanDerGrinten3 } from 'd3-geo-projection';
 import dynamic from 'next/dynamic';
 import { useInView } from 'react-intersection-observer';
@@ -14,12 +13,12 @@ const Button = dynamic(() => import('components/button'));
 
 const mapPath = '/worldmap.json';
 
-const WorldMap = (rawData) => {
+const WorldMap = ({ primary }) => {
   const [ref, inView] = useInView({ threshold: 0 });
   const [loaded, setLoaded] = useState(false);
   const [members, setMembers] = useState([]);
 
-  const variant = get(rawData, 'primary.variant') || 'primary';
+  const { variant = 'primary' } = primary;
 
   useEffect(() => {
     if (inView && !loaded) {

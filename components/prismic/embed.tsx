@@ -1,5 +1,4 @@
 import { RichText } from 'prismic-reactjs';
-import get from 'just-safe-get';
 import dynamic from 'next/dynamic';
 
 const Slice = dynamic(() => import('components/slice'));
@@ -21,12 +20,8 @@ export const Item = ({ embed, thumbnail, support }) => (
   </Box>
 );
 
-const EmbedSlice = (rawData) => {
-  const title = get(rawData, 'primary.title');
-  const content = get(rawData, 'primary.content');
-  const items = get(rawData, 'items');
-  const variant = get(rawData, 'primary.variant');
-  const size = get(rawData, 'primary.size');
+const EmbedSlice = ({ primary, items }) => {
+  const { size, title, variant, content } = primary;
 
   const multipleEmbeds = items.length > 1;
 
@@ -54,17 +49,13 @@ const EmbedSlice = (rawData) => {
         }}
         gridGap={{ base: 4, md: 9 }}
       >
-        {items.map((itemData, i) => {
-          const thumbnail = get(itemData, 'thumbnail');
-          const embed = get(itemData, 'embed');
-          const support = get(itemData, 'support');
-
+        {items.map((item, i) => {
           return (
             <Item
               key={`embed-slice-${i}`}
-              embed={embed}
-              thumbnail={thumbnail}
-              support={support}
+              embed={item?.embed}
+              thumbnail={item?.thumbnail}
+              support={item?.support}
             />
           );
         })}

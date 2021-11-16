@@ -1,5 +1,4 @@
 import { RichText, Link } from 'prismic-reactjs';
-import get from 'just-safe-get';
 import dynamic from 'next/dynamic';
 import { Flex, Heading, Box } from '@chakra-ui/react';
 import { cardVariants } from 'components/card';
@@ -8,11 +7,8 @@ import { linkResolver } from 'modules/prismic';
 const Slice = dynamic(() => import('components/slice'));
 const HorizontalCard = dynamic(() => import('components/horizontal-card'));
 
-const HorizontalCardsSlice = (rawData) => {
-  const title = get(rawData, 'primary.title');
-  const content = get(rawData, 'primary.content');
-  const variant = get(rawData, 'primary.variant');
-  const items = get(rawData, 'items');
+const HorizontalCardsSlice = ({ primary, items }) => {
+  const { title, content, variant } = primary;
 
   return (
     <Slice variant={variant}>
@@ -35,13 +31,7 @@ const HorizontalCardsSlice = (rawData) => {
         </Box>
       )}
 
-      {items.map((itemData, i) => {
-        const title = get(itemData, 'title');
-        const content = get(itemData, 'content');
-        const image = get(itemData, 'image');
-        const layout = get(itemData, 'layout_content');
-        const link = get(itemData, 'link');
-
+      {items.map(({ title, content, image, layout_content, link }, i) => {
         const linkProps = Link.url(link, linkResolver)
           ? {
               href: Link.url(link, linkResolver),
@@ -53,7 +43,7 @@ const HorizontalCardsSlice = (rawData) => {
             }
           : null;
 
-        const isImageLeft = layout === 'image-left';
+        const isImageLeft = layout_content === 'image-left';
 
         return (
           <Flex

@@ -1,6 +1,5 @@
 import { RichText } from 'prismic-reactjs';
 import Flickity from 'react-flickity-component';
-import get from 'just-safe-get';
 import dynamic from 'next/dynamic';
 
 import { Box, Heading, Flex } from '@chakra-ui/react';
@@ -65,11 +64,8 @@ const CarouselContainer = (props) => (
   />
 );
 
-const Carousel = (rawData) => {
-  const title = get(rawData, 'primary.title');
-  const content = get(rawData, 'primary.content');
-  const variant = get(rawData, 'primary.variant');
-  const items = get(rawData, 'items');
+const Carousel = ({ primary, items }) => {
+  const { title, content, variant } = primary;
 
   return (
     <Slice size="full" variant={variant}>

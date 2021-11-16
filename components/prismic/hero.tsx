@@ -1,11 +1,9 @@
-import get from 'just-safe-get';
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { HERO_MIN_HEIGHTS } from 'styles/hero-heights';
 import Image from 'next/image';
 
-const Hero = (rawData) => {
-  const title = get(rawData, 'primary.slug');
-  const image = get(rawData, 'primary.image');
+const Hero = ({ primary }) => {
+  const { slug, image } = primary;
 
   return (
     <Box
@@ -52,7 +50,7 @@ const Hero = (rawData) => {
           textAlign="left"
           textTransform="uppercase"
         >
-          {title}
+          {slug}
         </Heading>
       </Flex>
     </Box>
