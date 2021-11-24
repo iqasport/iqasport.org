@@ -46,7 +46,7 @@ export default extendTheme({
       'html, body': {
         lineHeight: 1.15,
       },
-      p: {
+      'p, li': {
         lineHeight: rem(24),
         fontSize: rem(18),
       },

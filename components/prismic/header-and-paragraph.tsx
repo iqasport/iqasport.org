@@ -25,22 +25,7 @@ const HeaderAndParagraph = (rawData: TSlice): ReactElement => {
 
   return (
     <Slice size="sm" variant={variant}>
-      <Box
-        sx={{
-          '& a': {
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            color: variant === 'white' ? 'iqaGreen' : 'gray.800',
-            _hover: {
-              textDecoration: 'underline',
-            },
-          },
-          '& li': {
-            lineHeight: '1.5rem',
-            fontSize: '1.125rem',
-          },
-        }}
-      >
+      <Box>
         {RichText.asText(title) && (
           <Heading
             as="h2"

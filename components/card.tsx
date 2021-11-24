@@ -94,10 +94,11 @@ export const LinkWrapper = ({ href, ...props }) => (
       cursor="pointer"
       boxShadow="md"
       transition="all 0.2s ease"
+      fontWeight="normal !important"
       _hover={{
         transform: 'scale(1.03)',
         boxShadow: 'lg',
-        textDecoration: 'none',
+        textDecoration: 'none !important',
       }}
       _focus={{
         transform: 'scale(1.0.3)',

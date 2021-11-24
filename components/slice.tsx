@@ -44,10 +44,31 @@ export const SliceStyles = {
       bgSize: '100%',
       marginTop: '-1px', // covers awkward 1/2 pixel gap at certain sizes
       zIndex: '1',
+
+      '& a': {
+        fontWeight: 'bold',
+        textDecoration: 'none',
+        color: 'gray.800',
+
+        _hover: {
+          textDecoration: 'underline',
+          color: 'gray.800',
+        },
+      },
     },
     white: {
       background: 'gray.100',
       color: 'gray.800',
+
+      '& a': {
+        fontWeight: 'bold',
+        textDecoration: 'none',
+        color: 'iqaGreen',
+        _hover: {
+          textDecoration: 'underline',
+          color: 'iqaGreen',
+        },
+      },
     },
   },
   defaultProps: {
