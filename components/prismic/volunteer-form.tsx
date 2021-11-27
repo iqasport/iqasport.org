@@ -124,7 +124,7 @@ const VolunteerForm = ({ primary }) => {
   return (
     <Slice size="sm" variant={variant}>
       <Heading as="h1" fontFamily="body" textAlign="center" id="volunteer-form">
-        Apply to Volunteer
+        Volunteer at IQA
       </Heading>
 
       <form
