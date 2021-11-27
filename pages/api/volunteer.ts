@@ -10,6 +10,7 @@ const departmentEmails = {
   'Communications & Technology': [
     'hiring@iqasport.org',
     'communications@iqasport.org',
+    'tech@iqasport.org',
   ],
   'Events & Membership Services': [
     'hiring@iqasport.org',
