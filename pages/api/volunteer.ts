@@ -6,17 +6,17 @@ import sendgrid from '@sendgrid/mail';
 sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 
 const departmentEmails = {
-  'Board of Trustees': ['hiring@iqasport.org', 'trustees@iqasport.org'],
+  'Board of Trustees': ['volunteer@iqasport.org', 'trustees@iqasport.org'],
   'Communications & Technology': [
-    'hiring@iqasport.org',
+    'volunteer@iqasport.org',
     'communications@iqasport.org',
     'tech@iqasport.org',
   ],
   'Events & Membership Services': [
-    'hiring@iqasport.org',
+    'volunteer@iqasport.org',
     'membership@iqasport.org',
   ],
-  Gameplay: ['hiring@iqasport.org', 'gameplay@iqasport.org'],
+  Gameplay: ['volunteer@iqasport.org', 'gameplay@iqasport.org'],
   'Human Resources & Operations': 'human.resources@iqasport.org',
 };
 

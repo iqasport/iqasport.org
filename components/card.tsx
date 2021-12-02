@@ -101,7 +101,7 @@ export const LinkWrapper = ({ href, ...props }) => (
         textDecoration: 'none !important',
       }}
       _focus={{
-        transform: 'scale(1.0.3)',
+        transform: 'scale(1.03)',
         boxShadow: 'lg',
         textDecoration: 'none',
         ringWidth: '2px',
