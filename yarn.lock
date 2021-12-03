@@ -2188,10 +2188,10 @@
   dependencies:
     cross-fetch "^3.0.6"
 
-"@prismicio/types@0.1.18":
-  version "0.1.18"
-  resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.1.18.tgz#e062896d55542e44d46e6f928091df2303db3fde"
-  integrity sha512-vO1fNFPGlIld44JiykeevariyZfA44Ihb4P52s4zqz9xBdNY5O3u8V6i+ObwOhrTFjZ0kHIG9KfTPrN3NvKAQA==
+"@prismicio/types@0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.1.19.tgz#4836667129684a42cb5f543bca89885c56b052c1"
+  integrity sha512-nMJ71C86LghZmKLZm40wIeGk5bkZvLsIK9YWy4EUE+1pO/rmVQYvOJcl83zpL8UcvbZXhR3+ZgDG2MO/+b5/sg==
 
 "@reach/alert@0.13.2":
   version "0.13.2"
