@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import NextImage from 'next/image';
 import { chakra } from '@chakra-ui/react';
 
-const Image = chakra(NextImage, {
+export const Image = chakra(NextImage, {
   baseStyle: {
     maxH: 120,
     maxW: 120,
@@ -22,6 +22,7 @@ const Image = chakra(NextImage, {
       'onLoad',
       'layout',
       'priority',
+      'unoptimized',
     ].includes(prop),
 });
 
@@ -46,7 +47,13 @@ const FadeInImage = ({ alt, src, ...props }) => {
       variants={animationVariants}
       transition={{ ease: 'easeOut', duration: 0.1 }}
     >
-      <Image src={src} alt={alt} {...props} onLoad={() => setLoaded(true)} />
+      <Image
+        src={src}
+        alt={alt}
+        {...props}
+        onLoad={() => setLoaded(true)}
+        unoptimized={true}
+      />
     </motion.div>
   );
 };

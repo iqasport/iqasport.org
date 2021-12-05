@@ -1,0 +1,26 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { ChakraProvider, Box, Grid, Stack, Text } from '@chakra-ui/react';
+import theme from './theme';
+
+<Meta title="Colors" />
+
+# Colors
+
+<Story name="Brand Colors">
+  <Stack spacing={3}>
+    <Grid gridTemplateColumns="1fr 1fr 1fr" height="100px" width="100%">
+      <Grid gridTemplateRows="2fr 1fr" gridTemplateColumns="1fr">
+        <Box bg="iqaGreen" />
+        <Text textAlign="center" fontSize="sm">iqaGreen - Brand Green</Text>
+      </Grid>
+      <Grid gridTemplateRows="2fr 1fr" gridTemplateColumns="1fr">
+        <Box bg="gray.800" />
+        <Text textAlign="center" fontSize="sm">gray.800 - Brand Gray</Text>
+      </Grid>
+      <Grid gridTemplateRows="2fr 1fr" gridTemplateColumns="1fr">
+        <Box bg="white" />
+        <Text textAlign="center" fontSize="sm">white - Brand White</Text>
+      </Grid>
+    </Grid>
+  </Stack>
+</Story>
