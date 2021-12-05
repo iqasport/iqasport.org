@@ -1,9 +1,17 @@
+import * as NextImage from 'next/image';
 import { ChakraProvider, Grid, Box } from '@chakra-ui/react';
 import { RouterContext } from 'next/dist/shared/lib/router-context'; // next 12
 
 import Head from 'next/head';
 import reset from '../styles/reset';
 import theme from '../styles/theme';
+
+const OriginalNextImage = NextImage.default;
+
+Object.defineProperty(NextImage, 'default', {
+  configurable: true,
+  value: (props) => <OriginalNextImage {...props} unoptimized />,
+});
 
 export const parameters = {
   options: {
