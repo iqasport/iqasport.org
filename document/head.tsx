@@ -49,15 +49,6 @@ export default function DocumentHead() {
       {/* Offline-Mode */}
       {/* <link rel="manifest" href="/manifest.json" /> */}
 
-      {/* Fonts */}
-      <link rel="preconnect" href="https://use.typekit.net" />
-      <link
-        rel="preload"
-        href="https://use.typekit.net/ltm4yyn.css"
-        as="style"
-      />
-      <link rel="stylesheet" href="https://use.typekit.net/ltm4yyn.css" />
-
       {/* Static CSS */}
       <style dangerouslySetInnerHTML={{ __html: reset }} />
     </Head>
