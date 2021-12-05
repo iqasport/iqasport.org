@@ -1,9 +1,9 @@
 import NextImage from 'next/image';
 import { Box } from '@chakra-ui/react';
 
-const ImageWithDefaults = ({ alt, src, borderRadius = '2xl', ...props }) => {
+const ImageWithDefaults = ({ alt, src, borderRadius, clipPath, ...props }) => {
   return (
-    <Box sx={{ '& img': { borderRadius } }}>
+    <Box sx={{ '& img': { borderRadius: borderRadius ?? '2xl', clipPath } }}>
       <NextImage
         src={src}
         alt={alt}
