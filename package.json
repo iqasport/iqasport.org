@@ -48,7 +48,7 @@
   "devDependencies": {
     "@babel/core": "7.16.5",
     "@babel/eslint-parser": "7.16.5",
-    "@emotion/babel-plugin": "11.7.1",
+    "@emotion/babel-plugin": "11.7.2",
     "@next/bundle-analyzer": "12.0.7",
     "@prismicio/types": "0.1.21",
     "@storybook/addon-actions": "6.4.9",
