@@ -1,5 +1,4 @@
-// TODO: Re-enable sentry when Next12 issues resolved.
-// import { withSentry } from '@sentry/nextjs';
+import { withSentry } from '@sentry/nextjs';
 import { Client, linkResolver } from 'modules/prismic';
 
 const handler = async (req, res) => {
@@ -22,5 +21,4 @@ const handler = async (req, res) => {
   }
 };
 
-// export default withSentry(handler);
-export default handler;
+export default withSentry(handler);
