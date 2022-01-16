@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import sendgrid from '@sendgrid/mail';
-// TODO: Re-enable sentry when Next12 issues resolved.
-// import { captureException, withSentry } from '@sentry/nextjs';
+import { captureException, withSentry } from '@sentry/nextjs';
 
 sendgrid.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API_KEY);
 
@@ -40,7 +39,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       await sendgrid.send(msg);
       return res.status(201).json({});
     } catch (err) {
-      // captureException(err);
+      captureException(err);
       return res
         .status(400)
         .send({ error: 'Error in sendgrid Service.', errMsg: err });
@@ -50,5 +49,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.status(405);
 };
 
-// export default withSentry(handler);
-export default handler;
+export default withSentry(handler);
