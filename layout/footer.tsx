@@ -18,6 +18,7 @@ import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
 import InstagramIcon from 'public/images/instagram.svg';
 import GithubIcon from 'public/images/github.svg';
+import VercelLogo from 'public/images/powered-by-vercel.svg';
 
 import { Link as PrismicLink } from 'prismic-reactjs';
 import Link from 'next/link';
@@ -161,6 +162,16 @@ export default function Footer({ data: initialData }) {
           <Text color="white" fontSize="sm">
             {data?.disclaimer}
           </Text>
+
+          <ChakraLink
+            color="gray.800"
+            aria-label="Vercel"
+            href="https://vercel.com/?utm_source=iqasport&utm_campaign=oss"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Box as={VercelLogo} w={{ base: '40%', lg: '70%' }} />
+          </ChakraLink>
         </Box>
       </Grid>
 
