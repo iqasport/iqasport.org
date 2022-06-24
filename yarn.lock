@@ -2299,17 +2299,40 @@
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.2.tgz"
   integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
 
-"@prismicio/client@5.1.1":
-  version "5.1.1"
-  resolved "https://registry.npmjs.org/@prismicio/client/-/client-5.1.1.tgz"
-  integrity sha512-0wtQrPZCATBmgLklQYgjSrmz3YtMP+5lHakv30MUVyUez2LVoukhVJWTj1uXwsOz2Yh2xLkAp+PHqTOiUvaM/Q==
+"@prismicio/client@6.6.1":
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-6.6.1.tgz#087547a7d3283906a0d4cf7ea417e756fdc9b8eb"
+  integrity sha512-Jq/s9fC8pz49f68dk6gMNFqDItPg7Ka8PO0D9dTzibx83+GKha+y0clqaygxPWlgE8csc9Yk/KS6N8AvesnTVA==
   dependencies:
-    cross-fetch "^3.0.6"
+    "@prismicio/helpers" "^2.3.1"
+    "@prismicio/types" "^0.1.29"
+
+"@prismicio/helpers@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.3.1.tgz#e6d36a95ca9b0c1340322e6ae1830fc072f02742"
+  integrity sha512-J37WpIUINZ0wT3a2h4fc9ATZqjmQjziPwjETG7QLYEVULpQXsWbgM+C6aoOqdlRwCbZ3Wfhel26+++ZaqOX/0Q==
+  dependencies:
+    "@prismicio/richtext" "^2.0.1"
+    "@prismicio/types" "^0.1.27"
+    escape-html "^1.0.3"
+    imgix-url-builder "^0.0.3"
+
+"@prismicio/richtext@^2.0.1":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-2.1.0.tgz#b17a5ea0eccb9ac0ac9229416462da78a986ca53"
+  integrity sha512-uxJaR3soPr356stoLEIcgn+68lfolwxRmlDLTF4gYDcF30rB0YFLPcdRJmhtkU6LGZXIhwUUmwMWXkhT+DV3hA==
+  dependencies:
+    "@prismicio/types" "^0.1.22"
 
 "@prismicio/types@0.1.21":
   version "0.1.21"
   resolved "https://registry.npmjs.org/@prismicio/types/-/types-0.1.21.tgz"
   integrity sha512-TMO4zpHlBFdvULDU5KQxeHOkI72lCkEKT3YwKhqiaiQWRVp7s3w27mXHjOWVBOlH/2qrzck219O84zBE6HzaMg==
+
+"@prismicio/types@^0.1.22", "@prismicio/types@^0.1.27", "@prismicio/types@^0.1.29":
+  version "0.1.29"
+  resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.1.29.tgz#52914a5ba304c8b75fdcf398e5014ac4364fdffb"
+  integrity sha512-wp7DHqMK0FDMcFQfJbqTAzWNBkM6/rRq71jMw6x9m07nWCUqytJQQKg6/15uduIeSqPXmyfJW21drsmChGaxsQ==
 
 "@reach/alert@0.13.2":
   version "0.13.2"
@@ -5984,13 +6007,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-fetch@^3.0.6:
-  version "3.1.4"
-  resolved "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.4.tgz"
-  integrity sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==
-  dependencies:
-    node-fetch "2.6.1"
-
 cross-spawn@^6.0.0, cross-spawn@^6.0.5:
   version "6.0.5"
   resolved "https://registry.npmjs.org/cross-spawn/-/cross-spawn-6.0.5.tgz"
@@ -6908,10 +6924,10 @@ escape-goat@^2.0.0:
   resolved "https://registry.npmjs.org/escape-goat/-/escape-goat-2.1.1.tgz"
   integrity sha512-8/uIhbG12Csjy2JEW7D9pHbreaVaS/OpN3ycnyvElTdwM5n6GY6W6e2IPemfvGZeUMqZ9A/3GqIZMgKnBhAw/Q==
 
-escape-html@~1.0.3:
+escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"
-  resolved "https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz"
-  integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+  resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
+  integrity sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -8587,6 +8603,11 @@ imagesloaded@^4.1.4:
   integrity sha512-ltiBVcYpc/TYTF5nolkMNsnREHW+ICvfQ3Yla2Sgr71YFwQ86bDwV9hgpFhFtrGPuwEx5+LqOHIrdXBdoWwwsA==
   dependencies:
     ev-emitter "^1.0.0"
+
+imgix-url-builder@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/imgix-url-builder/-/imgix-url-builder-0.0.3.tgz#9f386de64cdd1363d352a7f6313fd7dacd8fb282"
+  integrity sha512-8Oc2Cn4+jF06sEfJcVPlWYfD2F6RjrwIMbk1xEzux8unoB5LsvFc/GL1BQ47HPaeE12ReX2nMUcjUslGYWLxHA==
 
 immediate@~3.0.5:
   version "3.0.6"
