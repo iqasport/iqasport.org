@@ -108,6 +108,14 @@ const moduleExports = {
         destination: '/api/sitemap.xml',
         permanent: true,
       },
+
+      // new external redirects
+      {
+        source: '/live',
+        destination:
+          'https://www.youtube.com/InternationalQuidditchAssociation',
+        permanent: false,
+      },
     ];
   },
   webpack(config) {
