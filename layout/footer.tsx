@@ -67,7 +67,8 @@ const ActiveLink = ({ href, children }) => {
 
 export default function Footer({ data: initialData }) {
   const [data, setData] = useState(initialData);
-  const { locale } = useRouter();
+  // TODO: once header is translated switch to locale
+  const { defaultLocale: locale } = useRouter();
   const [currentLang, setCurrentLang] = useState(locale);
 
   useEffect(() => {

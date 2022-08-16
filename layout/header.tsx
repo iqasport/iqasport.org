@@ -20,8 +20,7 @@ import Headroom from 'react-headroom';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-// TODO: Re-enable when website translated
-// import LanguageSwitcher from 'components/language-switcher';
+import LanguageSwitcher from 'components/language-switcher';
 import FacebookIcon from 'public/images/facebook.svg';
 import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
@@ -63,7 +62,8 @@ export default function Header({ data: initialData }) {
   const logoTextHeight = useBreakpointValue({ base: 40, xl: 50 }) || 40;
   const logoTextWidth = useBreakpointValue({ base: 90, xl: 115 }) || 90;
   const [data, setData] = useState(initialData);
-  const { locale } = useRouter();
+  // TODO: once header is translated switch to locale
+  const { defaultLocale: locale } = useRouter();
   const [currentLang, setCurrentLang] = useState(locale);
 
   useEffect(() => {
@@ -114,7 +114,7 @@ export default function Header({ data: initialData }) {
               ))}
             </HStack>
 
-            {/* <LanguageSwitcher ml="auto" size="xs" /> */}
+            <LanguageSwitcher ml="auto" size="xs" />
 
             <HStack spacing={5}>
               <IconWrapper

@@ -125,15 +125,15 @@ const NewsWrapper = (props) => (
   </QueryClientProvider>
 );
 
-export const getStaticProps = async ({ locale, locales }) => {
+export const getStaticProps = async ({ locale, locales, defaultLocale }) => {
   const page = await Client().getSingle('news', { lang: locale });
   const posts = await getDocs('posts', {
     orderings: '[my.posts.date desc]',
     pageSize: PAGE_SIZE,
     page: 1,
-    lang: locale,
+    lang: defaultLocale,
   });
-  const { currentLang, isMyMainLanguage } = manageLocal(locales, locale);
+  const { currentLang, isMyMainLanguage } = manageLocal(locales, defaultLocale);
 
   return {
     props: { page, posts, lang: { currentLang, isMyMainLanguage } },

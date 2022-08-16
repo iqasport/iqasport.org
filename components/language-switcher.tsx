@@ -26,10 +26,23 @@ const locales = {
     emoji: getFlagEmoji('es'),
     label: 'Spanish',
   },
+  tr: {
+    emoji: getFlagEmoji('tr'),
+    label: 'Turkish',
+  },
+  'it-it': {
+    emoji: getFlagEmoji('it'),
+    label: 'Italian',
+  },
 };
 
 const LanguageSwitcher = (props) => {
-  const { locale: currentLang, push } = useRouter();
+  const { locale: currentLang, push, asPath, route } = useRouter();
+
+  // TODO: enable on other pages once translated
+  if (route !== '/news/[uid]') {
+    return <></>;
+  }
 
   return (
     <Select
@@ -39,10 +52,13 @@ const LanguageSwitcher = (props) => {
       mr={4}
       borderRadius="md"
       value={currentLang}
-      onChange={(e) => {
-        push('/', null, { locale: e.target.value });
-      }}
       {...props}
+      onChange={(e) => {
+        push(asPath, null, { locale: e.target.value });
+        if (props.onChange) {
+          props.onChange(e);
+        }
+      }}
     >
       {Object.keys(locales).map((locale) => {
         return (
