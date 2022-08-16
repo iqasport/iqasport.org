@@ -17,8 +17,7 @@ import { CloseIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-// TODO: Re-enable when website translated
-// import LanguageSwitcher from 'components/language-switcher';
+import LanguageSwitcher from 'components/language-switcher';
 import FacebookIcon from 'public/images/facebook.svg';
 import YoutubeIcon from 'public/images/youtube.svg';
 import TwitterIcon from 'public/images/twitter.svg';
@@ -147,18 +146,16 @@ export default function MobileNavigation({
   top_level_navigation,
   data,
 }) {
-  const { /* push, */ asPath } = useRouter();
+  const { asPath } = useRouter();
   return (
     <>
-      <Flex justifyContent="flex-end" alignItems="center" h="70px">
-        {/* <Flex justifyContent="space-between" alignItems="center" h="70px"> */}
-        {/* <LanguageSwitcher
+      <Flex justifyContent="space-between" alignItems="center" h="70px">
+        <LanguageSwitcher
           size="md"
-          onChange={(e) => {
-            push('/', null, { locale: e.target.value });
+          onChange={() => {
             onClose();
           }}
-        /> */}
+        />
         <IconButton
           aria-label="Close"
           bg="white"
