@@ -58,7 +58,7 @@
     "@storybook/manager-webpack5": "6.4.14",
     "@storybook/react": "6.4.14",
     "@types/gtag.js": "0.0.8",
-    "@types/node": "15.12.4",
+    "@types/node": "16.11.60",
     "@types/react": "17.0.38",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
