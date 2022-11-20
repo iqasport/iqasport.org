@@ -24,7 +24,7 @@
     "@prismicio/client": "5.1.1",
     "@sendgrid/mail": "7.6.0",
     "@sentry/nextjs": "6.17.2",
-    "@svgr/webpack": "5.5.0",
+    "@svgr/webpack": "6.5.1",
     "axe-core": "4.3.5",
     "axios": "0.25.0",
     "cypress-axe": "0.14.0",
