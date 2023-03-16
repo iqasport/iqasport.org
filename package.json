@@ -21,7 +21,7 @@
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
     "@hookform/resolvers": "2.8.4",
-    "@prismicio/client": "5.1.1",
+    "@prismicio/client": "6.7.3",
     "@sendgrid/mail": "7.6.0",
     "@sentry/nextjs": "6.17.2",
     "@svgr/webpack": "5.5.0",
