@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Flex, Grid, Box, Heading } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
-import { PAGE_SIZE, Client, manageLocal } from 'modules/prismic';
+import {
+  PAGE_SIZE,
+  Client,
+  PrismicDocument,
+  manageLocal,
+} from 'modules/prismic';
 
 import {
   QueryClientProvider,
@@ -41,20 +46,28 @@ export const LoadMore = ({ fetchNextPage, label }) => {
   );
 };
 
-const News = ({ page, posts: initialPosts = [], lang }) => {
+const News = ({
+  page,
+  posts: initialPosts = [],
+  lang,
+}: {
+  page: PrismicDocument;
+  posts: PrismicDocument[];
+  lang: any;
+}) => {
   const [showLoadMore, setShowLoadMore] = useState(true);
 
   const { data, isFetching, fetchNextPage } = useInfiniteQuery(
     ['news', lang?.currentLang],
-    ({ pageParam }) => getPagedDocs({ pageParam, lang: lang?.currentLang }),
+    ({ pageParam }: { pageParam?: number }) =>
+      getPagedDocs({ pageParam: pageParam ?? 1, lang: lang?.currentLang }),
     {
       getNextPageParam: (lastPage) => lastPage.page + 1,
     }
   );
 
   const posts =
-    data?.pages?.reduce((acc, { results }) => acc.concat(results), []).flat() ||
-    initialPosts;
+    data?.pages?.flatMap(({ results }) => results).flat() || initialPosts;
 
   useEffect(() => {
     if (
@@ -126,7 +139,7 @@ const NewsWrapper = (props) => (
 
 export const getStaticProps = async ({ locale, locales }) => {
   const page = await Client().getSingle('news', { lang: locale });
-  const posts = await getPagedDocs({
+  const { results: posts } = await getPagedDocs({
     pageParam: 1,
     lang: locale,
   });

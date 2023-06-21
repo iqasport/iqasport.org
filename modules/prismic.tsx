@@ -34,6 +34,11 @@ type GetAllByTypeOptions = PrismicClient['getByType'] extends (
 ) => any
   ? A
   : never;
+export type PrismicDocument = ReturnType<typeof getDocs> extends Promise<
+  (infer A)[]
+>
+  ? A
+  : never;
 export const getDocs = async (
   type: string,
   options: GetAllByTypeOptions = {}
