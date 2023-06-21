@@ -65,7 +65,7 @@ export const ContentBox = (props) => (
   />
 );
 
-export interface CardTypes extends GridItemProps {
+export interface CardTypes extends Omit<GridItemProps, 'content'> {
   image?: {
     src: string;
     alt: string;
