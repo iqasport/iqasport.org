@@ -53,7 +53,7 @@ export const getPrismicDocByUid = (type, uid, options = {}) => {
 
 export const PAGE_SIZE = 6;
 
-export const linkResolver = ({ type, uid }: { type: string; uid: string }) => {
+export const linkResolver = ({ type, uid }: { type: string; uid?: string }) => {
   switch (type) {
     case 'volunteer':
       return `/volunteer/${uid}`;

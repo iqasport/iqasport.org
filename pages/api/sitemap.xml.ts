@@ -3,16 +3,18 @@ import Prismic from '@prismicio/client';
 import { Client, linkResolver } from 'modules/prismic';
 
 const getPages = async (page, documents = []) => {
-  const res = await Client().query(
-    Prismic.Predicates.any('document.type', [
+  const res = await Client().get({
+    predicates: Prismic.predicate.any('document.type', [
       'pages',
       'posts',
       'volunteer',
       'events',
       'about',
     ]),
-    { page, pageSize: 100, fetch: [] }
-  );
+    page,
+    pageSize: 100,
+    fetch: [],
+  });
   if (res.next_page !== null) {
     return getPages(page + 1, documents.concat(res.results));
   }
