@@ -178,7 +178,7 @@ export default function Header({ data: initialData }) {
                 <HStack spacing={2}>
                   <Image
                     src="/images/logo.png"
-                    alt="International Quidditch Association"
+                    alt="International Quadball Association"
                     layout="fixed"
                     priority={true}
                     height={logoHeight}
@@ -186,7 +186,7 @@ export default function Header({ data: initialData }) {
                   />
                   <Image
                     src="/images/logo-text.png"
-                    alt="International Quidditch Association"
+                    alt="International Quadball Association"
                     layout="fixed"
                     priority={true}
                     height={logoTextHeight}

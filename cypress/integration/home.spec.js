@@ -3,7 +3,7 @@ import axeTerminalLog from '../support/axeTerminalLog';
 describe('Home page', () => {
   it('Page renders', () => {
     cy.visit('/');
-    cy.contains('This is Quidditch');
+    cy.contains('This is Quadball');
 
     // check accessibility with Axe
     cy.injectAxe();
@@ -18,7 +18,7 @@ describe('Home page', () => {
 
   it('should pass Lighthouse', () => {
     cy.visit('/');
-    cy.contains('This is Quidditch');
+    cy.contains('This is Quadball');
 
     cy.lighthouse();
   });

@@ -190,7 +190,7 @@ export default function Footer({ data: initialData }) {
         >
           <Text fontSize="xs" color="white">
             All Rights Reserved &copy; {new Date().getFullYear()} International
-            Quidditch Association
+            Quadball Association
           </Text>
         </Flex>
 

@@ -56,7 +56,7 @@ const NewsFooter = ({ title }) => {
               <IconWrapper
                 aria-label="Tweet this article"
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                  `International Quidditch Association: ${title} ${url}`
+                  `International Quadball Association: ${title} ${url}`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -66,7 +66,7 @@ const NewsFooter = ({ title }) => {
               <IconWrapper
                 aria-label="Share this article on Whatsapp"
                 href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
-                  `International Quidditch Association: ${title} ${url}`
+                  `International Quadball Association: ${title} ${url}`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

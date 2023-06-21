@@ -15,12 +15,12 @@ const Meta = ({
   subTitle,
   description,
   image = `${SITE_URL}/open-graph.png`,
-  title = 'International Quidditch Association',
+  title = 'International Quadball Association',
   type = 'website',
 }: MetaTypes): React.ReactElement => {
   const descriptionWithFallback =
     description ??
-    'The official site of the international governing body for quidditch, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.';
+    'The official site of the international governing body for quadball, with news, national associations, competitions, results, fixtures, development, organisation, rulebooks, publications, downloads, and contact details.';
   const { asPath } = useRouter();
   const url = `${SITE_URL}${asPath}`;
   const formattedTitle = subTitle ? `${subTitle} | ${title}` : title;
