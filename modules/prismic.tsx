@@ -28,8 +28,17 @@ export const formatMetadata = ({
   image: meta_image?.url,
 });
 
-export const getDocs = async (type, options = {}) => {
-  const results = await Client().getAllByType(type, options);
+type GetAllByTypeOptions = PrismicClient['getByType'] extends (
+  a: any,
+  b: infer A
+) => any
+  ? A
+  : never;
+export const getDocs = async (
+  type: string,
+  options: GetAllByTypeOptions = {}
+) => {
+  const { results } = await Client().getByType(type, options);
   return results;
 };
 

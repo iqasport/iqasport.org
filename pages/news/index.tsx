@@ -1,9 +1,8 @@
-import Prismic from '@prismicio/client';
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Flex, Grid, Box, Heading } from '@chakra-ui/react';
 import { useInView } from 'react-intersection-observer';
-import { getDocs, PAGE_SIZE, Client, manageLocal } from 'modules/prismic';
+import { PAGE_SIZE, Client, manageLocal } from 'modules/prismic';
 
 import {
   QueryClientProvider,
@@ -19,8 +18,8 @@ const Card = dynamic(() => import('components/card'));
 const Container = dynamic(() => import('components/container'));
 
 const getPagedDocs = ({ pageParam = 0, lang }) =>
-  Client().query(Prismic.Predicates.at('document.type', 'posts'), {
-    orderings: '[my.posts.date desc]',
+  Client().getByType('posts', {
+    orderings: [{ field: 'my.posts.date', direction: 'desc' }],
     pageSize: PAGE_SIZE,
     page: pageParam,
     lang,
@@ -127,10 +126,8 @@ const NewsWrapper = (props) => (
 
 export const getStaticProps = async ({ locale, locales }) => {
   const page = await Client().getSingle('news', { lang: locale });
-  const posts = await getDocs('posts', {
-    orderings: '[my.posts.date desc]',
-    pageSize: PAGE_SIZE,
-    page: 1,
+  const posts = await getPagedDocs({
+    pageParam: 1,
     lang: locale,
   });
   const { currentLang, isMyMainLanguage } = manageLocal(locales, locale);
