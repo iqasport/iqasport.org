@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup.mjs';
 import { object, string, boolean } from 'yup';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
@@ -215,7 +215,7 @@ const VolunteerForm = ({ primary }) => {
               name="role"
               control={control}
               // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              render={({ field: { value, ...fields } }) => (
+              render={({ field: { value: _, ...fields } }) => (
                 <Select
                   {...fields}
                   placeholder="Select the role..."
@@ -285,7 +285,7 @@ const VolunteerForm = ({ primary }) => {
             <Controller
               name="tandc"
               control={control}
-              render={({ field: { value, ...fields } }) => (
+              render={({ field: { value: _, ...fields } }) => (
                 <Checkbox
                   {...fields}
                   id="checkbox"

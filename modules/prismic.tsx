@@ -1,4 +1,4 @@
-import Prismic from '@prismicio/client';
+import { Client as PrismicClient } from '@prismicio/client';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
 const REF_API_URL = `https://${REPOSITORY}.prismic.io/api/v2`;
@@ -17,7 +17,7 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
 };
 
 export const Client = (req = null) =>
-  Prismic.client(REF_API_URL, createClientOptions(req, API_TOKEN));
+  new PrismicClient(REF_API_URL, createClientOptions(req, API_TOKEN));
 
 export const formatMetadata = ({
   meta_description,
@@ -30,10 +30,7 @@ export const formatMetadata = ({
 });
 
 export const getDocs = async (type, options = {}) => {
-  const { results } = await Client().query(
-    Prismic.Predicates.at('document.type', type),
-    options
-  );
+  const results = await Client().getAllByType(type, options);
   return results;
 };
 

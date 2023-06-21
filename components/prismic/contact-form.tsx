@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup.mjs';
 import { object, string } from 'yup';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
