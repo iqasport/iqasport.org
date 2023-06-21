@@ -1,7 +1,6 @@
 import { Client as PrismicClient } from '@prismicio/client';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
-const REF_API_URL = `https://${REPOSITORY}.prismic.io/api/v2`;
 export const API_TOKEN = process.env.PRISMIC_API_TOKEN;
 
 const createClientOptions = (req = null, prismicAccessToken = null) => {
@@ -17,7 +16,7 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
 };
 
 export const Client = (req = null) =>
-  new PrismicClient(REF_API_URL, createClientOptions(req, API_TOKEN));
+  new PrismicClient(REPOSITORY, createClientOptions(req, API_TOKEN));
 
 export const formatMetadata = ({
   meta_description,
@@ -83,7 +82,7 @@ export async function getStaticPrismicProps({
     Client().getSingle('footer', { lang }),
     getPrismicDocByUid(type, uid, { lang, ref }),
     getDocs('posts', {
-      orderings: '[my.posts.date desc]',
+      orderings: [{ field: 'my.posts.date', direction: 'desc' }],
       lang,
       pageSize: 4,
       page: 1,
