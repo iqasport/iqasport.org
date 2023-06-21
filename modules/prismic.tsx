@@ -1,7 +1,6 @@
-import Prismic from '@prismicio/client';
+import { Client as PrismicClient } from '@prismicio/client';
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME;
-const REF_API_URL = `https://${REPOSITORY}.prismic.io/api/v2`;
 export const API_TOKEN = process.env.PRISMIC_API_TOKEN;
 
 const createClientOptions = (req = null, prismicAccessToken = null) => {
@@ -17,7 +16,7 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
 };
 
 export const Client = (req = null) =>
-  Prismic.client(REF_API_URL, createClientOptions(req, API_TOKEN));
+  new PrismicClient(REPOSITORY, createClientOptions(req, API_TOKEN));
 
 export const formatMetadata = ({
   meta_description,
@@ -29,11 +28,22 @@ export const formatMetadata = ({
   image: meta_image?.url,
 });
 
-export const getDocs = async (type, options = {}) => {
-  const { results } = await Client().query(
-    Prismic.Predicates.at('document.type', type),
-    options
-  );
+type GetAllByTypeOptions = PrismicClient['getByType'] extends (
+  a: any,
+  b: infer A
+) => any
+  ? A
+  : never;
+export type PrismicDocument = ReturnType<typeof getDocs> extends Promise<
+  (infer A)[]
+>
+  ? A
+  : never;
+export const getDocs = async (
+  type: string,
+  options: GetAllByTypeOptions = {}
+) => {
+  const { results } = await Client().getByType(type, options);
   return results;
 };
 
@@ -43,7 +53,7 @@ export const getPrismicDocByUid = (type, uid, options = {}) => {
 
 export const PAGE_SIZE = 6;
 
-export const linkResolver = ({ type, uid }: { type: string; uid: string }) => {
+export const linkResolver = ({ type, uid }: { type: string; uid?: string }) => {
   switch (type) {
     case 'volunteer':
       return `/volunteer/${uid}`;
@@ -86,7 +96,7 @@ export async function getStaticPrismicProps({
     Client().getSingle('footer', { lang }),
     getPrismicDocByUid(type, uid, { lang, ref }),
     getDocs('posts', {
-      orderings: '[my.posts.date desc]',
+      orderings: [{ field: 'my.posts.date', direction: 'desc' }],
       lang,
       pageSize: 4,
       page: 1,

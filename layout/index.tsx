@@ -11,7 +11,12 @@ const PageErrorBoundary = dynamic(
   () => import('components/errorBoundaries/page')
 );
 
-const Layout = ({ children, preview = false, header, footer }) => {
+const Layout = ({
+  children,
+  preview = false,
+  header,
+  footer,
+}: { children: Element } & any) => {
   return (
     <ChakraProvider theme={theme} resetCSS={false}>
       <Grid color="gray.800" width="100%" bg="iqaGreen">
