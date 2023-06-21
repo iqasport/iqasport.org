@@ -33,12 +33,16 @@ const NewsHero = ({ title, date, category, image }) => {
       </Container>
       <Container maxWidth="768px">
         <Image
-          layout="responsive"
           src={image?.url}
           alt={image?.alt}
           priority={true}
           width={image?.dimensions?.width}
           height={image?.dimensions?.height}
+          sizes="100vw"
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
         />
         {image?.copyright && (
           <Box p={2} mt={2}>
