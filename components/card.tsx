@@ -152,8 +152,6 @@ const Card = ({
               src={image?.src}
               alt={image?.alt}
               borderRadius="0"
-              layout="responsive"
-              objectFit="cover"
               width={640}
               height={360}
             />
@@ -200,8 +198,6 @@ const Card = ({
                 src={logo?.src}
                 alt={logo?.alt}
                 borderRadius="0"
-                layout="fixed"
-                objectFit="cover"
                 justifySelf="end"
                 width={75}
                 height={75}

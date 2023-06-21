@@ -104,10 +104,9 @@ const Carousel = ({ primary, items }) => {
               pb={{ base: '56.25%', md: '40%' }}
             >
               <Image
-                layout="fill"
+                fill
                 src={item?.image?.url}
                 alt={item?.image?.alt}
-                objectFit="cover"
                 borderRadius={{ base: 0, md: '2xl' }}
               />
               <Flex

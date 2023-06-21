@@ -17,7 +17,6 @@ const ImageWithDefaults = ({ alt, src, ...props }) => {
         {...props}
         style={{
           maxWidth: '100%',
-          height: 'auto',
           objectFit: 'cover',
           objectPosition: 'center center',
         }}

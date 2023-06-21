@@ -91,7 +91,7 @@ const HorizontalCard = ({
         >
           {image?.src && (
             <Image
-              layout="fill"
+              fill
               height={image?.height}
               width={image?.width}
               alt={image?.alt}

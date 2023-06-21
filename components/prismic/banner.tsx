@@ -38,9 +38,7 @@ const Banner = (rawData: BannerProps) => {
         <Image
           src={image.url}
           alt={image.alt}
-          layout="fill"
-          objectPosition="center center"
-          objectFit="cover"
+          fill
           borderRadius={0}
           sx={{ filter: 'grayscale(100%)' }}
         />
