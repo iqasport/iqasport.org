@@ -32,7 +32,7 @@ export default function DocumentHead() {
 
       <meta
         property="og:site_name"
-        content="International Quidditch Association"
+        content="International Quadball Association"
       />
       <meta property="twitter:creator" content="@IQAsport" />
       <meta property="og:image:alt" content="Page image for iqasport.org" />

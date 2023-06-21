@@ -42,7 +42,7 @@ const WorldMap = ({ primary }) => {
   return (
     <Slice variant={variant} size="full">
       <Heading fontFamily="body" textAlign="center" ref={ref}>
-        Quidditch around the world
+        Quadball around the world
       </Heading>
 
       <Box>
