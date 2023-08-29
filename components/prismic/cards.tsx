@@ -10,9 +10,18 @@ import { ReactElement } from 'react';
 const Card = dynamic(() => import('components/card'));
 const Slice = dynamic(() => import('components/slice'));
 
+const styleOverrides = {
+  fourInRow: {
+    gridItemMinSize: '260px',
+  },
+};
+
 function CardsSlice(rawData): ReactElement {
   const { primary, items = [] } = rawData;
-  const { title, content, variant } = primary;
+  const { title, content, variant, format_metadata } = primary;
+
+  const gridItemMinSize =
+    styleOverrides[format_metadata]?.gridItemMinSize || '300px';
 
   return (
     <Slice variant={variant}>
@@ -35,7 +44,7 @@ function CardsSlice(rawData): ReactElement {
       )}
 
       <Grid
-        gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+        gridTemplateColumns={`repeat(auto-fit, minmax(${gridItemMinSize}, 1fr))`}
         gridGap={8}
       >
         {items.map((item, i) => {
