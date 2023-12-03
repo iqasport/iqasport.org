@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import Prismic from '@prismicio/client';
+import * as prismic from '@prismicio/client';
 import { Client, linkResolver } from 'modules/prismic';
 
 const getPages = async (page, documents = []) => {
   const res = await Client().get({
-    predicates: Prismic.predicate.any('document.type', [
+    predicates: prismic.predicate.any('document.type', [
       'pages',
       'posts',
       'volunteer',
