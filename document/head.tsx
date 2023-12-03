@@ -27,6 +27,12 @@ export default function DocumentHead() {
         href="/favicon/safari-pinned-tab.svg"
         color="#62b058"
       />
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="IQA News RSS feed"
+        href="/api/feed.xml"
+      />
       <meta name="msapplication-TileColor" content="#00a300" />
       <meta name="theme-color" content="#62b058" />
 

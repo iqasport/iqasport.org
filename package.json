@@ -43,6 +43,7 @@
     "react-intersection-observer": "^9.5.1",
     "react-query": "^3.39.3",
     "react-simple-maps": "^3.0.0",
+    "rss": "^1.2.2",
     "sharp": "^0.32.1",
     "yup": "^1.2.0"
   },
@@ -85,5 +86,10 @@
       "eslint",
       "prettier --write"
     ]
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1",
+    "string-width": "4.2.2",
+    "wrap-ansi": "7.0.0"
   }
 }
