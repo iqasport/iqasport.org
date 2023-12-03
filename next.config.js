@@ -108,6 +108,11 @@ const moduleExports = {
         destination: '/api/sitemap.xml',
         permanent: true,
       },
+      {
+        source: '/feed.xml',
+        destination: '/api/feed.xml',
+        permanent: true,
+      },
 
       // new external redirects
       {

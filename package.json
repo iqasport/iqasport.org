@@ -43,6 +43,7 @@
     "react-intersection-observer": "^9.5.1",
     "react-query": "^3.39.3",
     "react-simple-maps": "^3.0.0",
+    "rss": "^1.2.2",
     "sharp": "^0.32.1",
     "yup": "^1.2.0"
   },
@@ -77,13 +78,18 @@
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.8.8",
     "storybook-addon-next-router": "^4.0.2",
-    "webpack": "^5",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "webpack": "^5"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "eslint",
       "prettier --write"
     ]
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.1",
+    "string-width": "4.2.2",
+    "wrap-ansi": "7.0.0"
   }
 }
